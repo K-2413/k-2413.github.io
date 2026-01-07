@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="animal.css">
+    <title>動物</title>
+</head>
+<body>
+    <header>
+      <div class="container">
+        <div class="header-left">
+          <img class="logo" src="phto/Kei.jpg">
+        </div>
+        <!-- ここにスマートフォン用のメニューアイコンを追加してください -->
+        <span class="fa fa-bars menu-icon"></span>
+  
+        <div class="header-right">
+          <a href="index.html#animal">動物</a>
+          <a href="index.html#plant">植物</a>
+          <a href="index.html#landscape">風景</a>
+          <a href="index.html#building">建物</a>
+          <a href="index.html#food">食べ物</a>
+          <a href="index.html#art">アート</a>
+          <a href="index.html#night_view">夜景</a>
+        </div>
+      </div>
+    </header>
+    <div class="photo-grid">
+      <img src="phto/7F2691CB-E4C6-441E-892B-C450C3DB5263_1_105_c.jpeg" alt="猫" class="photo top-left">
+      <img src="phto/animal2.jpeg" alt="猫" class="photo">
+      <img src="phto/animal3.jpeg" alt="猫" class="photo top-right">
+      <img src="phto/animal4.jpeg" alt="猫" class="photo">
+      <img src="phto/animal5.jpeg" alt="猫" class="photo">
+      <img src="phto/animal6.jpeg" alt="猫" class="photo">
+      <img src="phto/animal7.jpeg" alt="猫" class="photo bottom-left">
+      <img src="phto/animal8.jpeg" alt="猫" class="photo">
+      <img src="phto/animal9.jpeg" alt="猫" class="photo bottom-right">
+    </div>
+
+    <div class="message-wrapper">
+      <div class="container">
+        <div class="heading">
+          <h2>さぁ、あなたも写真マニアになりませんか?</h2>
+          <h3>うまく写真を撮るには以下をクリック！</h3>
+        </div>
+        <a href="#" class="btn message">写真をうまく撮るコツや用語集</a>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <img src="phto/Kei.jpg">
+        <p>@BEAUTIFUL PICTURE.</p>
+      </div>
+    </footer>
+
+    <script>
+  const menuIcon = document.querySelector('.menu-icon');
+  const menu = document.querySelector('.header-right');
+
+  menuIcon.addEventListener('click', () => {
+    menu.classList.toggle('active');
+
+    // アイコン切り替え
+    if (menu.classList.contains('active')) {
+      menuIcon.classList.remove('fa-bars');
+      menuIcon.classList.add('fa-times'); // ×
+    } else {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars'); // ☰
+    }
+  });
+</script>
+</body>
+</html>

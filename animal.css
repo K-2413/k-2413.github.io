@@ -1,0 +1,51 @@
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 90vw;
+    max-width: 400px;
+    aspect-ratio: 1 / 2;
+    overflow: hidden;
+    border-radius: 15px;
+    background: white;
+    gap: 0;
+    margin: 100px auto 0 auto;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo.top-left {
+    border-top-left-radius: 15px;
+}
+
+.photo.top-right {
+    border-top-right-radius: 15px;
+}
+
+.photo.bottom-left {
+    border-bottom-left-radius: 15px;
+}
+
+.photo.bottom-right {
+    border-bottom-right-radius: 15px;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s, box-shadow 0.3s; /* アニメーションを滑らかに */
+    cursor: pointer; /* クリックできる感じを表示 */
+}
+
+/* ホバーした時 */
+.photo:hover {
+    transform: translateY(-10px); /* 上に浮かせる */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* 影で浮き感 */
+}
