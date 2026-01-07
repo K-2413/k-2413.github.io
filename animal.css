@@ -80,13 +80,13 @@ body {
 }
 
 /* スマホ版：縦並び */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 670px) {
   .photo-detail {
     flex-direction: column;
     text-align: center;
   }
 
   .photo-detail img {
-    width: 90%;
+    width: 80%;
   }
 }
