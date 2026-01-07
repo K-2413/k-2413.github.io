@@ -80,7 +80,7 @@ body {
 }
 
 /* スマホ版：縦並び */
-@media screen and (max-width: 670px) {
+@media all and (max-width: 670px) {
   .photo-detail {
     flex-direction: column;
     text-align: center;
