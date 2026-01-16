@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progate</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="responsive.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4486647054125942"
+     crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-left">
+          <img class="logo" src="phto/Kei.jpg">
+        </div>
+        
+        <span class="fa fa-bars menu-icon"></span>
+  
+        <div class="header-right">
+          <a href="#animal">動物</a>
+          <a href="#plant">植物</a>
+          <a href="#landscape">風景</a>
+          <a href="#building">建物</a>
+          <a href="#food">食べ物</a>
+          <a href="#art">アート</a>
+          <a href="#night_view">夜景</a>
+          <a href="privacy.html">プライバシーポリシー</a>
+           <a href="mailto:okeisuke2004@gmail.com?subject=お問い合わせ&body=ホームページを見て連絡しました。" class="mail">
+  お問い合わせ
+</a>
+        </div>
+      </div>
+    </header>
+    <h1>プライバシーポリシー</h1>
+
+<h2>個人情報の利用目的</h2>
+<p>
+当サイトでは、お問い合わせの際に、名前やメールアドレス等の個人情報を入力いただく場合があります。
+取得した個人情報は、お問い合わせへの対応のみに利用し、それ以外の目的では利用いたしません。
+</p>
+
+<h2>広告について</h2>
+<p>
+当サイトでは、第三者配信の広告サービス「Google AdSense」を利用する予定です。
+Googleなどの広告配信事業者は、ユーザーの興味に応じた広告を表示するためにCookieを使用することがあります。
+</p>
+<p>
+Cookieを無効にする設定およびGoogle AdSenseに関する詳細は、
+「広告 – ポリシーと規約」をご確認ください。
+</p>
+
+<h2>アクセス解析ツールについて</h2>
+<p>
+当サイトでは、サイトの分析と改善のためにアクセス解析ツールを使用する場合があります。
+これらのツールはトラフィックデータの収集のためにCookieを使用することがありますが、
+個人を特定するものではありません。
+</p>
+
+<h2>免責事項</h2>
+<p>
+当サイトに掲載する情報は、可能な限り正確な情報を掲載するよう努めていますが、
+内容の正確性や安全性を保証するものではありません。
+当サイトの情報によって生じた損害等の責任は負いかねますのでご了承ください。
+</p>
+
+<h2>著作権について</h2>
+<p>
+当サイトに掲載している写真・文章の著作権は、運営者に帰属します。
+無断転載・使用を禁止します。
+</p>
+
+<h2>お問い合わせ</h2>
+<p>
+当サイトへのお問い合わせは、
+<a href="mailto:okeisuke2004@gmail.com">こちら</a> からお願いいたします。
+</p>
+    <footer>
+      <div class="container">
+        <img src="phto/Kei.jpg">
+        <p>Learn to code, learn to be creative.</p>
+        <a href="privacy.html">プライバシーポリシー</a><br>
+         <a href="mailto:okeisuke2004@gmail.com?subject=お問い合わせ&body=ホームページを見て連絡しました。" class="mail">
+  お問い合わせ
+</a>
+      </div>
+    </footer>
+    <script>
+  const menuIcon = document.querySelector('.menu-icon');
+  const menu = document.querySelector('.header-right');
+
+  menuIcon.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    document.body.classList.toggle('no-scroll'); 
+
+    if (menu.classList.contains('active')) {
+      menuIcon.classList.remove('fa-bars');
+      menuIcon.classList.add('fa-times'); 
+    } else {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars'); 
+    }
+  });
+</script>
+  </body>
+</html>
