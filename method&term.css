@@ -14,6 +14,7 @@
     max-width: 400px;          
     background: #ffe4c4;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border-radius: 20px;
 }
 .box30 .box-title {
     font-size: 1.2em;
@@ -23,8 +24,86 @@
     color: #FFF;
     font-weight: bold;
     letter-spacing: 0.05em;
+    border-radius: 20px 20px 0 0;
 }
 .box30 p {
     padding: 15px 20px;
     margin: 0;
+}
+
+.box-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.box27 {
+    position: relative;
+    margin: 40px auto 1em auto;
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5em 1em;
+    border-radius: 0 10px 10px 10px;
+}
+.box27 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -27px;
+    left: -3px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+.box27 p {
+    margin: 0; 
+    padding: 0;
+}
+
+.box27:nth-child(odd) {
+  border: solid 3px #754b01;
+}
+
+.box27:nth-child(even) {
+  border: solid 3px #c28720;
+}
+
+.box27:nth-child(odd) .box-title {
+  background: #754b01;
+}
+
+.box27:nth-child(even) .box-title {
+  background: #c28720;
+}
+
+@media all and (max-width: 670px) {
+  @media all and (max-width: 670px) {
+
+  
+  .box27:nth-child(4n+1),
+  .box27:nth-child(4n+4) {
+    border: solid 3px #754b01;
+  }
+
+  .box27:nth-child(4n+2),
+  .box27:nth-child(4n+3) {
+    border: solid 3px #c28720;
+  }
+
+  
+  .box27:nth-child(4n+1) .box-title,
+  .box27:nth-child(4n+4) .box-title {
+    background: #754b01;
+  }
+
+  .box27:nth-child(4n+2) .box-title,
+  .box27:nth-child(4n+3) .box-title {
+    background: #c28720;
+  }
+}
 }

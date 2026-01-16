@@ -99,6 +99,124 @@
       </p>
     </div>
 
+    <div class="h1">基本用語</div>
+
+  <div class="box-wrap">
+    <div class="box27">
+      <span class="box-title" id="EX">露出</span>
+      <p>露出とは写真の明るさ全体のことです。明るすぎると白飛びが、暗すぎると黒つぶれが起こります。
+        露出を英語で表すと<ruby>Exposure<rt>エクスポージャー</rt></ruby>です。
+        露出を数字で表すことを露出値=<ruby>Exposure<rt>エクスポージャー</rt></ruby> 
+        <ruby>Value<rt>バリュー</rt></ruby>といい単位はevです。
+      </p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title" id="AP">絞り</span>
+      <p>絞りとはレンズの光の入り口の大きさのことです。絞りを
+        英語で表すと<ruby>Aperture<rt>アパーチャ</rt></ruby>といい、
+        絞りの値を<ruby>F値<rt>えふち</rt></ruby>で表します。
+        F値が小さい(F1.8)場合は明るく背景がボケて映し出し、F値が大きい(F16)
+        の場合には暗く全体くっきり映し出します。
+    </p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title" id="SS">シャッタースピード</span>
+      <p>シャッタースピードとはシャッターが開いている時間のことです。
+        速さが速いほど効果は動きを止め、速さが遅いほど効果は流れる表現になるが
+        ブレやすい。
+      </p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title" id="ISO"><ruby>ISO<rt>いそ</rt></ruby>感度</span>
+      <p>ISO感度とは光に対するセンサーの敏感さのことです。
+        ISOが低ければ画質は良く、高ければノイズが乗り画質は悪くなります。
+        ただ、低いと暗くなり、高いと明るくなります。ISO=国際標準化機構で英語では、
+        <ruby>international<rt>インターナショナル</rt></ruby>
+         <ruby>organization<rt>オーガナイゼーション</rt></ruby> 
+         <ruby>for<rt>フォー</rt></ruby> <ruby>standardization<rt>スタンダーダイゼーション</rt></ruby>です。
+      </p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title">ピント(フォーカス)</span>
+      <p>ピントとは、はっきり写る位置のことです。</p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title">被写界深度</span>
+      <p>被写界深度とはピントが合っている前後の範囲のことです。
+        浅いと背景がボケて、深いと全体くっきりと写ります。
+      </p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title">ボケ</span>
+      <p>ボケとはピントが合っていない部分のにじみです。
+        被写体の手前がボケることを前ボケ、被写体の奥がボケることをあとボケと言います。
+      </p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title">被写体</span>
+      <p>撮影の対象となる人・物・景色のことです。</p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title">構図</span>
+      <p>写真の配置・バランスのことです。構図には様々な種類があります。
+        まず、三分割法です。これは画面を縦横三分割にして交点に被写体を置くといった方法です。
+        そして、日の丸構図です。これは被写体をど真ん中にすることです。
+        対角線構図という構図もあります。斜めの線を使って動きを出すといった構図です。
+      </p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title">ホワイトバランス</span>
+      <p>白を白に写す調整のことです。WBとも言います。設定によって色が変わり、
+        例えば、太陽光に設定すれば屋外に適しており、電球に設定すれば室内に適していて、
+        オートにすれば自動になります。
+      </p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title">彩度</span>
+      <p>色の鮮やかさのことです。</p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title">コントラスト</span>
+      <p>明暗の差のことです。</p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title">色温度</span>
+      <p>単位は「K」で表します。数字が低いと青っぽい色になり、
+        高いとオレンジぽくなります。
+      </p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title">センサー</span>
+      <p>光を電気信号に変える部分です。(フルサイズ/APS-C/スマホ)
+        センサーの中身をよ〜く見ると点々が何百個もあります。この点をピクセルと言います。
+      </p>
+    </div>
+
+    <div class="box27">
+      <span class="box-title" id="FO">焦点距離</span>
+      <p>写る範囲・圧縮感のことで単位は「mm」で表します。
+        焦点距離が短いと広角になり風景に適しています。焦点距離が長いとスポーツなどと言ったところに適しています。
+      </p>
+    </div>
+
+    
+  </div>
+
+
+
     <div class="message-wrapper">
       <div class="container">
         <div class="heading">
@@ -119,6 +237,7 @@
 
   menuIcon.addEventListener('click', () => {
     menu.classList.toggle('active');
+    document.body.classList.toggle('no-scroll'); 
 
     
     if (menu.classList.contains('active')) {

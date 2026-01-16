@@ -151,6 +151,7 @@
 
   menuIcon.addEventListener('click', () => {
     menu.classList.toggle('active');
+    document.body.classList.toggle('no-scroll'); 
 
     if (menu.classList.contains('active')) {
       menuIcon.classList.remove('fa-bars');
