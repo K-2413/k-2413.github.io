@@ -1,0 +1,124 @@
+.profil-wrapper {
+  display: flex;           /* 横並び */
+  
+  align-items: flex-start;     /* 縦方向中央揃え */
+  gap: 20px;               /* 画像とテキストの間隔 */
+  padding: 15px;
+}
+
+.profil-photo {
+    width: 300px;
+    margin-top: 80px;
+    margin-left: 50px;
+    border-radius: 20px;
+}
+
+.profil-contents {
+  flex: 1;                 /* 残りの幅を使う */
+  margin-top: 80px;
+}
+
+.profil-contents h3 {
+  margin: 0 0 8px 0;        /* 上下の余白 */
+  padding-bottom: 4px;       /* 線と文字の間隔 */
+  border-bottom: 2px solid #000;  /* 黒い線 */
+}
+
+.profil-contents p {
+  margin: 4px 0;
+}
+
+.subject {
+  font-family: 'Pacifico', cursive; /* 手書き風フォント */
+  font-size: 1.5em;                 /* 文字サイズ調整 */
+  font-weight: normal;
+  color: #000;                       /* 黒 */
+  display: inline-block;
+  transform: rotate(-2deg);          /* 少し傾ける */
+}
+
+.sns-buttons {
+  display: flex;               /* 横並び */
+  gap: 20px;                   /* アイコン間の間隔 */
+  justify-content: center;     /* 横中央 */
+  margin-top: 10px;
+  flex-wrap: nowrap;
+}
+
+/* SNSアイコン＋名前を縦に */
+.sns-item {
+  position: relative;
+  width: 60px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 丸ボタン */
+.sns {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.sns img {
+    width: 35px;
+    display: block;
+}
+
+/* SNS名 */
+.sns-name {
+  margin-top: 40px;
+  font-size: 15px;
+  color: #000;
+  display: block;
+  line-height: 1;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.sns-name-ti {
+  display: inline-block;   /* 背景を文字サイズに合わせる */
+  background-color: #000;  /* 黒背景 */
+  color: #fff;             /* 白文字 */
+  padding: 8px 16px;       /* 余白 */
+  text-align: center;      /* 文字を中央 */
+  font-weight: bold;
+}
+
+/* SNSごとの色 */
+.sns.instagram { background-color: #ffffff; }
+.sns.tiktok { background-color: #ffffff; }
+.sns.twitter { background-color: #ffffff; }
+
+@media screen and (max-width: 768px) {
+  .profil-wrapper {
+    flex-direction: column;      /* 縦並びにする */
+    align-items: center;         /* 横中央寄せ */
+    text-align: center;          /* テキストも中央寄せ */
+  }
+
+  .profil-photo {
+    margin-bottom: 15px;         /* 画像とテキストの間隔 */
+    margin-right: 50px;
+  }
+
+  .profil-contents {
+    flex: none;                  /* テキストが全幅を取りすぎないようにする */
+    width: 90%;                  /* 必要に応じて調整 */
+  }
+
+  .sns-buttons {
+    justify-content: center;    /* ボタンを中央揃え */
+  }
+}

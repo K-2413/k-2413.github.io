@@ -1,109 +1,107 @@
 /* タブレット向けレイアウト */
-@media all and (max-width: 1000px) {
-  .top-wrapper {
-    background-size: 300%;
-    background-position: center top;
-    min-height: 100vh;
-    padding: 120px 15px 80px;
-    background-repeat: no-repeat;
-  }
-  .lesson {
-    width: 50%;
-    margin-bottom: 50px;
-  }
+@media all and (max-width: 1101px) {
+    .top-wrapper {
+        background-size: 300%;
+        background-position: center top;
+        min-height: 100vh;
+        padding: 120px 15px 80px;
+        background-repeat: no-repeat;
+    }
 
-  footer {
-    text-align: center;
-  }
+    .lesson {
+        width: 50%;
+        margin-bottom: 50px;
+    }
 
-  .top-wrapper h1 {
-    font-size: 32px;
-  }
+    footer {
+        text-align: center;
+    }
 
-  .heading h2 {
-    font-size: 20px;
-  }
+    .top-wrapper h1 {
+        font-size: 32px;
+    }
+
+    .heading h2 {
+        font-size: 20px;
+    }
 }
 
 /* スマホ向けレイアウト */
-@media all and (max-width: 999px) {
+@media all and (max-width: 1100px) {
 
-  .lesson {
-    width: 100%;
-  }
+    .top-wrapper {
+        background-size: 400%;
+        background-position: center top;
+        min-height: 100vh;
+        padding: 120px 15px 80px;
+        background-repeat: no-repeat;
+    }
 
-  .btn {
-    width: 100%;
-  }
+    .lesson {
+        width: 100%;
+    }
 
-  .instagram {
-    margin-bottom: 10px;
-  }
+    .btn {
+        width: 100%;
+    }
 
-  .music {
-    margin-bottom: 10px;
-  }
+    .instagram {
+        margin-bottom: 10px;
+    }
 
-  .top-wrapper {
-    background-size: 400%;
-    background-position: center top;
-    min-height: 100vh;
-    padding: 120px 15px 80px;
-    background-repeat: no-repeat;
-  }
+    .music {
+        margin-bottom: 10px;
+    }
 
-  /* ===== ここが重要 ===== */
+    .menu-icon {
+        display: block;
+        font-size: 26px;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        z-index: 1001;
+    }
 
-  .menu-icon {
-  display: block;
-  font-size: 26px;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  z-index: 1001;
-}
+    .header-right {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -220px;
+        width: 220px;
+        height: 100vh;
+        background: rgba(51, 51, 51, 0.9);
+        padding-top: 60px;
+        transition: 0.3s;
+        z-index: 1000;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
 
-  .header-right {
-    display: block;
-    position: fixed;
-    top: 0;
-    right: -220px;
-    width: 220px;
-    height: 100vh;
-    background: rgba(51, 51, 51, 0.9);
-    padding-top: 60px;
-    transition: 0.3s;
-    z-index: 1000;
-    overflow-y: auto;       /* ← 追加 */
-  -webkit-overflow-scrolling: touch;
-  }
+    .header-right a {
+        display: block;        /* 縦並び */
+        width: 100%;           /* PC用floatを無効化 */
+        float: none;
+        color: white;
+        padding: 15px;
+        border-bottom: 1px solid #555;
+        box-sizing: border-box;
+    }
 
-  .header-right a {
-    display: block;      /* 縦並び */
-    width: 100%;         /* ← 重要 */
-    float: none;         /* ← PC用floatを無効化 */
-    color: white;
-    padding: 15px;
-    border-bottom: 1px solid #555;
-    box-sizing: border-box;
-  }
+    .header-right.active {
+        right: 0;
+    }
 
-  .header-right.active {
-    right: 0;
-  }
+    body.no-scroll {
+        overflow: hidden;
+    }
 
-  body.no-scroll {
-  overflow: hidden;
-}
+    .top-wrapper h1 {
+        font-size: 24px;
+    }
 
-  .top-wrapper h1 {
-    font-size: 24px;
-  }
-
-  .top-wrapper p {
-    font-size: 14px;
-  }
-
+    .top-wrapper p {
+        font-size: 14px;
+    }
 }
