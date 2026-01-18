@@ -153,13 +153,30 @@ header {
 
 .music {
     background-color: #000000;
-    margin-right: 10px;
     
+}
+
+.btns svg {
+  display: block;
 }
 
 .twitter {
     background-color: #000000;
     
+}
+
+.btns {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btns img,
+.btns svg {
+  display: block;
+  width: 40px;
+  height: auto;
 }
 
 .btn {
@@ -168,7 +185,15 @@ header {
     display: inline-block;
     border-radius: 4px;
     text-align: center;
-    border: 1px solid rgb(255, 255, 255);
+}
+
+.btns {
+    padding: 8px 24px;
+    color: white;
+    display: inline-block;
+    border-radius: 4px;
+    text-align: center;
+    border: 0.5px solid rgb(255, 255, 255);
 }
 
 .btn:hover {
@@ -344,13 +369,12 @@ html {
   position: absolute;
   bottom: 70px;           /* ← 丸ボタンの高さ＋余白 */
   left: 0;
-  background-color: #7c4f18;
-  border-radius: 20px;
-  padding: 30px;
+  background-color: rgba(124, 79, 24, 0.9); /* 0.0〜1.0で透明度指定 */
+  border-radius: 25px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-
   transform: scale(0);
   transform-origin: left bottom;
   transition: transform 0.25s ease;
@@ -382,7 +406,8 @@ html {
 
 /* ホバー時 */
 .floating-menu a:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.209);
+  border-radius: 50px;
 }
 
 /* 開いた状態 */
@@ -395,6 +420,87 @@ html {
   display: block;
 }
 
+/* SNSアイコン横並び */
+.sns-icon {
+  display: flex;
+  justify-content: flex-start; /* 左寄せ */
+  gap: 10px;                   /* アイコン間隔 */
+  margin-top: 15px;            /* メニュー項目との間隔 */
+  justify-content: center;
+}
+
+/* 丸ボタン */
+.sns-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.9); /* 透け感 */
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+/* アイコン画像 */
+.sns-btn img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+/* ホバー */
+.sns-btn:hover {
+  transform: scale(1.1);
+  background-color: rgba(53, 51, 51, 0.8);
+}
+
+/* ===== 起動画面 ===== */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease;
+}
+
+#loading.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#typing-text {
+  font-size: 50px;
+  letter-spacing: 3px;
+  font-family: 'Pacifico', cursive;
+  white-space: nowrap;
+  border-right: 2px solid #fff; /* カーソル */
+  padding-right: 5px;
+  animation: cursor 1s steps(1) infinite;
+  white-space: pre-line;
+}
+
+@keyframes cursor {
+  50% { border-color: transparent; }
+}
+
+#main-content {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#main-content.show {
+  opacity: 1;
+}
 
 
 /* 点滅アニメーション */

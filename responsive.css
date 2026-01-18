@@ -116,4 +116,15 @@
     .top-wrapper p {
         font-size: 14px;
     }
+
+    #typing-text {
+  font-size: 32px;
+  letter-spacing: 3px;
+  font-family: 'Pacifico', cursive;
+  white-space: nowrap;
+  border-right: 2px solid #fff; /* カーソル */
+  padding-right: 5px;
+  animation: cursor 1s steps(1) infinite;
+  white-space: pre-line;
+}
 }

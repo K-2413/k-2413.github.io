@@ -11,22 +11,36 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4486647054125942" crossorigin="anonymous"></script>
   </head>
   <body>
+    <div id="loading">
+    <p id="typing-text"></p>
+  </div>
     <!-- 左下フローティングメニュー -->
 <div class="floating-wrapper">
+  
   <span class="fa fa-bars floating-btn"></span>
 
   <div class="floating-menu">
-    <a href="#animal">動物</a>
-          <a href="#plant">植物</a>
-          <a href="#landscape">風景</a>
-          <a href="#building">建物</a>
-          <a href="#food">食べ物</a>
-          <a href="#art">アート</a>
-          <a href="#night_view">夜景</a>
-          <a href="privacy.html" class="PO">プライバシーポリシー</a>
-          <a href="mailto:okeisuke2004@gmail.com?subject=お問い合わせ&body=ホームページを見て連絡しました。以下に内容をお書き下さい." class="mail">お問い合わせ</a>
-        
+  <a href="#animal">動物</a>
+  <a href="#plant">植物</a>
+  <a href="#landscape">風景</a>
+  <a href="#building">建物</a>
+  <a href="#food">食べ物</a>
+  <a href="#art">アート</a>
+  <a href="#night_view">夜景</a>
+  <a href="privacy.html" class="PO">プライバシーポリシー</a>
+  <a href="mailto:okeisuke2004@gmail.com?subject=お問い合わせ&body=ホームページを見て連絡しました。以下に内容をお書き下さい." class="mail">お問い合わせ</a>
+
+  <!-- SNSアイコン -->
+  <div class="sns-icon">
+    <a href="https://www.instagram.com/keisuke041003/" target="_blank" class="sns-btn instagram">
+      <img src="img/Instagram_Glyph_Gradient.svg" alt="Instagram">
+    </a>
+    <a href="https://x.com/ko2413_ja?s=21" target="_blank" class="sns-btn twitter">
+      <img src="img/logo.svg" alt="X">
+    </a>
+    
   </div>
+</div>
 </div>
     <header>
       <div class="container">
@@ -55,13 +69,13 @@
         <h1>THE PHOTOS ARE BEAUTIFUL.<br>PHOTOS ARE A WAY TO LEARN AND WAY TO REMEMBER.</h1>
         
         <div class="btn-wrapper">
-          <a href="https://www.instagram.com/keisuke041003?igsh=MXhvaXJiMndpZWlscg%3D%3D&utm_source=qr" class="btn instagram" target="_blank">
+          <a href="https://www.instagram.com/keisuke041003?igsh=MXhvaXJiMndpZWlscg%3D%3D&utm_source=qr" class="btns instagram" target="_blank">
             <img src="img/Instagram_Glyph_Gradient.svg" alt=""> Instagram
           </a>
-          <a href="https://x.com/ko2413_ja?s=21" class="btn twitter" target="_blank">
+          <a href="https://x.com/ko2413_ja?s=21" class="btns twitter" target="_blank">
             <img src="img/logo.svg" alt="">Twitter
           </a>
-          <a href="https://www.tiktok.com/@kei20041003" class="btn music" target="_blank">
+          <a href="https://www.tiktok.com/@kei20041003" class="btns music" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg"
               width="48" height="40" viewBox="0 0 48 48"
               class="sns-icon">
@@ -186,6 +200,33 @@
   const header = document.querySelector('header');
 const floating = document.querySelector('.floating-wrapper');
 const floatingBtn = document.querySelector('.floating-btn');
+const text = "ようこそ\n私のポートフォリオへ";
+const speed = 100;   // ← ここがちゃんと効く
+const stayTime = 3000;
+let index = 0;
+
+const typingText = document.getElementById("typing-text");
+const loading = document.getElementById("loading");
+
+function type() {
+  if (index < text.length) {
+    typingText.textContent += text.charAt(index);
+    index++;
+    setTimeout(type, speed);
+  } else {
+    setTimeout(() => {
+      loading.classList.add("hide");
+      setTimeout(() => loading.remove(), 800);
+    }, stayTime);
+  }
+}
+
+// load じゃなく DOMContentLoaded にする
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(type, 1000); // ← 開始までの間も作れる
+});
+
+window.addEventListener("load", type);
 
   menuIcon.addEventListener('click', () => {
     menu.classList.toggle('active');
