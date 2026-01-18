@@ -165,21 +165,31 @@
     </footer>
 
     <script>
-      const menuIcon = document.querySelector('.menu-icon');
-      const menu = document.querySelector('.header-right');
+  const menuIcon = document.querySelector('.menu-icon');
+  const menu = document.querySelector('.header-right');
+  const menuLinks = document.querySelectorAll('.header-right a');
 
-      menuIcon.addEventListener('click', () => {
-        menu.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
+  menuIcon.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
 
-        if (menu.classList.contains('active')) {
-          menuIcon.classList.remove('fa-bars');
-          menuIcon.classList.add('fa-times'); 
-        } else {
-          menuIcon.classList.remove('fa-times');
-          menuIcon.classList.add('fa-bars'); 
-        }
-      });
-    </script>
+    if (menu.classList.contains('active')) {
+      menuIcon.classList.remove('fa-bars');
+      menuIcon.classList.add('fa-times');
+    } else {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    }
+  });
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    });
+  });
+</script>
   </body>
 </html>

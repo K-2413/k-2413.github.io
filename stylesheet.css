@@ -142,7 +142,6 @@ header {
 .music {
     background-color: #000000;
     margin-right: 10px;
-    margin-top: 1px;
 }
 
 .twitter {
@@ -274,6 +273,32 @@ footer .mail {
 h5 {
     font-size: 40px;
     top: 65px;
+}
+
+#page-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #7c4f18;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  z-index: 2000;
+}
+
+#page-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* 点滅アニメーション */
