@@ -29,9 +29,8 @@ header {
     height: 65px;
     width: 100%;
     background-color: rgba(81, 46, 2, 0.9);
-    position: fixed;
     top: 0;
-    border-radius: 0 0 25px 25px;
+     position: relative;
     z-index: 10;
 }
 
@@ -91,7 +90,7 @@ header {
 /* トップセクション */
 .top-wrapper {
     padding: 180px 0 100px 0;
-    background-image: url(img/phto01.jpeg);
+    background-image: url(img/top.jpg);
     background-size: cover;
     text-align: center;
 }
@@ -102,7 +101,7 @@ header {
     letter-spacing: 5px;
     font-family: 'Pacifico', cursive;
     font-style: italic;
-    color: white;
+    color: rgb(129, 255, 3);
     -webkit-text-stroke: 1.5px black; 
 }
 
@@ -300,6 +299,87 @@ h5 {
 html {
   scroll-behavior: smooth;
 }
+
+/* ===== 左下フローティング全体 ===== */
+.floating-wrapper {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 3000;
+  display: none; /* ← 最初は非表示 */
+}
+
+/* 丸ボタン */
+.floating-btn {
+  width: 56px;
+  height: 56px;
+  background-color: #7c4f18;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* 横長メニュー */
+.floating-menu {
+  position: absolute;
+  bottom: 70px;           /* ← 丸ボタンの高さ＋余白 */
+  left: 0;
+  background-color: #7c4f18;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  transform: scale(0);
+  transform-origin: left bottom;
+  transition: transform 0.25s ease;
+}
+
+.floating-menu a {
+  position: relative;      /* ← これが足りなかった */
+  display: block;
+  padding: 12px 18px;
+  font-size: 20px;
+  color: white;
+  white-space: nowrap;
+}
+
+.floating-menu a::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* 最後の項目だけ線を消す */
+.floating-menu a:last-child::after {
+  display: none;
+}
+
+/* ホバー時 */
+.floating-menu a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* 開いた状態 */
+.floating-wrapper.active .floating-menu {
+  transform: scale(1);
+}
+
+/* 表示状態 */
+.floating-wrapper.show {
+  display: block;
+}
+
+
 
 /* 点滅アニメーション */
 @keyframes blink {

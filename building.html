@@ -13,6 +13,22 @@
 </head>
 <body>
   <div id="top"></div>
+  <div class="floating-wrapper">
+  <span class="fa fa-bars floating-btn"></span>
+
+  <div class="floating-menu">
+    <a href="#animal">動物</a>
+          <a href="#plant">植物</a>
+          <a href="#landscape">風景</a>
+          <a href="#building">建物</a>
+          <a href="#food">食べ物</a>
+          <a href="#art">アート</a>
+          <a href="#night_view">夜景</a>
+          <a href="privacy.html" class="PO">プライバシーポリシー</a>
+          <a href="mailto:okeisuke2004@gmail.com?subject=お問い合わせ&body=ホームページを見て連絡しました。以下に内容をお書き下さい." class="mail">お問い合わせ</a>
+        
+  </div>
+</div>
   <header>
     <div class="container">
       <div class="header-left">
@@ -224,28 +240,81 @@
 
   <script>
     const menuIcon = document.querySelector('.menu-icon');
-    const menu = document.querySelector('.header-right');
-    const pageTop = document.getElementById("page-top");
+  const menu = document.querySelector('.header-right');
+  const menuLinks = document.querySelectorAll('.header-right a');
+  const header = document.querySelector('header');
+const floating = document.querySelector('.floating-wrapper');
+const floatingBtn = document.querySelector('.floating-btn');
+const pageTop = document.getElementById("page-top");
 
-    menuIcon.addEventListener('click', () => {
-      menu.classList.toggle('active');
-      document.body.classList.toggle('no-scroll');
+  menuIcon.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
 
-      if (menu.classList.contains('active')) {
-        menuIcon.classList.remove('fa-bars');
-        menuIcon.classList.add('fa-times'); 
-      } else {
-        menuIcon.classList.remove('fa-times');
-        menuIcon.classList.add('fa-bars'); 
-      }
-    });
-    window.addEventListener("scroll", () => {
+    if (menu.classList.contains('active')) {
+      menuIcon.classList.remove('fa-bars');
+      menuIcon.classList.add('fa-times');
+    } else {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    }
+  });
+
+  floatingBtn.addEventListener('click', () => {
+  floating.classList.toggle('active');
+  floatingBtn.classList.toggle('fa-bars');
+  floatingBtn.classList.toggle('fa-times');
+});
+
+window.addEventListener("scroll", () => {
     if (window.scrollY > 400) {
       pageTop.classList.add("show");
     } else {
       pageTop.classList.remove("show");
     }
   });
+
+/* ヘッダーが見えてるか監視 */
+const observer = new IntersectionObserver(
+  ([entry]) => {
+    if (entry.isIntersecting) {
+      // ヘッダー見えてる
+      floating.classList.remove('show', 'active');
+      floatingBtn.classList.add('fa-bars');
+      floatingBtn.classList.remove('fa-times');
+    } else {
+      // ヘッダー見えない
+      floating.classList.add('show');
+    }
+  },
+  { threshold: 0 }
+);
+
+observer.observe(header);
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    menu.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+
+    // アイコンを≡に戻す
+    menuIcon.classList.remove('fa-times');
+    menuIcon.classList.add('fa-bars');
+  });
+});
+
+const floatingLinks = document.querySelectorAll('.floating-wrapper a');
+
+floatingLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    floating.classList.remove('active');
+
+    // 左下ボタンのアイコンを≡に戻す
+    floatingBtn.classList.remove('fa-times');
+    floatingBtn.classList.add('fa-bars');
+  });
+});
+
   </script>
 </body>
 </html>
