@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Keiのホームページ一覧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+    }
+    a {
+  width: 220px;          /* ← これを追加 */
+  text-align: center;    /* ← 文字を中央寄せ */
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #fff;
+  padding: 15px 0;       /* 横paddingは0にすると綺麗 */
+  margin: 10px;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+    a:hover {
+      background: #fff;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+  <h1>Keiのホームページ一覧</h1>
+  <a href="photo/">Keiのポートフォリオ</a>
+  <a href="EC/">電子部品の紹介</a>
+</body>
+</html>
