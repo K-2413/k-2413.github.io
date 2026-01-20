@@ -367,14 +367,14 @@ html {
 /* 横長メニュー */
 .floating-menu {
   position: absolute;
-  bottom: 70px;           /* ← 丸ボタンの高さ＋余白 */
+  bottom: 60px;           /* ← 丸ボタンの高さ＋余白 */
   left: 0;
   background-color: rgba(124, 79, 24, 0.9); /* 0.0〜1.0で透明度指定 */
   border-radius: 25px;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   transform: scale(0);
   transform-origin: left bottom;
   transition: transform 0.25s ease;
@@ -383,7 +383,7 @@ html {
 .floating-menu a {
   position: relative;      /* ← これが足りなかった */
   display: block;
-  padding: 12px 18px;
+  padding: 7px 15px;
   font-size: 20px;
   color: white;
   white-space: nowrap;
@@ -524,4 +524,102 @@ html {
 
 :target {
     animation: blink 1s ease-in-out 3;
+}
+
+.img-wrap {
+    position: relative;
+    display: block;
+}
+
+/* タップ文字（中央） */
+.tap-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #fff;
+    opacity: 0;
+    animation: tapFade 3s infinite;
+    pointer-events: none;
+    /*text-shadow: 0 0 15px rgba(255,255,255,0.6);*/
+    text-shadow:
+        2px 2px 1px #000,
+         0 1px 1px #000,
+        0  0 0 #000,
+          0 0 0 #000,
+         0  0 15px rgba(255,255,255,1);
+}
+
+.tap-text2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #fff;
+    opacity: 0;
+    animation: tapFade 3s infinite;
+    pointer-events: none;
+    /*text-shadow: 0 0 15px rgba(255,255,255,0.6);*/
+    text-shadow:
+        2px 2px 1px #000,
+         0 1px 1px #000,
+        0  0 0 #000,
+          0 0 0 #000,
+         0  0 15px rgba(255,255,255,1);
+}
+
+/* フワッと表示アニメーション */
+@keyframes tapFade {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    60% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* 虫眼鏡アイコン（右上） */
+.zoom-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 12px rgba(255,255,255,0.25);
+    pointer-events: none;
+}
+
+.zoom-icon2 {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 12px rgba(255,255,255,0.25);
+    pointer-events: none;
+}
+
+.zoom-icon svg {
+    width: 19px;
+    height: 19px;
 }
