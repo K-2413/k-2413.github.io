@@ -41,9 +41,37 @@ section {
     z-index: 1;
 }
 
+
 section:last-of-type {
     margin-bottom: 40vh;
 }
+
+.card-link {
+    display: block;
+    width: fit-content;
+}
+
+.img-wrap {
+    position: relative;
+    top: 40%;
+    height: 40%;
+    width: 1px;
+    overflow: visible; /* ← ここ超重要 */
+    opacity: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-wrap.active {
+    width: 40vw;
+    opacity: 1;
+    transition: opacity 1s, width 2s;
+}
+
+.img-wrap.active:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
 
 .img-wrap {
     position: relative;
@@ -90,4 +118,20 @@ h2 {
 h2.active {
     opacity: 1;
     transition: opacity 3s;
+}
+
+footer {
+  border-top: 1px solid #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+footer img {
+    width: 125px;
+}
+
+footer p,
+footer .mail {
+    color: #b3aeb5;
+    font-size: 12px;
 }

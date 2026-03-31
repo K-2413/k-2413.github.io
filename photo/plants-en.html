@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Animals Collection - Aperture Studio</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#000000",
+            "accent": "#0066cc",
+          },
+          fontFamily: {
+            "sans": ["Inter", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                @apply bg-black text-white antialiased overflow-x-hidden;
+            }
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background-color: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid rgba(249, 249, 249, 0.67);
+        }
+        .img-container {
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        .img-container img {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .img-container:hover img {
+            transform: scale(1.03);
+        }
+        .detail-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+            opacity: 0;
+        }
+        .detail-panel.active {
+            max-height: 1000px;
+            opacity: 1;
+            margin-top: 2rem;
+            margin-bottom: 4rem;
+        }
+        .animal-card.active .img-container {
+            outline: 2px solid rgb(255, 255, 255);
+            outline-offset: 4px;
+        }
+
+        .page-link{
+  color:white;
+  cursor:pointer;
+  transition:all .3s;
+}
+
+.page-link:hover{
+  color:#9ca3af;
+}
+
+.page-link.active{
+  color:#9ca3af;
+  border-bottom:2px solid #9ca3af;
+  padding-bottom:4px;
+  transform:translateY(-3px);
+}
+    </style>
+
+  <style type="text/tailwindcss">
+    @layer utilities {
+
+@keyframes floatFade {
+
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+}
+
+.animate-float-fade {
+  animation: floatFade 4s ease-in-out infinite;
+}
+
+}
+</style>
+</head>
+
+<body>
+  <nav class="sticky-nav">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+      <a class="text-xl font-bold tracking-tighter uppercase text-white" href="index-en.html">My portfolio</a>
+      <div class="hidden md:flex items-center gap-10 text-white">
+        <a class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+          href="animals-en.html">ANIMALS</a>
+        <a class="text-xs font-bold uppercase tracking-widest border-b border-white pb-1" href="#plants">PLANTS</a>
+        <a class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity" href="landscape-en.html">LANDSCAPE</a>
+        <a class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity" href="food-en.html">FOOD</a>
+        <a class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity" href="building-en.html">BUILDING</a>
+        <a class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity" href="night-views-en.html">NIGHT VIEWS</a>
+        <section>
+          <div class="relative inline-block text-xs font-bold uppercase tracking-widest">
+
+            <!-- ラベル -->
+            <button id="otherToggle" class="text-white hover:opacity-70 transition whitespace-nowrap">
+              OTHERS ▼
+            </button>
+
+            <ul id="otherMenu" class="absolute left-0 mt-2 hidden
+         bg-black text-white shadow text-xs
+         flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl shadow-[8px_8px_25px_rgba(255,255,255,0.25)]">
+              <li class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer rounded-tl-2xl rounded-tr-2xl">
+                <a href="profile-en.html">PROFILE</a>
+              </li>
+              <li class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer">
+                <a href="privacy-policy-en.html">PRIVACY POLICY</a>
+              </li>
+              <li class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer rounded-bl-2xl rounded-br-2xl">
+                <a href="#SNS">SNS</a>
+              </li>
+            </ul>
+
+          </div>
+        </section>
+      </div>
+      <section>
+        <form id="form" class="relative">
+          <span class="absolute -top-3 left-0 text-[10px] font-bold uppercase tracking-[0.3em] text-white/50">
+            Language
+          </span>
+          <select name="select" class="border-none bg-transparent text-xs font-bold tracking-widest
+         hover:opacity-50 transition-opacity focus:outline-none">
+            <option value="plants-en.html" selected>English</option>
+            <option value="plants.html">日本語</option>
+          </select>
+        </form>
+      </section>
+      <button id="mobileMenuButton"
+        class="text-xs font-bold uppercase tracking-widest border-b-2 border-white pb-1 md:hidden">
+        menu
+      </button>
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="md:hidden absolute top-16 left-0 w-full bg-black border-t border-black/10
+         hidden flex flex-col items-center gap-6 px-6 py-8 text-white">
+
+        <a class="text-xs font-bold uppercase tracking-widest" href="animals-en.html">ANIMALS</a>
+        <a class="text-xs font-bold uppercase tracking-widest border-b border-white pb-1" href="#plants">PLANTS</a>
+        <a class="text-xs font-bold uppercase tracking-widest" href="landscape-en.html">LANDSCAPE</a>
+        <a class="text-xs font-bold uppercase tracking-widest" href="food-en.html">FOOD</a>
+        <a class="text-xs font-bold uppercase tracking-widest" href="building-en.html">BUILDING</a>
+        <a class="text-xs font-bold uppercase tracking-widest" href="night-views-en.html">NIGHT VIEWS</a>
+        <section>
+          <div class="relative inline-block text-xs font-bold uppercase tracking-widest">
+
+            <!-- ラベル -->
+            <button id="otherToggleMobile" class="text-white hover:opacity-70 transition whitespace-nowrap">
+            OTHERS ▼
+            </button>
+
+            <ul id="otherMenuMobile" class="mt-2 hidden
+         bg-black text-white shadow text-xs
+         flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl shadow-[8px_8px_25px_rgba(255,255,255,0.25)]">
+              <li class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer rounded-tl-2xl rounded-tr-2xl">
+                <a href="profile-en.html">PROFILE</a>
+              </li>
+              <li class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer">
+                <a href="privacy-policy-en.html">PRIVACY POLICY</a>
+              </li>
+              <li class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer rounded-bl-2xl rounded-br-2xl">
+                <a href="#SNS">SNS</a>
+              </li>
+            </ul>
+
+          </div>
+        </section>
+      </div>
+    </div>
+  </nav>
+  <header class="pt-24 pb-16 bg-black">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <nav class="flex mb-8">
+        <a class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors "
+          href="index.html">PORTFOLIO</a>
+        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 mx-3">/</span>
+        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white">PLANTS</span>
+      </nav>
+      <h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-8">PLANTS</h1>
+      <p class="text-xl text-gray-500 max-w-2xl font-light leading-relaxed">
+        These photos capture the changing appearance of plants throughout the seasons. I hope you can feel the quiet strength of nature from the tiny buds and overlapping leaves.
+      </p>
+    </div>
+  </header>
+  <main class="pb-32 bg-black">
+    <div class="gallery-page" data-page="1">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16" id="gallery-grid">
+          <div class="animal-card group" onclick="toggleDetail('detail-1', this)">
+            <div class="img-container aspect-[16/10] bg-gray-100  rounded-2xl relative">
+              <img alt="Majestic feline in tall grass" class="w-full h-full object-cover" src="./img/plants-1.jpeg" />
+              <span class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+                NEW
+              </span>
+              <button onclick="event.stopPropagation(); openModal('./img/plants-1.jpeg')"
+                class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1">
+
+                <span>expansion</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"/>
+                </svg>
+
+              </button>
+
+              <a href="./img/plants-1.jpeg" download
+     onclick="downloadWithWatermark(event, this.href); event.stopPropagation();"
+     class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="w-4 h-4"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14" />
+    </svg>
+
+  </a>
+              <div class="absolute bottom-3 left-2">
+                <span
+                  class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full">TAP VIEW</span>
+              </div>
+            </div>
+            <h3 class="font-semibold mt-3">
+              <span class="text-2xl">Sansevieria</span>
+            </h3>
+            <div class="detail-panel" id="detail-1">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10">
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">place</h3>
+                  <p class="text-lg font-medium">My home</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Camera used & settings</h3>
+                  <p class="text-lg font-medium">iPhone 12<br>f/1.6,1/159,ISO 32</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">story</h3>
+                  <p class="text-sm text-gray-400 leading-relaxed">My brother loves plants, so there were some beautiful plants, and I took portraits of them.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="animal-card group" onclick="toggleDetail('detail-2', this)">
+            <div class="img-container aspect-[16/10] bg-gray-100  rounded-2xl relative">
+              <img alt="Rare mountain species" class="w-full h-full object-cover" src="./img/plants-2.jpeg" />
+              <span class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+                NEW
+              </span>
+              <button onclick="event.stopPropagation(); openModal('./img/plants-2.jpeg')"
+                class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1">
+
+                <span>expansion</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"/>
+                </svg>
+
+              </button>
+
+              <a href="./img/plants-2.jpeg" download
+     onclick="downloadWithWatermark(event, this.href); event.stopPropagation();"
+     class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="w-4 h-4"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14" />
+    </svg>
+
+  </a>
+              <div class="absolute bottom-3 left-2">
+                <span
+                  class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full">TAP VIEW</span>
+              </div>
+            </div>
+            <h3 class="font-semibold mt-3">
+              <span class="text-2xl">I don't know what kind of plant it is (I'll look it up later).</span>
+            </h3>
+            <div class="detail-panel" id="detail-2">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10">
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">place</h3>
+                  <p class="text-lg font-medium">My home</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Camera used & settings</h3>
+                  <p class="text-lg font-medium">iPhone 12<br>f/1.6,1/121,ISO 50</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">story</h3>
+                  <p class="text-sm text-gray-400 leading-relaxed">
+                    I took this photo because I had a beautiful plant at home. However, I couldn't figure out what kind of plant it was even after researching it, so I'll ask my brother later. If anyone knows, please let me know.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="animal-card group md:col-span-2" onclick="toggleDetail('detail-3', this)">
+            <div class="img-container aspect-[21/9] bg-gray-100  rounded-2xl">
+              <img alt="Majestic feline in tall grass" class="w-full h-full object-cover" src="./img/plants-3.jpeg" />
+              <span class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+                NEW
+              </span>
+              <button onclick="event.stopPropagation(); openModal('./img/plants-3.jpeg')"
+                class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1">
+
+                <span>expansion</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"/>
+                </svg>
+
+              </button>
+
+              <a href="./img/plants-3.jpeg" download
+     onclick="downloadWithWatermark(event, this.href); event.stopPropagation();"
+     class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="w-4 h-4"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14" />
+    </svg>
+
+  </a>
+              <div class="absolute bottom-3 left-2">
+                <span
+                  class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full">TAP VIEW</span>
+              </div>
+            </div>
+            <h3 class="font-semibold mt-3">
+              <span class="text-2xl">sasanqua flower</span>
+            </h3>
+            <div class="detail-panel" id="detail-3">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10">
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">place</h3>
+                  <p class="text-lg font-medium">Roads in Kasukabe</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Camera used & settings</h3>
+                  <p class="text-lg font-medium">iPhone 16 pro max<br>f/2.2,1/49,ISO 64</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">story</h3>
+                  <p class="text-sm text-gray-400 leading-relaxed">I was walking along a road in Kasukabe when I saw some camellias in bloom, so I took a picture of them with my iPhone. I used macro mode.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="animal-card group" onclick="toggleDetail('detail-4', this)">
+            <div class="img-container aspect-square bg-gray-100  rounded-2xl">
+              <img alt="Majestic feline in tall grass" class="w-full h-full object-cover" src="./img/plants-4.jpeg" />
+              <span class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+                NEW
+              </span>
+              <button onclick="event.stopPropagation(); openModal('./img/plants-4.jpeg')"
+                class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1">
+
+                <span>expansion</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"/>
+                </svg>
+
+              </button>
+
+              <a href="./img/plants-4.jpeg" download
+     onclick="downloadWithWatermark(event, this.href); event.stopPropagation();"
+     class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="w-4 h-4"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14" />
+    </svg>
+
+  </a>
+              <div class="absolute bottom-3 left-2">
+                <span
+                  class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full">TAP VIEW</span>
+              </div>
+            </div>
+            <h3 class="font-semibold mt-3">
+              <span class="text-2xl">sasanqua flower</span>
+            </h3>
+            <div class="detail-panel" id="detail-4">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10">
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">place</h3>
+                  <p class="text-lg font-medium">Roads in Kasukabe</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Camera used & settings</h3>
+                  <p class="text-lg font-medium">Canon EOS Kiss X4<br>f/8,1/640,ISO 200</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">story</h3>
+                  <p class="text-sm text-gray-400 leading-relaxed">
+                    This is also a camellia. However, I took this photo with a DSLR camera, not a smartphone. A bee was perched on the camellia, so I captured it in the picture.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="animal-card group" onclick="toggleDetail('detail-5', this)">
+            <div class="img-container aspect-square bg-gray-100  rounded-2xl">
+              <img alt="Majestic feline in tall grass" class="w-full h-full object-cover" src="./img/plants-5.jpeg" />
+              <span class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+                NEW
+              </span>
+              <button onclick="event.stopPropagation(); openModal('./img/plants-5.jpeg')"
+                class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1">
+
+                <span>expansion</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"/>
+                </svg>
+
+              </button>
+
+              <a href="./img/plants-5.jpeg" download
+     onclick="downloadWithWatermark(event, this.href); event.stopPropagation();"
+     class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="w-4 h-4"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14" />
+    </svg>
+
+  </a>
+              <div class="absolute bottom-3 left-2">
+                <span
+                  class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full">TAP VIEW</span>
+              </div>
+            </div>
+            <h3 class="font-semibold mt-3">
+              <span class="text-2xl">hydrangea</span>
+            </h3>
+            <div class="detail-panel" id="detail-5">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10">
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">place</h3>
+                  <p class="text-lg font-medium">Shimizu Park</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Camera used & settings</h3>
+                  <p class="text-lg font-medium">iPhone 16 pro max<br>f/2.8,1/99,ISO 80</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">story</h3>
+                  <p class="text-sm text-gray-400 leading-relaxed">
+                    I went to Shimizu Park and saw hydrangeas in bloom. I took this photo using the 5x zoom portrait mode on my iPhone 16 Pro Max.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="animal-card group md:col-span-2" onclick="toggleDetail('detail-6', this)">
+            <div class="img-container aspect-[21/9] bg-gray-100  rounded-2xl">
+              <img alt="Majestic feline in tall grass" class="w-full h-full object-cover" src="./img/plants-9.jpeg" />
+              <span class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+                NEW
+              </span>
+              <button onclick="event.stopPropagation(); openModal('./img/plants-9.jpeg')"
+                class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1">
+
+                <span>expansion</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"/>
+                </svg>
+
+              </button>
+
+              <a href="./img/plants-9.jpeg" download
+     onclick="downloadWithWatermark(event, this.href); event.stopPropagation();"
+     class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="w-4 h-4"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14" />
+    </svg>
+
+  </a>
+              <div class="absolute bottom-3 left-2">
+                <span
+                  class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full">TAP VIEW</span>
+              </div>
+            </div>
+            <h3 class="font-semibold mt-3">
+              <span class="text-2xl">autumn leaves</span>
+            </h3>
+            <div class="detail-panel" id="detail-6">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10">
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">place</h3>
+                  <p class="text-lg font-medium">Hisaizu Shrine</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Camera used & settings</h3>
+                  <p class="text-lg font-medium">Canon EOS Kiss X4<br>f/4.5,1/100,ISO 500</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">story</h3>
+                  <p class="text-sm text-gray-400 leading-relaxed">This photo was taken at the lake near Kuizu Shrine. The autumn foliage was beautiful, so I captured it all in one shot.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="animal-card group" onclick="toggleDetail('detail-7', this)">
+            <div class="img-container aspect-square bg-gray-100  rounded-2xl">
+              <img alt="Majestic feline in tall grass" class="w-full h-full object-cover" src="./img/plants-7.jpeg" />
+              <span class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+                NEW
+              </span>
+              <button onclick="event.stopPropagation(); openModal('./img/plants-7.jpeg')"
+                class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1">
+
+                <span>expansion</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"/>
+                </svg>
+
+              </button>
+
+              <a href="./img/plants-7.jpeg" download
+     onclick="downloadWithWatermark(event, this.href); event.stopPropagation();"
+     class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="w-4 h-4"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14" />
+    </svg>
+
+  </a>
+              <div class="absolute bottom-3 left-2">
+                <span
+                  class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full">TAP VIEW</span>
+              </div>
+            </div>
+            <h3 class="font-semibold mt-3">
+              <span class="text-2xl">Rosa chinensis</span>
+            </h3>
+            <div class="detail-panel" id="detail-7">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10">
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">place</h3>
+                  <p class="text-lg font-medium">My home garden</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Camera used & settings</h3>
+                  <p class="text-lg font-medium">Canon EOS Kiss X4<br>f/7.1,1/125,ISO 100</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">story</h3>
+                  <p class="text-sm text-gray-400 leading-relaxed">I was practicing taking pictures in my garden and managed to take a beautiful photo. The flowers were already blooming there.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="animal-card group" onclick="toggleDetail('detail-8', this)">
+            <div class="img-container aspect-square bg-gray-100  rounded-2xl">
+              <img alt="Majestic feline in tall grass" class="w-full h-full object-cover" src="./img/plants-8.jpeg" />
+              <span class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+                NEW
+              </span>
+              <button onclick="event.stopPropagation(); openModal('./img/plants-8.jpeg')"
+                class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1">
+
+                <span>expansion</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"/>
+                </svg>
+
+              </button>
+
+              <a href="./img/plants-8.jpeg" download
+     onclick="downloadWithWatermark(event, this.href); event.stopPropagation();"
+     class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="w-4 h-4"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14" />
+    </svg>
+
+  </a>
+              <div class="absolute bottom-3 left-2">
+                <span
+                  class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full">TAP VIEW</span>
+              </div>
+            </div>
+            <h3 class="font-semibold mt-3">
+              <span class="text-2xl">sunflower</span>
+            </h3>
+            <div class="detail-panel" id="detail-8">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10">
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">place</h3>
+                  <p class="text-lg font-medium">Mizukaido Asunaro no Sato</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Camera used & settings</h3>
+                  <p class="text-lg font-medium">iPhone16 pro max<br>f/2.8,1/1064,ISO 50</p>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">story</h3>
+                  <p class="text-sm text-gray-400 leading-relaxed">This place has a zoo and a park where you can play, and I took some pictures because there were sunflowers blooming there.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="animal-card group flex items-center justify-center border border-black/5 rounded-sm p-12 text-center">
+<div>
+<span class="material-symbols-outlined text-4xl mb-6 font-light">info</span>
+<h3 class="text-xl font-bold tracking-tight mb-4">Limited Editions</h3>
+<p class="text-sm text-gray-500 mb-8 max-w-[240px] mx-auto">All photographs are available as museum-grade archival prints in limited runs of 10.</p>
+<button class="bg-black text-white px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors">Request Catalog</button>
+</div>
+</div> -->
+        </div>
+      </div>
+    </div>
+    <div class="gallery-page hidden" data-page="2">
+      <div class="flex items-center justify-center h-screen">
+        <h1 class="text-6xl font-bold animate-float-fade">
+          Preparing now!
+        </h1>
+      </div>
+    </div>
+
+    <div class="gallery-page hidden" data-page="3">
+      <div class="flex items-center justify-center h-screen">
+        <h1 class="text-6xl font-bold animate-float-fade">
+          Preparing now!
+        </h1>
+      </div>
+    </div>
+    <div class="flex justify-center mt-24">
+      <nav class="flex items-center gap-6 text-lg font-medium">
+
+        <a onclick="showPage(1)" class="page-link active">1</a>
+
+        <a onclick="showPage(2)" class="page-link">2</a>
+
+        <a onclick="showPage(3)" class="page-link">3</a>
+
+        <!-- <a onclick="showPage(2)" class="page-link">Next →</a> -->
+
+      </nav>
+    </div>
+  </main>
+  <footer class="bg-black py-24 border-t border-white/5">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+        <div>
+          <h3 class="text-3xl font-black tracking-tighter uppercase mb-6">my portfolio</h3>
+          <p class="text-gray-500 text-base max-w-xs font-light">High-end professional photography for editorial and
+            personal collections.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24">
+          <div class="flex flex-col gap-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-gray-400">
+              <section id="SNS">SNS</section>
+            </span>
+            <a class="text-sm font-semibold hover:opacity-50 transition-opacity"
+              href="https://x.com/ko2413_ja?s=21">X(old Twitter)</a>
+            <a class="text-sm font-semibold hover:opacity-50 transition-opacity"
+              href="https://www.tiktok.com/@kei1620041003?_r=1&_t=ZS-94nH3ROm7bY">TikTok</a>
+            <a class="text-sm font-semibold hover:opacity-50 transition-opacity"
+              href="https://www.instagram.com/keisuke041003?igsh=MXhvaXJiMndpZWlscg%3D%3D&utm_source=qr">Instagram</a>
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-gray-400">contact</span>
+            <a class="text-sm font-semibold hover:opacity-50 transition-opacity"
+              href="mailto:keiweb.contact04@gmail.com?subject=I contacted you after seeing your website. Please write your details below.">mail</a>
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-gray-400">profile</span>
+            <a class="text-sm font-semibold hover:opacity-50 transition-opacity" href="profile-en.html">About me</a>
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Legal</span>
+            <a class="text-sm font-semibold hover:opacity-50 transition-opacity" href="privacy-policy-en.html">Privacy</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-24 pt-8 border-t border-black/5 flex flex-col items-center gap-4">
+        <img src="./img/Kei.jpg" alt="プロフィール写真" class="w-20 h-20 rounded-xs object-cover" />
+
+        <p class="text-xs text-gray-400 uppercase tracking-widest">
+          © 2026 my portfplio
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function openModal(src) {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImg");
+
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+  modalImg.src = src;
+}
+
+function closeModal() {
+  const modal = document.getElementById("imageModal");
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("imageModal").addEventListener("click", closeModal);
+});
+
+    function toggleDetail(id, element) {
+      // Close all other panels in the same grid if desired, 
+      // but for this design we'll allow multiple or focus on the current.
+      const panel = document.getElementById(id);
+      const isActive = panel.classList.contains('active');
+      // Remove active from all cards and panels first for a clean single-open behavior
+      document.querySelectorAll('.detail-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.animal-card').forEach(c => c.classList.remove('active'));
+      if (!isActive) {
+        panel.classList.add('active');
+        element.classList.add('active');
+        // Smooth scroll to the detail if it's off screen
+        setTimeout(() => {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 300);
+      }
+    }
+
+
+    const mobileButton = document.getElementById("mobileMenuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    const otherToggle = document.getElementById("otherToggle");
+    const otherMenu = document.getElementById("otherMenu");
+
+    const otherToggleMobile = document.getElementById("otherToggleMobile");
+    const otherMenuMobile = document.getElementById("otherMenuMobile");
+
+    const form = document.getElementById("form");
+    const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+
+    function showPage(page) {
+
+      const pages = document.querySelectorAll(".gallery-page");
+      const links = document.querySelectorAll(".page-link");
+
+      /* 全ページを隠す */
+      pages.forEach(p => {
+        p.classList.add("hidden");
+      });
+
+      /* 指定ページを表示 */
+      document
+        .querySelector('[data-page="' + page + '"]')
+        .classList.remove("hidden");
+
+      /* ページ番号の下線リセット */
+      links.forEach(link => {
+        link.classList.remove("active");
+      });
+
+      /* 今のページ番号に下線 */
+      links[page - 1].classList.add("active");
+
+      window.scrollTo(0, 0);
+
+    }
+
+    // モバイルメニュー
+    mobileButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // 言語切り替え
+    if (form) {
+      form.elements.select.onchange = function () {
+        location.href = this.value;
+      };
+    }
+
+    // PC「その他」
+    if (otherToggle && otherMenu) {
+      otherToggle.addEventListener("click", () => {
+        otherMenu.classList.toggle("hidden");
+      });
+    }
+
+    // モバイル「その他」
+    if (otherToggleMobile && otherMenuMobile) {
+      otherToggleMobile.addEventListener("click", () => {
+        otherMenuMobile.classList.toggle("hidden");
+      });
+    }
+
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        // メインのモバイルメニューを閉じる
+        mobileMenu.classList.add("hidden");
+
+        // 「その他」メニューも閉じる（開いてた場合）
+        if (otherMenuMobile) {
+          otherMenuMobile.classList.add("hidden");
+        }
+      });
+    });
+
+    function downloadWithWatermark(e, imageSrc) {
+  e.preventDefault();
+
+  const baseImage = new Image();
+  const watermark = new Image();
+
+  baseImage.src = imageSrc;
+  watermark.src = "./img/Kei.jpg";
+
+  baseImage.onload = () => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = baseImage.width;
+    canvas.height = baseImage.height;
+
+    ctx.drawImage(baseImage, 0, 0);
+
+    watermark.onload = () => {
+      const size = baseImage.width * 0.15;
+      const x = baseImage.width - size - 10;
+      const y = baseImage.height - size - 10;
+
+      ctx.globalAlpha = 0.6; // ← 濃くした
+
+      // 丸角で描画
+      drawRoundedImage(ctx, watermark, x, y, size, size, 10);
+
+      const link = document.createElement("a");
+      link.download = "Kei_photo.jpg";
+      link.href = canvas.toDataURL("image/jpeg");
+      link.click();
+    };
+  };
+}
+
+// 角丸用関数
+function drawRoundedImage(ctx, img, x, y, width, height, radius) {
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(x + radius, y);
+  ctx.lineTo(x + width - radius, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+  ctx.lineTo(x + width, y + height - radius);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+  ctx.lineTo(x + radius, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+  ctx.lineTo(x, y + radius);
+  ctx.quadraticCurveTo(x, y, x + radius, y);
+  ctx.closePath();
+  ctx.clip();
+
+  ctx.drawImage(img, x, y, width, height);
+  ctx.restore();
+}
+
+  </script>
+
+  <!-- 画像拡大モーダル -->
+<div id="imageModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[999]">
+  
+  <!-- 閉じる -->
+  <span onclick="closeModal()" 
+        class="absolute top-6 right-8 text-white text-3xl cursor-pointer">×</span>
+
+  <!-- 画像 -->
+  <img id="modalImg" class="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl">
+
+</div>
+
+</body>
+
+</html>

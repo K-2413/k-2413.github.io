@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Animals Collection - Aperture Studio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#000000",
+              accent: "#0066cc",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          scroll-behavior: smooth;
+        }
+        body {
+          @apply bg-black text-white antialiased overflow-x-hidden;
+        }
+      }
+      .sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        background-color: rgba(0, 0, 0, 0.8);
+        border-bottom: 1px solid rgba(249, 249, 249, 0.67);
+      }
+      .img-container {
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+      .img-container img {
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .img-container:hover img {
+        transform: scale(1.03);
+      }
+      .detail-panel {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.5s ease;
+        opacity: 0;
+      }
+      .detail-panel.active {
+        max-height: 1000px;
+        opacity: 1;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+      }
+      .animal-card.active .img-container {
+        outline: 2px solid rgb(255, 255, 255);
+        outline-offset: 4px;
+      }
+
+      .page-link {
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .page-link:hover {
+        color: #9ca3af;
+      }
+
+      .page-link.active {
+        color: #9ca3af;
+        border-bottom: 2px solid #9ca3af;
+        padding-bottom: 4px;
+        transform: translateY(-3px);
+      }
+    </style>
+
+    <style type="text/tailwindcss">
+      @layer utilities {
+        @keyframes floatFade {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+
+          25% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          50% {
+            opacity: 1;
+            transform: translateY(-10px);
+          }
+
+          75% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          100% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+        }
+
+        .animate-float-fade {
+          animation: floatFade 4s ease-in-out infinite;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="sticky-nav">
+      <div
+        class="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between"
+      >
+        <a
+          class="text-xl font-bold tracking-tighter uppercase text-white"
+          href="index.html"
+          >My portfolio</a
+        >
+        <div class="hidden md:flex items-center gap-10 text-white">
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="animals.html"
+            >動物</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="plants.html"
+            >植物</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="landscape.html"
+            >風景</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest border-b border-white pb-1"
+            href="food.html"
+            >食べ物</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="building.html"
+            >建物</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="#night-views"
+            >夜景</a
+          >
+          <section>
+            <div
+              class="relative inline-block text-xs font-bold uppercase tracking-widest"
+            >
+              <!-- ラベル -->
+              <button
+                id="otherToggle"
+                class="text-white hover:opacity-70 transition whitespace-nowrap"
+              >
+                その他 ▼
+              </button>
+
+              <ul
+                id="otherMenu"
+                class="absolute left-0 mt-2 hidden bg-black text-white shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl shadow-[8px_8px_25px_rgba(255,255,255,0.25)]"
+              >
+                <li
+                  class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer rounded-tl-2xl rounded-tr-2xl"
+                >
+                  <a href="profile.html">プロフィール</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer"
+                >
+                  <a href="privacy-policy.html">プライバシーポリシー</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer rounded-bl-2xl rounded-br-2xl"
+                >
+                  <a href="#SNS">SNS</a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+        <section>
+          <form id="form" class="relative">
+            <span
+              class="absolute -top-3 left-0 text-[10px] font-bold uppercase tracking-[0.3em] text-white/50"
+            >
+              Language
+            </span>
+            <select
+              name="select"
+              class="border-none bg-transparent text-xs font-bold tracking-widest hover:opacity-50 transition-opacity focus:outline-none"
+            >
+              <option value="night-views.html" selected>日本語</option>
+              <option value="night-views-en.html">English</option>
+            </select>
+          </form>
+        </section>
+        <button
+          id="mobileMenuButton"
+          class="text-xs font-bold uppercase tracking-widest border-b-2 border-white pb-1 md:hidden"
+        >
+          メニュー
+        </button>
+        <!-- Mobile Menu -->
+        <div
+          id="mobileMenu"
+          class="md:hidden absolute top-16 left-0 w-full bg-black border-t border-black/10 hidden flex flex-col items-center gap-6 px-6 py-8 text-white"
+        >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="animals.html"
+            >動物</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="plants.html"
+            >植物</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="landscape.html"
+            >風景</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest border-b border-white pb-1"
+            href="food.html"
+            >食べ物</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="building.html"
+            >建物</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="#night-views"
+            >夜景</a
+          >
+          <section>
+            <div
+              class="relative inline-block text-xs font-bold uppercase tracking-widest"
+            >
+              <!-- ラベル -->
+              <button
+                id="otherToggleMobile"
+                class="text-white hover:opacity-70 transition whitespace-nowrap"
+              >
+                その他 ▼
+              </button>
+
+              <ul
+                id="otherMenuMobile"
+                class="mt-2 hidden bg-black text-white shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl shadow-[8px_8px_25px_rgba(255,255,255,0.25)]"
+              >
+                <li
+                  class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer rounded-tl-2xl rounded-tr-2xl"
+                >
+                  <a href="profile.html">プロフィール</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer"
+                >
+                  <a href="privacy-policy.html">プライバシーポリシー</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer rounded-bl-2xl rounded-br-2xl"
+                >
+                  <a href="#SNS">SNS</a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </nav>
+    <header class="pt-24 pb-16 bg-black">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <nav class="flex mb-8">
+          <a
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors"
+            href="index.html"
+            >ポートフォリオ</a
+          >
+          <span
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 mx-3"
+            >/</span
+          >
+          <span
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-white"
+            >夜景</span
+          >
+        </nav>
+        <h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-8">
+          夜景
+        </h1>
+        <p class="text-xl text-gray-500 max-w-2xl font-light leading-relaxed">
+           夜の街は、光と影がつくるもう一つの世界。シャッターを切るたびに、その一瞬が記憶として残ります。
+        </p>
+      </div>
+    </header>
+    <div class="flex items-center justify-center h-screen">
+        <h1 class="text-6xl font-bold animate-float-fade">
+          ただいま準備中!
+        </h1>
+      </div>
+    <footer class="bg-black py-24 border-t border-white/5">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12"
+        >
+          <div>
+            <h3 class="text-3xl font-black tracking-tighter uppercase mb-6">
+              私のポートフォリオ
+            </h3>
+            <p class="text-gray-500 text-base max-w-xs font-light">
+              編集用および個人コレクション用のハイエンドなプロフェッショナル写真。
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24">
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+              >
+                <section id="SNS">SNS</section>
+              </span>
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="https://x.com/ko2413_ja?s=21"
+                >X(旧Twitter)</a
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="https://www.tiktok.com/@kei1620041003?_r=1&_t=ZS-94nH3ROm7bY"
+                >TikTok</a
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="https://www.instagram.com/keisuke041003?igsh=MXhvaXJiMndpZWlscg%3D%3D&utm_source=qr"
+                >Instagram</a
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+                >お問い合わせ</span
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="mailto:keiweb.contact04@gmail.com?subject=お問い合わせ&body=ホームページを見て連絡しました。以下に内容をお書き下さい."
+                >メール</a
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+                >プロフィール</span
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="profile.html"
+                >私について</a
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+                >法律</span
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="privacy-policy.html"
+                >Privacy</a
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-24 pt-8 border-t border-black/5 flex flex-col items-center gap-4"
+        >
+          <img
+            src="./img/Kei.jpg"
+            alt="プロフィール写真"
+            class="w-20 h-20 rounded-xs object-cover"
+          />
+
+          <p class="text-xs text-gray-400 uppercase tracking-widest">
+            © 2026 私のポートフォリオ
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      function openModal(src) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImg");
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        modalImg.src = src;
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("imageModal");
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .getElementById("imageModal")
+          .addEventListener("click", closeModal);
+      });
+
+      function toggleDetail(id, element) {
+        // Close all other panels in the same grid if desired,
+        // but for this design we'll allow multiple or focus on the current.
+        const panel = document.getElementById(id);
+        const isActive = panel.classList.contains("active");
+        // Remove active from all cards and panels first for a clean single-open behavior
+        document
+          .querySelectorAll(".detail-panel")
+          .forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll(".animal-card")
+          .forEach((c) => c.classList.remove("active"));
+        if (!isActive) {
+          panel.classList.add("active");
+          element.classList.add("active");
+          // Smooth scroll to the detail if it's off screen
+          setTimeout(() => {
+            panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }, 300);
+        }
+      }
+
+      const mobileButton = document.getElementById("mobileMenuButton");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      const otherToggle = document.getElementById("otherToggle");
+      const otherMenu = document.getElementById("otherMenu");
+
+      const otherToggleMobile = document.getElementById("otherToggleMobile");
+      const otherMenuMobile = document.getElementById("otherMenuMobile");
+
+      const form = document.getElementById("form");
+      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+
+      function showPage(page) {
+        const pages = document.querySelectorAll(".gallery-page");
+        const links = document.querySelectorAll(".page-link");
+
+        /* 全ページを隠す */
+        pages.forEach((p) => {
+          p.classList.add("hidden");
+        });
+
+        /* 指定ページを表示 */
+        document
+          .querySelector('[data-page="' + page + '"]')
+          .classList.remove("hidden");
+
+        /* ページ番号の下線リセット */
+        links.forEach((link) => {
+          link.classList.remove("active");
+        });
+
+        /* 今のページ番号に下線 */
+        links[page - 1].classList.add("active");
+
+        window.scrollTo(0, 0);
+      }
+
+      // モバイルメニュー
+      mobileButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // 言語切り替え
+      if (form) {
+        form.elements.select.onchange = function () {
+          location.href = this.value;
+        };
+      }
+
+      // PC「その他」
+      if (otherToggle && otherMenu) {
+        otherToggle.addEventListener("click", () => {
+          otherMenu.classList.toggle("hidden");
+        });
+      }
+
+      // モバイル「その他」
+      if (otherToggleMobile && otherMenuMobile) {
+        otherToggleMobile.addEventListener("click", () => {
+          otherMenuMobile.classList.toggle("hidden");
+        });
+      }
+
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          // メインのモバイルメニューを閉じる
+          mobileMenu.classList.add("hidden");
+
+          // 「その他」メニューも閉じる（開いてた場合）
+          if (otherMenuMobile) {
+            otherMenuMobile.classList.add("hidden");
+          }
+        });
+      });
+
+      function downloadWithWatermark(e, imageSrc) {
+        e.preventDefault();
+
+        const baseImage = new Image();
+        const watermark = new Image();
+
+        baseImage.src = imageSrc;
+        watermark.src = "./img/Kei.jpg";
+
+        baseImage.onload = () => {
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+
+          canvas.width = baseImage.width;
+          canvas.height = baseImage.height;
+
+          ctx.drawImage(baseImage, 0, 0);
+
+          watermark.onload = () => {
+            const size = baseImage.width * 0.15;
+            const x = baseImage.width - size - 10;
+            const y = baseImage.height - size - 10;
+
+            ctx.globalAlpha = 0.6; // ← 濃くした
+
+            // 丸角で描画
+            drawRoundedImage(ctx, watermark, x, y, size, size, 10);
+
+            const link = document.createElement("a");
+            link.download = "Kei_photo.jpg";
+            link.href = canvas.toDataURL("image/jpeg");
+            link.click();
+          };
+        };
+      }
+
+      // 角丸用関数
+      function drawRoundedImage(ctx, img, x, y, width, height, radius) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(x + radius, y);
+        ctx.lineTo(x + width - radius, y);
+        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+        ctx.lineTo(x + width, y + height - radius);
+        ctx.quadraticCurveTo(
+          x + width,
+          y + height,
+          x + width - radius,
+          y + height,
+        );
+        ctx.lineTo(x + radius, y + height);
+        ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+        ctx.lineTo(x, y + radius);
+        ctx.quadraticCurveTo(x, y, x + radius, y);
+        ctx.closePath();
+        ctx.clip();
+
+        ctx.drawImage(img, x, y, width, height);
+        ctx.restore();
+      }
+    </script>
+
+    <!-- 画像拡大モーダル -->
+    <div
+      id="imageModal"
+      class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[999]"
+    >
+      <!-- 閉じる -->
+      <span
+        onclick="closeModal()"
+        class="absolute top-6 right-8 text-white text-3xl cursor-pointer"
+        >×</span
+      >
+
+      <!-- 画像 -->
+      <img
+        id="modalImg"
+        class="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl"
+      />
+    </div>
+  </body>
+</html>

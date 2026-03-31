@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Gallery Modal</title>
+
+<style>
+body {
+    background:#111;
+    color:#fff;
+    font-family:sans-serif;
+    padding:20px;
+}
+
+/* ===== 一覧レイアウト ===== */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    cursor: pointer;
+}
+
+.item img {
+    width: 600px;
+    border-radius: 30px;
+}
+
+/* 説明文 */
+.text {
+    max-width: 400px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+/* 偶数番目だけ左右反転 */
+.item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* ===== モーダル ===== */
+#modal {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content {
+    position:relative;
+    text-align:center;
+}
+
+/* モーダル画像 */
+.modal-content img {
+    max-width:90vw;
+    max-height:65vh;
+    border-radius:10px;
+}
+
+/* 説明文（スクロール可） */
+.modal-text {
+    margin-top:15px;
+    font-size:18px;
+    color:#ddd;
+    max-height:150px;
+    overflow-y:auto;
+}
+
+/* 矢印 */
+.arrow {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:40px;
+    background:none;
+    border:none;
+    color:#fff;
+    cursor:pointer;
+    padding:10px;
+}
+.arrow.left { left:-60px; }
+.arrow.right { right:-60px; }
+
+/* バツボタン */
+#closeBtn {
+    position:absolute;
+    top:-15px;
+    right:-15px;
+    background:#000;
+    color:#fff;
+    border:none;
+    font-size:24px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+/* ===== スマホ対応 ===== */
+@media (max-width: 768px) {
+    .item {
+        flex-direction: column !important;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== 一覧 ===== -->
+<div class="list">
+
+    <div class="item" onclick="openModal(0)">
+        <img src="img/1.jpeg">
+        <div class="text">1枚目の説明文です</div>
+    </div>
+
+    <div class="item" onclick="openModal(1)">
+        <img src="img/2.jpeg">
+        <div class="text">2枚目の説明文です</div>
+    </div>
+
+    <div class="item" onclick="openModal(2)">
+        <img src="img/3.jpeg">
+        <div class="text">3枚目の説明文です</div>
+    </div>
+
+    <div class="item" onclick="openModal(3)">
+        <img src="img/4.jpeg">
+        <div class="text">4枚目の説明文です</div>
+    </div>
+
+    <div class="item" onclick="openModal(4)">
+        <img src="img/5.jpeg">
+        <div class="text">5枚目の説明文です</div>
+    </div>
+
+    <div class="item" onclick="openModal(5)">
+        <img src="img/6.jpeg">
+        <div class="text">6枚目の説明文です</div>
+    </div>
+
+</div>
+
+<!-- ===== モーダル ===== -->
+<div id="modal">
+    <div class="modal-content">
+
+        <button id="closeBtn" onclick="closeModal()">×</button>
+
+        <button class="arrow left" onclick="prevImage()">＜</button>
+        <img id="modalImage">
+        <button class="arrow right" onclick="nextImage()">＞</button>
+
+        <div id="modalText" class="modal-text"></div>
+
+    </div>
+</div>
+
+<script>
+const images = [
+    { src: "img/1.jpeg", text: "1枚目の写真の説明です" },
+    { src: "img/2.jpeg", text: "2枚目の写真の説明です" },
+    { src: "img/3.jpeg", text: "3枚目の写真の説明です" },
+    { src: "img/4.jpeg", text: "4枚目の写真の説明です" },
+    { src: "img/5.jpeg", text: "5枚目の写真の説明です" },
+    { src: "img/6.jpeg", text: "6枚目の写真の説明です" }
+];
+
+let currentIndex = 0;
+
+const modal = document.getElementById("modal");
+const modalImage = document.getElementById("modalImage");
+const modalText = document.getElementById("modalText");
+
+function openModal(index) {
+    currentIndex = index;
+    updateModal();
+    modal.style.display = "flex";
+}
+
+function closeModal() {
+    modal.style.display = "none";
+}
+
+function updateModal() {
+    modalImage.src = images[currentIndex].src;
+    modalText.textContent = images[currentIndex].text;
+}
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateModal();
+}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateModal();
+}
+</script>
+
+</body>
+</html>

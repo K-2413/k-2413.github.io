@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Animals Collection - Aperture Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000000",
+                        "accent": "#0066cc",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                @apply bg-white text-black antialiased overflow-x-hidden;
+            }
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .img-container {
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        .img-container img {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .img-container:hover img {
+            transform: scale(1.03);
+        }
+        .detail-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+            opacity: 0;
+        }
+        .detail-panel.active {
+            max-height: 1000px;
+            opacity: 1;
+            margin-top: 2rem;
+            margin-bottom: 4rem;
+        }
+        .animal-card.active .img-container {
+            outline: 2px solid black;
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+<body>
+<nav class="sticky-nav">
+<div class="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+<a class="text-xl font-bold tracking-tighter uppercase" href="#">Aperture</a>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-xs font-bold uppercase tracking-widest border-b border-black pb-1" href="#animals">Animals</a>
+<a class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity" href="#">Plants</a>
+<a class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity" href="#">Landscapes</a>
+<a class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity" href="#">Food</a>
+<a class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity" href="#">Architecture</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1">Inquiry</button>
+</div>
+</div>
+</nav>
+<header class="pt-24 pb-16 bg-white">
+<div class="max-w-[1440px] mx-auto px-6 md:px-12">
+<nav class="flex mb-8">
+<a class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors" href="STYLE.html">Portfolio</a>
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 mx-3">/</span>
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-black">Animals</span>
+</nav>
+<h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-8">Animals.</h1>
+<p class="text-xl text-gray-500 max-w-2xl font-light leading-relaxed">
+                A curated selection exploring the silent narratives of the natural world. Each frame captures a moment of raw existence, from the majestic to the minute.
+            </p>
+</div>
+</header>
+<main class="pb-32 bg-white">
+<div class="max-w-[1440px] mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16" id="gallery-grid">
+<div class="animal-card group" onclick="toggleDetail('detail-1', this)">
+<div class="img-container aspect-[16/10] bg-gray-100 rounded-sm">
+<img alt="Majestic feline in tall grass" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDai4XafkZfZTG0nsQVFB4VPKtdLYuR-ult8QCo0dQ9QZykOXnyaMBE5Gs2cX_7VHxdQFUP4LBj4yXnU0pa9IpmYAnK3HmDcSW2GLkGZ83grcnzz5v69kvOusjG0CsOrt3LoSNoh8OhnKqaIhhPdsF4pSXUisJQ2xEMOAYwDHB6TwQS_k2LE8uK6hME44Ce-bqt5iZSLL5fXhR-FpSvfPRhAVgFvAkZSNUIJr_Jw54uEpntLTZRz5Zuxa5afi1c3zDMTIKH2jAquR1y"/>
+<div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-white/90 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest">View Details</span>
+</div>
+</div>
+<div class="detail-panel" id="detail-1">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Species</h3>
+<p class="text-lg font-medium">Panthera Leo</p>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Location</h3>
+<p class="text-lg font-medium">Serengeti, Tanzania</p>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">The Story</h3>
+<p class="text-sm text-gray-600 leading-relaxed">Captured during the golden hour, this pride leader was observed for four hours before this singular moment of direct eye contact. The lighting highlights the texture of the mane and the intensity of the gaze.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="animal-card group" onclick="toggleDetail('detail-2', this)">
+<div class="img-container aspect-[16/10] bg-gray-100 rounded-sm">
+<img alt="Rare mountain species" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeKW0VfCgW5j5fIGNj0EmczkjdafHMAQt6jANIY-Z-eXFAU46XI5yAzPGOlg52z4Uo11OsgoYk9itLjGh2i2g__vinzJqtDP6tYj5QkBf2CDhoBFFn1Hl8UKyZ4NSA8tyuccJHrRfQDxi2tz8EZ3dPtVMpjUz_xWuk3JEzlEfKaYnG2uJVyI1xlTWwW6gPrnahbcspWx_WYuUtBCvTAlxkDC6sU5rfNm0RUAmX4dvHVjZxSECse-V7HNWnY2UGEX_h8uNm0CjAfcb_"/>
+<div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-white/90 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest">View Details</span>
+</div>
+</div>
+<div class="detail-panel" id="detail-2">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Species</h3>
+<p class="text-lg font-medium">Uncia uncia</p>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Location</h3>
+<p class="text-lg font-medium">Himalayas, Ladakh</p>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">The Story</h3>
+<p class="text-sm text-gray-600 leading-relaxed">Known as the 'ghost of the mountains', this specimen was photographed at an altitude of 4,200 meters. The monochromatic palette reflects the harsh, beautiful environment of its habitat.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="animal-card group md:col-span-2" onclick="toggleDetail('detail-3', this)">
+<div class="img-container aspect-[21/9] bg-gray-100 rounded-sm">
+<img alt="Elephant herd crossing" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZy_ocetx1IoRojYP22C7Oc_OSBEwDHWpjwMkqBKL4vQA9-G1HEBgjjCqBDU8YmkRd0dPPU5aWTOOC49weWLtqxiNYbPQCG-PUUi5ti5UJqHYqquuwYcnVMLnaP3NyffKM3-6DSF4_XGBGzSEZRh3jTf5vXN4ttmkGf3R5utPSWCCDMBukt9tjS1LncGGKVY2uNVA59XebTcMWTBaeNpggnyz8TgN-BVsYKVsLrV_6dyirC-wcmO4Oj7tk6IAoYOQGZe1I0uTiOH92"/>
+<div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-white/90 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest">View Details</span>
+</div>
+</div>
+<div class="detail-panel" id="detail-3">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Species</h3>
+<p class="text-lg font-medium">Loxodonta africana</p>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Location</h3>
+<p class="text-lg font-medium">Okavango Delta, Botswana</p>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">The Story</h3>
+<p class="text-sm text-gray-600 leading-relaxed">A panoramic study of family dynamics. This herd was migrating toward the water's edge at sunset. The low-angle perspective emphasizes the monumental scale and gentle nature of these giants.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="animal-card group" onclick="toggleDetail('detail-4', this)">
+<div class="img-container aspect-square bg-gray-100 rounded-sm">
+<img alt="Tropical bird close-up" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKuqc5yG9st2MiHqfrmWVMsnMUKt3gluuqVC6HMDwqmuLzCVCizizMIF6CTD20xknygSCfdA8lWv3CHoA9x7Z0cVboc8KRfYeXygTlMiDkrznh1Sa8ASczQxZY0Xkond34GHgmxNBQeu-cB-0Tn8b5blOydYLbUfSIHfSS0JZLm4_LOs7oXn6HZ73NMu_HClO2-FKnJlViyv39tKF3uj4S-Q9dtE1B1xc1aE7N-EBlb61F8Yo4sgMcufvMLbaoXE80vq19ZC0c2Mae"/>
+<div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="bg-white/90 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest">View Details</span>
+</div>
+</div>
+<div class="detail-panel" id="detail-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Species</h3>
+<p class="text-lg font-medium">Ara macao</p>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Location</h3>
+<p class="text-lg font-medium">Amazon Rainforest, Peru</p>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">The Story</h3>
+<p class="text-sm text-gray-600 leading-relaxed">A macro exploration of color and pattern. By focusing on the plumage, the photograph becomes an abstract study of nature's vibrant geometry and intricate design.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="animal-card group flex items-center justify-center border border-black/5 rounded-sm p-12 text-center">
+<div>
+<span class="material-symbols-outlined text-4xl mb-6 font-light">info</span>
+<h3 class="text-xl font-bold tracking-tight mb-4">Limited Editions</h3>
+<p class="text-sm text-gray-500 mb-8 max-w-[240px] mx-auto">All photographs are available as museum-grade archival prints in limited runs of 10.</p>
+<button class="bg-black text-white px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-800 transition-colors">Request Catalog</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-white py-24 border-t border-black/5">
+<div class="max-w-[1440px] mx-auto px-6 md:px-12">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+<div>
+<h3 class="text-2xl font-bold tracking-tighter uppercase mb-4">Aperture Studio</h3>
+<p class="text-gray-500 text-sm max-w-xs leading-relaxed">High-end professional photography for editorial, commercial, and personal collection.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24">
+<div class="flex flex-col gap-4">
+<span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Social</span>
+<a class="text-sm font-medium hover:opacity-50 transition-opacity" href="#">Instagram</a>
+<a class="text-sm font-medium hover:opacity-50 transition-opacity" href="#">Behance</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Contact</span>
+<a class="text-sm font-medium hover:opacity-50 transition-opacity" href="mailto:hello@aperture.com">Email Us</a>
+<a class="text-sm font-medium hover:opacity-50 transition-opacity" href="#">WhatsApp</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Legal</span>
+<a class="text-sm font-medium hover:opacity-50 transition-opacity" href="#">Privacy</a>
+</div>
+</div>
+</div>
+<div class="mt-24 pt-8 border-t border-black/5 flex flex-col md:flex-row justify-between gap-4">
+<p class="text-[10px] text-gray-400 uppercase tracking-widest">© 2024 Aperture Studio. All Rights Reserved.</p>
+<p class="text-[10px] text-gray-400 uppercase tracking-widest">Minimalism as a Standard</p>
+</div>
+</div>
+</footer>
+<script>
+        function toggleDetail(id, element) {
+            // Close all other panels in the same grid if desired, 
+            // but for this design we'll allow multiple or focus on the current.
+            const panel = document.getElementById(id);
+            const isActive = panel.classList.contains('active');
+            // Remove active from all cards and panels first for a clean single-open behavior
+            document.querySelectorAll('.detail-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.animal-card').forEach(c => c.classList.remove('active'));
+            if (!isActive) {
+                panel.classList.add('active');
+                element.classList.add('active');
+                // Smooth scroll to the detail if it's off screen
+                setTimeout(() => {
+                    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 300);
+            }
+        }
+    </script>
+
+</body></html>

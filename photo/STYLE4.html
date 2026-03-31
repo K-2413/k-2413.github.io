@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#" onclick="downloadWithWatermark(event)">
+  ダウンロード
+</a>
+
+<script>
+function downloadWithWatermark(e) {
+  e.preventDefault();
+
+  const baseImage = new Image();
+  const watermark = new Image();
+
+  baseImage.src = "./img/animals-1.jpeg";
+  watermark.src = "./img/Kei.jpg";
+
+  baseImage.onload = () => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = baseImage.width;
+    canvas.height = baseImage.height;
+
+    // 元画像
+    ctx.drawImage(baseImage, 0, 0);
+
+    watermark.onload = () => {
+      const size = baseImage.width * 0.15; // 小さめ
+      const x = baseImage.width - size - 10;
+      const y = baseImage.height - size - 10;
+
+      ctx.globalAlpha = 0.3; // 薄くする
+      ctx.drawImage(watermark, x, y, size, size);
+
+      // ダウンロード
+      const link = document.createElement("a");
+      link.download = "image_with_watermark.jpg";
+      link.href = canvas.toDataURL("image/jpeg");
+      link.click();
+    };
+  };
+}
+</script>
+</body>
+</html>

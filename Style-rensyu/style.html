@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <title>写真</title>
+</head>
+<body>
+    <!-- Header -->
+     <header id="header">
+        <h1 class="site-title">
+            <a href="#">
+                My Portfolio
+            </a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#picture">写真</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#sns">SNS</a></li>
+                <li><a href="#profile">プロフィール</a></li>
+                <li><a href="#privacy policy">プライバシーポリシー</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+     </header>
+
+     <!-- Main -->
+      <div id="main">
+        <picture>
+            <source media="(max-width: 1060px)" srcset="img/style.jpg">
+            <img src="img/style.jpg" alt="">
+        </picture>
+      </div>
+
+      <!-- about -->
+       <section id="about" class="wrapper">
+        <h2 class="sec-title">About</h2>
+        <p>こちらのサイトでは私が撮った写真を紹介しています。</p>
+       </section>
+
+       <!-- picture -->
+        <section id="picture" class="wrapper">
+        <h2 class="sec-title">写真</h2>
+        <ul>
+            <li>
+                <img src="./img/style2.jpeg" alt="">
+                <span class="photo-text">動物</span>
+            </li>
+            <li>
+                <img src="./img/style3.jpeg" alt="">
+                <span class="photo-text">植物</span>
+            </li>
+            <li>
+                <img src="./img/style4.jpeg" alt="">
+                <span class="photo-text">風景</span>
+            </li>
+            <li>
+                <img src="./img/style5.jpeg" alt="">
+                <span class="photo-text">建物</span>
+            </li>
+            <li>
+                <img src="./img/style6.jpeg" alt="">
+                <span class="photo-text">食べ物</span>
+            </li>
+            <li>
+                <img src="./img/style7.jpeg" alt="">
+                <span class="photo-text">アート</span>
+            </li>
+            <li>
+                <img src="./img/style7.jpeg" alt="">
+                <span class="photo-text">夜景</span>
+            </li>
+        </ul>
+       </section>
+
+       <!-- news -->
+        <section id="news" class="wrapper">
+         <h2 class="sec-title">News</h2>
+         <dl>
+            <dt>2026/1/26</dt>
+            <dd>本サイトをリリースしました。</dd>
+            <dt>2026/1/26</dt>
+            <dd>本サイトをリリースしました。</dd>
+            <dt>2026/1/26</dt>
+            <dd>本サイトをリリースしました。</dd>
+            <dt>2026/1/26</dt>
+            <dd>本サイトをリリースしました。</dd>
+         </dl>
+        </section>
+
+        <!-- sns -->
+        <section id="sns" class="wrapper">
+         <h2 class="sec-title">SNS</h2>
+         <div class="sns-buttons">
+                <div class="sns-item">
+                    <a href="https://www.instagram.com/keisuke041003?igsh=MXhvaXJiMndpZWlscg%3D%3D&utm_source=qr" target="_blank" class="sns instagram">
+                        <img src="img/Instagram_Glyph_Gradient.svg" alt="">
+                    </a>
+                    <span class="sns-name">Instagram</span>
+                </div>
+
+                <div class="sns-item">
+                    <a href="https://x.com/ko2413_ja?s=21" target="_blank" class="sns twitter">
+                        <img src="img/logo-black.png" alt="">
+                    </a>
+                    <span class="sns-name">X</span>
+                </div>
+
+                <div class="sns-item">
+                    <a href="https://www.tiktok.com/@kei20041003" target="_blank" class="sns tiktok">
+                      <span class="sns-name-ti">TikTok</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- profile -->
+        <section id="profile" class="wrapper">
+         <h2 class="sec-title">プロフィール</h2>
+         <img src="./img/profile.jpeg" alt="">
+        </section>
+</body>
+</html>

@@ -34,7 +34,7 @@
           scroll-behavior: smooth;
         }
         body {
-          @apply bg-black text-white antialiased overflow-x-hidden;
+          @apply bg-white text-black antialiased overflow-x-hidden;
         }
       }
       .sticky-nav {
@@ -43,8 +43,8 @@
         z-index: 100;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        background-color: rgba(0, 0, 0, 0.8);
-        border-bottom: 1px solid rgba(249, 249, 249, 0.67);
+        background-color: rgba(255, 255, 255, 0.8);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       }
       .img-container {
         overflow: hidden;
@@ -72,28 +72,27 @@
         margin-bottom: 4rem;
       }
       .animal-card.active .img-container {
-        outline: 2px solid rgb(255, 255, 255);
+        outline: 2px solid black;
         outline-offset: 4px;
       }
 
       .page-link {
-        color: white;
+        color: #9ca3af;
         cursor: pointer;
         transition: all 0.3s;
       }
 
       .page-link:hover {
-        color: #9ca3af;
+        color: black;
       }
 
       .page-link.active {
-        color: #9ca3af;
-        border-bottom: 2px solid #9ca3af;
+        color: black;
+        border-bottom: 2px solid black;
         padding-bottom: 4px;
         transform: translateY(-3px);
       }
     </style>
-
     <style type="text/tailwindcss">
       @layer utilities {
         @keyframes floatFade {
@@ -136,14 +135,14 @@
         class="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between"
       >
         <a
-          class="text-xl font-bold tracking-tighter uppercase text-white"
+          class="text-xl font-bold tracking-tighter uppercase"
           href="index.html"
           >My portfolio</a
         >
-        <div class="hidden md:flex items-center gap-10 text-white">
+        <div class="hidden md:flex items-center gap-10">
           <a
-            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
-            href="animals.html"
+            class="text-xs font-bold uppercase tracking-widest border-b border-black pb-1"
+            href="#animals"
             >動物</a
           >
           <a
@@ -157,8 +156,8 @@
             >風景</a
           >
           <a
-            class="text-xs font-bold uppercase tracking-widest border-b border-white pb-1"
-            href="#food"
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="food.html"
             >食べ物</a
           >
           <a
@@ -178,27 +177,27 @@
               <!-- ラベル -->
               <button
                 id="otherToggle"
-                class="text-white hover:opacity-70 transition whitespace-nowrap"
+                class="text-black hover:opacity-70 transition whitespace-nowrap"
               >
                 その他 ▼
               </button>
 
               <ul
                 id="otherMenu"
-                class="absolute left-0 mt-2 hidden bg-black text-white shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl shadow-[8px_8px_25px_rgba(255,255,255,0.25)]"
+                class="absolute left-0 mt-2 hidden bg-white border text-black shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl"
               >
                 <li
-                  class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer rounded-tl-2xl rounded-tr-2xl"
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-tl-2xl rounded-tr-2xl"
                 >
                   <a href="profile.html">プロフィール</a>
                 </li>
                 <li
-                  class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer"
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer"
                 >
                   <a href="privacy-policy.html">プライバシーポリシー</a>
                 </li>
                 <li
-                  class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer rounded-bl-2xl rounded-br-2xl"
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-bl-2xl rounded-br-2xl"
                 >
                   <a href="#SNS">SNS</a>
                 </li>
@@ -206,36 +205,38 @@
             </div>
           </section>
         </div>
-        <section>
+        <div>
           <form id="form" class="relative">
             <span
-              class="absolute -top-3 left-0 text-[10px] font-bold uppercase tracking-[0.3em] text-white/50"
+              class="absolute -top-3 left-0 text-[10px] font-bold uppercase tracking-[0.3em] text-black/50"
             >
               Language
             </span>
+
             <select
               name="select"
               class="border-none bg-transparent text-xs font-bold tracking-widest hover:opacity-50 transition-opacity focus:outline-none"
             >
-              <option value="food.html" selected>日本語</option>
-              <option value="food-en.html">English</option>
+              <option value="animals.html" selected>日本語</option>
+              <option value="animals-en.html">English</option>
             </select>
           </form>
-        </section>
+        </div>
         <button
           id="mobileMenuButton"
-          class="text-xs font-bold uppercase tracking-widest border-b-2 border-white pb-1 md:hidden"
+          class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 md:hidden"
         >
           メニュー
         </button>
+
         <!-- Mobile Menu -->
         <div
           id="mobileMenu"
-          class="md:hidden absolute top-16 left-0 w-full bg-black border-t border-black/10 hidden flex flex-col items-center gap-6 px-6 py-8 text-white"
+          class="md:hidden absolute top-16 left-0 w-full bg-white border-t border-black/10 hidden flex flex-col items-center gap-6 px-6 py-8"
         >
           <a
-            class="text-xs font-bold uppercase tracking-widest"
-            href="animals.html"
+            class="text-xs font-bold uppercase tracking-widest border-b border-black pb-1"
+            href="#animals"
             >動物</a
           >
           <a
@@ -249,8 +250,8 @@
             >風景</a
           >
           <a
-            class="text-xs font-bold uppercase tracking-widest border-b border-white pb-1"
-            href="#food"
+            class="text-xs font-bold uppercase tracking-widest"
+            href="food.html"
             >食べ物</a
           >
           <a
@@ -270,27 +271,27 @@
               <!-- ラベル -->
               <button
                 id="otherToggleMobile"
-                class="text-white hover:opacity-70 transition whitespace-nowrap"
+                class="text-black hover:opacity-70 transition whitespace-nowrap"
               >
                 その他 ▼
               </button>
 
               <ul
                 id="otherMenuMobile"
-                class="mt-2 hidden bg-black text-white shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl shadow-[8px_8px_25px_rgba(255,255,255,0.25)]"
+                class="mt-2 hidden bg-white border text-black shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl"
               >
                 <li
-                  class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer rounded-tl-2xl rounded-tr-2xl"
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-tl-2xl rounded-tr-2xl"
                 >
                   <a href="profile.html">プロフィール</a>
                 </li>
                 <li
-                  class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer"
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer"
                 >
                   <a href="privacy-policy.html">プライバシーポリシー</a>
                 </li>
                 <li
-                  class="px-4 py-2 hover:bg-white hover:text-black cursor-pointer rounded-bl-2xl rounded-br-2xl"
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-bl-2xl rounded-br-2xl"
                 >
                   <a href="#SNS">SNS</a>
                 </li>
@@ -300,7 +301,7 @@
         </div>
       </div>
     </nav>
-    <header class="pt-24 pb-16 bg-black">
+    <header class="pt-24 pb-16 bg-white">
       <div class="max-w-[1440px] mx-auto px-6 md:px-12">
         <nav class="flex mb-8">
           <a
@@ -313,19 +314,22 @@
             >/</span
           >
           <span
-            class="text-[10px] font-bold uppercase tracking-[0.2em] text-white"
-            >食べ物</span
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-black"
+            >動物</span
           >
         </nav>
         <h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-8">
-          食べ物
+          動物
         </h1>
-        <p class="text-xl text-gray-500 max-w-2xl font-light leading-relaxed">
-          目で味わうことも、料理の大切な一部。色や質感、温度まで伝わるような一瞬を切り取りました。
+
+        <p
+          class="flex-1 text-xl text-gray-500 max-w-2xl font-light leading-relaxed"
+        >
+          生き物たちの一瞬の表情やしぐさを切り取りました。言葉を持たないからこそ伝わってくる、自然な感情やぬくもりを感じてください。
         </p>
       </div>
     </header>
-    <main class="pb-32 bg-black">
+    <main class="pb-32 bg-white">
       <div class="gallery-page" data-page="1">
         <div class="max-w-[1440px] mx-auto px-6 md:px-12">
           <div
@@ -333,7 +337,7 @@
             id="gallery-grid"
           >
             <div
-              class="animal-card group"
+              class="animal-card group relative"
               onclick="toggleDetail('detail-1', this)"
             >
               <div
@@ -342,7 +346,7 @@
                 <img
                   alt="Majestic feline in tall grass"
                   class="w-full h-full object-cover"
-                  src="./img/food-1.jpeg"
+                  src="./img/animals-1.jpeg"
                 />
                 <span
                   class="absolute top-3 right-3 text-red-500 font-bold text-sm"
@@ -356,12 +360,13 @@
                 >
                   NEW
                 </span>
+
                 <button
                   onclick="
                     event.stopPropagation();
-                    openModal('./img/food-1.jpeg');
+                    openModal('./img/animals-1.jpeg');
                   "
-                  class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1"
+                  class="absolute bottom-2 right-12 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 text-xs rounded-full flex items-center gap-1"
                 >
                   <span>拡大</span>
 
@@ -382,13 +387,13 @@
                 </button>
 
                 <a
-                  href="./img/food-1.jpeg"
+                  href="./img/animals-1.jpeg"
                   download
                   onclick="
                     downloadWithWatermark(event, this.href);
                     event.stopPropagation();
                   "
-                  class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center"
+                  class="absolute bottom-2 right-1 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 rounded-full flex items-center justify-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -405,834 +410,18 @@
                     />
                   </svg>
                 </a>
+
                 <div class="absolute bottom-3 left-2">
                   <span
-                    class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
+                    class="bg-white/60 hover:bg-white/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
                     >詳しく見る</span
                   >
                 </div>
               </div>
               <h3 class="font-semibold mt-3">
-                <span class="text-2xl">シーフードの鉄板焼き</span>
+                <span class="text-2xl">猫</span>
               </h3>
               <div class="detail-panel" id="detail-1">
-                <div
-                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
-                >
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      場所
-                    </h3>
-                    <p class="text-lg font-medium">越谷</p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      使用カメラ＆設定
-                    </h3>
-                    <p class="text-lg font-medium">
-                      iPhone 12<br />f/1.6,1/50,ISO 200
-                    </p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      ストーリー
-                    </h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                      越谷にある鉄板焼きのお店に行きました。そのまま焼いてくれる姿を見してくれました。すごっかたし、とても美味しかったです。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="animal-card group"
-              onclick="toggleDetail('detail-2', this)"
-            >
-              <div
-                class="img-container aspect-[16/10] bg-gray-100 rounded-2xl relative"
-              >
-                <img
-                  alt="Rare mountain species"
-                  class="w-full h-full object-cover"
-                  src="./img/food-2.jpeg"
-                />
-                <span
-                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
-                  style="
-                    text-shadow:
-                      -1px -1px 0 #000,
-                      1px -1px 0 #000,
-                      -1px 1px 0 #000,
-                      1px 1px 0 #000;
-                  "
-                >
-                  NEW
-                </span>
-                <button
-                  onclick="
-                    event.stopPropagation();
-                    openModal('./img/food-2.jpeg');
-                  "
-                  class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1"
-                >
-                  <span>拡大</span>
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
-                    />
-                  </svg>
-                </button>
-
-                <a
-                  href="./img/food-2.jpeg"
-                  download
-                  onclick="
-                    downloadWithWatermark(event, this.href);
-                    event.stopPropagation();
-                  "
-                  class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
-                    />
-                  </svg>
-                </a>
-                <div class="absolute bottom-3 left-2">
-                  <span
-                    class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
-                    >詳しく見る</span
-                  >
-                </div>
-              </div>
-              <h3 class="font-semibold mt-3">
-                <span class="text-2xl">天丼</span>
-              </h3>
-              <div class="detail-panel" id="detail-2">
-                <div
-                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
-                >
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      場所
-                    </h3>
-                    <p class="text-lg font-medium">浅草</p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      使用カメラ＆設定
-                    </h3>
-                    <p class="text-lg font-medium">
-                      iPhone16 pro max<br />f/1.78,1/50,ISO 200
-                    </p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      ストーリー
-                    </h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                      浅草にある大黒屋の天丼です。こちらの店は100年以上ある有名なお店です。私の曾おばあちゃんが大好きでお墓前りに行った後は必ず食べに行っています。とても美味しいですが2026年3月でなんと閉店だそうです。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="animal-card group md:col-span-2"
-              onclick="toggleDetail('detail-3', this)"
-            >
-              <div class="img-container aspect-[21/9] bg-gray-100 rounded-2xl">
-                <img
-                  alt="Majestic feline in tall grass"
-                  class="w-full h-full object-cover"
-                  src="./img/food-3.jpeg"
-                />
-                <span
-                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
-                  style="
-                    text-shadow:
-                      -1px -1px 0 #000,
-                      1px -1px 0 #000,
-                      -1px 1px 0 #000,
-                      1px 1px 0 #000;
-                  "
-                >
-                  NEW
-                </span>
-                <button
-                  onclick="
-                    event.stopPropagation();
-                    openModal('./img/food-3.jpeg');
-                  "
-                  class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1"
-                >
-                  <span>拡大</span>
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
-                    />
-                  </svg>
-                </button>
-
-                <a
-                  href="./img/food-3.jpeg"
-                  download
-                  onclick="
-                    downloadWithWatermark(event, this.href);
-                    event.stopPropagation();
-                  "
-                  class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
-                    />
-                  </svg>
-                </a>
-                <div class="absolute bottom-3 left-2">
-                  <span
-                    class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
-                    >詳しく見る</span
-                  >
-                </div>
-              </div>
-              <h3 class="font-semibold mt-3">
-                <span class="text-2xl">海鮮釜飯</span>
-              </h3>
-              <div class="detail-panel" id="detail-3">
-                <div
-                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
-                >
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      場所
-                    </h3>
-                    <p class="text-lg font-medium">浅草</p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      使用カメラ＆設定
-                    </h3>
-                    <p class="text-lg font-medium">
-                      iPhone 12<br />f/1.6,1/3,ISO 160
-                    </p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      ストーリー
-                    </h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                      こちらの食べ物は大黒屋が行けなかった場合に行きます。初めてこの時海鮮の釜飯を食べました。美味しかったです。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="animal-card group"
-              onclick="toggleDetail('detail-4', this)"
-            >
-              <div class="img-container aspect-square bg-gray-100 rounded-2xl">
-                <img
-                  alt="Majestic feline in tall grass"
-                  class="w-full h-full object-cover"
-                  src="./img/food-4.jpeg"
-                />
-                <span
-                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
-                  style="
-                    text-shadow:
-                      -1px -1px 0 #000,
-                      1px -1px 0 #000,
-                      -1px 1px 0 #000,
-                      1px 1px 0 #000;
-                  "
-                >
-                  NEW
-                </span>
-                <button
-                  onclick="
-                    event.stopPropagation();
-                    openModal('./img/food-4.jpeg');
-                  "
-                  class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1"
-                >
-                  <span>拡大</span>
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
-                    />
-                  </svg>
-                </button>
-
-                <a
-                  href="./img/food-4.jpeg"
-                  download
-                  onclick="
-                    downloadWithWatermark(event, this.href);
-                    event.stopPropagation();
-                  "
-                  class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
-                    />
-                  </svg>
-                </a>
-                <div class="absolute bottom-3 left-2">
-                  <span
-                    class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
-                    >詳しく見る</span
-                  >
-                </div>
-              </div>
-              <h3 class="font-semibold mt-3">
-                <span class="text-2xl">チキンカレー</span>
-              </h3>
-              <div class="detail-panel" id="detail-4">
-                <div
-                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
-                >
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      場所
-                    </h3>
-                    <p class="text-lg font-medium">広島</p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      使用カメラ＆設定
-                    </h3>
-                    <p class="text-lg font-medium">
-                      iPhone16 pro max<br />f/1.78,1/60,ISO 80
-                    </p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      ストーリー
-                    </h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                      こちらの写真は、広島へ旅行に行ったときに撮ったものです。
-                      旅先で食べるご飯って、それだけで特別に感じますよね。
-                      正直なところ、私はあまり味の違いがわかるタイプではなくて、いわゆる“グルメ”ではありません。どこで食べても美味しく感じてしまう、いわば得なタイプです。
-                      このときに食べたカレーも、そんな私にとってはやっぱり美味しくて、旅の思い出のひとつになっています。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="animal-card group"
-              onclick="toggleDetail('detail-5', this)"
-            >
-              <div class="img-container aspect-square bg-gray-100 rounded-2xl">
-                <img
-                  alt="Majestic feline in tall grass"
-                  class="w-full h-full object-cover"
-                  src="./img/food-5.jpeg"
-                />
-                <span
-                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
-                  style="
-                    text-shadow:
-                      -1px -1px 0 #000,
-                      1px -1px 0 #000,
-                      -1px 1px 0 #000,
-                      1px 1px 0 #000;
-                  "
-                >
-                  NEW
-                </span>
-                <button
-                  onclick="
-                    event.stopPropagation();
-                    openModal('./img/food-5.jpeg');
-                  "
-                  class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1"
-                >
-                  <span>拡大</span>
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
-                    />
-                  </svg>
-                </button>
-
-                <a
-                  href="./img/food-5.jpeg"
-                  download
-                  onclick="
-                    downloadWithWatermark(event, this.href);
-                    event.stopPropagation();
-                  "
-                  class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
-                    />
-                  </svg>
-                </a>
-                <div class="absolute bottom-3 left-2">
-                  <span
-                    class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
-                    >詳しく見る</span
-                  >
-                </div>
-              </div>
-              <h3 class="font-semibold mt-3">
-                <span class="text-2xl">お寿司</span>
-              </h3>
-              <div class="detail-panel" id="detail-5">
-                <div
-                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
-                >
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      場所
-                    </h3>
-                    <p class="text-lg font-medium">東京の駅内</p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      使用カメラ＆設定
-                    </h3>
-                    <p class="text-lg font-medium">
-                      iPhone 12<br />f/2.4,1/100,ISO 200
-                    </p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      ストーリー
-                    </h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                      こちらの写真は駅構内にある寿司屋です。回転寿司ではないお店で生臭さを感じない美味しさでした。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="animal-card group md:col-span-2"
-              onclick="toggleDetail('detail-6', this)"
-            >
-              <div class="img-container aspect-[21/9] bg-gray-100 rounded-2xl">
-                <img
-                  alt="Majestic feline in tall grass"
-                  class="w-full h-full object-cover"
-                  src="./img/food-9.jpeg"
-                />
-                <span
-                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
-                  style="
-                    text-shadow:
-                      -1px -1px 0 #000,
-                      1px -1px 0 #000,
-                      -1px 1px 0 #000,
-                      1px 1px 0 #000;
-                  "
-                >
-                  NEW
-                </span>
-                <button
-                  onclick="
-                    event.stopPropagation();
-                    openModal('./img/food-9.jpeg');
-                  "
-                  class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1"
-                >
-                  <span>拡大</span>
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
-                    />
-                  </svg>
-                </button>
-
-                <a
-                  href="./img/food-9.jpeg"
-                  download
-                  onclick="
-                    downloadWithWatermark(event, this.href);
-                    event.stopPropagation();
-                  "
-                  class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
-                    />
-                  </svg>
-                </a>
-                <div class="absolute bottom-3 left-2">
-                  <span
-                    class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
-                    >詳しく見る</span
-                  >
-                </div>
-              </div>
-              <h3 class="font-semibold mt-3">
-                <span class="text-2xl">抹茶パフェ</span>
-              </h3>
-              <div class="detail-panel" id="detail-6">
-                <div
-                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
-                >
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      場所
-                    </h3>
-                    <p class="text-lg font-medium">浅草</p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      使用カメラ＆設定
-                    </h3>
-                    <p class="text-lg font-medium">
-                      iPhone16 pro max<br />f/1.78,1/80,ISO 1138
-                    </p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      ストーリー
-                    </h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                      この写真はパフェです。大黒屋に行った後必ずデザートを食べるようにしています。こちらの食べ物もとても美味しかったです。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="animal-card group"
-              onclick="toggleDetail('detail-7', this)"
-            >
-              <div class="img-container aspect-square bg-gray-100 rounded-2xl">
-                <img
-                  alt="Majestic feline in tall grass"
-                  class="w-full h-full object-cover"
-                  src="./img/food-7.jpeg"
-                />
-                <span
-                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
-                  style="
-                    text-shadow:
-                      -1px -1px 0 #000,
-                      1px -1px 0 #000,
-                      -1px 1px 0 #000,
-                      1px 1px 0 #000;
-                  "
-                >
-                  NEW
-                </span>
-                <button
-                  onclick="
-                    event.stopPropagation();
-                    openModal('./img/food-7.jpeg');
-                  "
-                  class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1"
-                >
-                  <span>拡大</span>
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
-                    />
-                  </svg>
-                </button>
-
-                <a
-                  href="./img/food-7.jpeg"
-                  download
-                  onclick="
-                    downloadWithWatermark(event, this.href);
-                    event.stopPropagation();
-                  "
-                  class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
-                    />
-                  </svg>
-                </a>
-                <div class="absolute bottom-3 left-2">
-                  <span
-                    class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
-                    >詳しく見る</span
-                  >
-                </div>
-              </div>
-              <h3 class="font-semibold mt-3">
-                <span class="text-2xl">焼き鳥丼</span>
-              </h3>
-              <div class="detail-panel" id="detail-7">
-                <div
-                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
-                >
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      場所
-                    </h3>
-                    <p class="text-lg font-medium">銀座</p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      使用カメラ＆設定
-                    </h3>
-                    <p class="text-lg font-medium">
-                      iphone16 pro max<br />f/2.2,1/400,ISO 100
-                    </p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
-                    >
-                      ストーリー
-                    </h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                      銀座の焼き鳥丼を食べに行きました。初めての焼き鳥丼を食べました。私はネギが好きなので焼き鳥とネギのミックスが一番美味しかったです。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="animal-card group"
-              onclick="toggleDetail('detail-8', this)"
-            >
-              <div class="img-container aspect-square bg-gray-100 rounded-2xl">
-                <img
-                  alt="Majestic feline in tall grass"
-                  class="w-full h-full object-cover"
-                  src="./img/food-8.jpeg"
-                />
-                <span
-                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
-                  style="
-                    text-shadow:
-                      -1px -1px 0 #000,
-                      1px -1px 0 #000,
-                      -1px 1px 0 #000,
-                      1px 1px 0 #000;
-                  "
-                >
-                  NEW
-                </span>
-                <button
-                  onclick="
-                    event.stopPropagation();
-                    openModal('./img/food-8.jpeg');
-                  "
-                  class="absolute bottom-2 right-12 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 text-xs rounded-full flex items-center gap-1"
-                >
-                  <span>拡大</span>
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
-                    />
-                  </svg>
-                </button>
-
-                <a
-                  href="./img/food-8.jpeg"
-                  download
-                  onclick="
-                    downloadWithWatermark(event, this.href);
-                    event.stopPropagation();
-                  "
-                  class="absolute bottom-2 right-1 bg-black/60 hover:bg-black/80 backdrop-blur text-white px-3 py-2 rounded-full flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
-                    />
-                  </svg>
-                </a>
-                <div class="absolute bottom-3 left-2">
-                  <span
-                    class="bg-black/60 hover:bg-black/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
-                    >詳しく見る</span
-                  >
-                </div>
-              </div>
-              <h3 class="font-semibold mt-3">
-                <span class="text-2xl">シンプルネギ</span>
-              </h3>
-              <div class="detail-panel" id="detail-8">
                 <div
                   class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
                 >
@@ -1251,7 +440,129 @@
                       使用カメラ＆設定
                     </h3>
                     <p class="text-lg font-medium">
-                      iPhone16 pro max<br />f/2.2,1/125,ISO 30
+                      iPhone 12<br />f/1.6,1/50,ISO 500
+                    </p>
+                  </div>
+                  <!-- <div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">カメラ</h3>
+<p class="text-lg font-medium">iPhone 12</p>
+</div> -->
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      ストーリー
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                      私はペット（猫）を飼っています。家の中で美しく猫が座っていたのでiPhoneのカメラで撮りました。ポートレートで撮影したので美しく、背景もぼけて私にとって最高な写真です。方向的に右斜め下で撮りました。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="animal-card group"
+              onclick="toggleDetail('detail-2', this)"
+            >
+              <div
+                class="img-container aspect-[16/10] bg-gray-100 rounded-2xl relative"
+              >
+                <img
+                  alt="Rare mountain species"
+                  class="w-full h-full object-cover"
+                  src="./img/animals-2.jpeg"
+                />
+                <span
+                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                  style="
+                    text-shadow:
+                      -1px -1px 0 #000,
+                      1px -1px 0 #000,
+                      -1px 1px 0 #000,
+                      1px 1px 0 #000;
+                  "
+                >
+                  NEW
+                </span>
+                <button
+                  onclick="
+                    event.stopPropagation();
+                    openModal('./img/animals-2.jpeg');
+                  "
+                  class="absolute bottom-2 right-12 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 text-xs rounded-full flex items-center gap-1"
+                >
+                  <span>拡大</span>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
+                    />
+                  </svg>
+                </button>
+
+                <a
+                  href="./img/animals-2.jpeg"
+                  download
+                  onclick="
+                    downloadWithWatermark(event, this.href);
+                    event.stopPropagation();
+                  "
+                  class="absolute bottom-2 right-1 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 rounded-full flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
+                    />
+                  </svg>
+                </a>
+                <div class="absolute bottom-3 left-2">
+                  <span
+                    class="bg-white/60 hover:bg-white/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
+                    >詳しく見る</span
+                  >
+                </div>
+              </div>
+              <h3 class="font-semibold mt-3">
+                <span class="text-2xl">猫</span>
+              </h3>
+              <div class="detail-panel" id="detail-2">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
+                >
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      場所
+                    </h3>
+                    <p class="text-lg font-medium">神社</p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      使用カメラ＆設定
+                    </h3>
+                    <p class="text-lg font-medium">
+                      Canon EOS Kiss X4<br />f/5.6,1/125,ISO 640
                     </p>
                   </div>
                   <div>
@@ -1260,8 +571,706 @@
                     >
                       ストーリー
                     </h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                      私はネギが大好きなので茹でてそのまま食べてみました。辛味が無くてとても甘かったです。
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                      神社に居た猫が椅子に座っていて可愛いと思ったので一瞬を逃さずに撮りました。何枚のも写真を連写すると上の写真が出来上がりました！
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="animal-card group md:col-span-2"
+              onclick="toggleDetail('detail-3', this)"
+            >
+              <div class="img-container aspect-[21/9] bg-gray-100 rounded-2xl">
+                <img
+                  alt="Elephant herd crossing"
+                  class="w-full h-full object-cover"
+                  src="./img/animals-3.jpeg"
+                />
+                <span
+                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                  style="
+                    text-shadow:
+                      -1px -1px 0 #000,
+                      1px -1px 0 #000,
+                      -1px 1px 0 #000,
+                      1px 1px 0 #000;
+                  "
+                >
+                  NEW
+                </span>
+                <button
+                  onclick="
+                    event.stopPropagation();
+                    openModal('./img/animals-3.jpeg');
+                  "
+                  class="absolute bottom-2 right-12 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 text-xs rounded-full flex items-center gap-1"
+                >
+                  <span>拡大</span>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
+                    />
+                  </svg>
+                </button>
+
+                <a
+                  href="./img/animals-3.jpeg"
+                  download
+                  onclick="
+                    downloadWithWatermark(event, this.href);
+                    event.stopPropagation();
+                  "
+                  class="absolute bottom-2 right-1 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 rounded-full flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
+                    />
+                  </svg>
+                </a>
+                <div class="absolute bottom-3 left-2">
+                  <span
+                    class="bg-white/60 hover:bg-white/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
+                    >詳しく見る</span
+                  >
+                </div>
+              </div>
+              <h3 class="font-semibold mt-3">
+                <span class="text-2xl">カモ</span>
+              </h3>
+              <div class="detail-panel" id="detail-3">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
+                >
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      場所
+                    </h3>
+                    <p class="text-lg font-medium">越谷市花田苑</p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      使用カメラ＆設定
+                    </h3>
+                    <p class="text-lg font-medium">
+                      iPhone 16 pro max<br />f/2.8,1/104,ISO 50
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      ストーリー
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                      越谷市にある花田苑にお邪魔しました。カモは越谷で有名な鳥です。そんな鳥が美しい花田苑の池にいましたので何枚か写真を撮りました。その一枚です。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="animal-card group"
+              onclick="toggleDetail('detail-4', this)"
+            >
+              <div class="img-container aspect-square bg-gray-100 rounded-2xl">
+                <img
+                  alt="Tropical bird close-up"
+                  class="w-full h-full object-cover"
+                  src="./img/animals-4.jpeg"
+                />
+                <span
+                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                  style="
+                    text-shadow:
+                      -1px -1px 0 #000,
+                      1px -1px 0 #000,
+                      -1px 1px 0 #000,
+                      1px 1px 0 #000;
+                  "
+                >
+                  NEW
+                </span>
+                <button
+                  onclick="
+                    event.stopPropagation();
+                    openModal('./img/animals-4.jpeg');
+                  "
+                  class="absolute bottom-2 right-12 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 text-xs rounded-full flex items-center gap-1"
+                >
+                  <span>拡大</span>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
+                    />
+                  </svg>
+                </button>
+
+                <a
+                  href="./img/animals-4.jpeg"
+                  download
+                  onclick="
+                    downloadWithWatermark(event, this.href);
+                    event.stopPropagation();
+                  "
+                  class="absolute bottom-2 right-1 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 rounded-full flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
+                    />
+                  </svg>
+                </a>
+                <div class="absolute bottom-3 left-2">
+                  <span
+                    class="bg-white/60 hover:bg-white/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
+                    >詳しく見る</span
+                  >
+                </div>
+              </div>
+              <h3 class="font-semibold mt-3">
+                <span class="text-2xl">カラス</span>
+              </h3>
+              <div class="detail-panel" id="detail-4">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
+                >
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      場所
+                    </h3>
+                    <p class="text-lg font-medium">神社のそば</p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      使用カメラ＆設定
+                    </h3>
+                    <p class="text-lg font-medium">
+                      Canon EOS Kiss X4<br />f/4.5,1/400,ISO 250
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      ストーリー
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                      よくカラスが飛んでいる写真がありますよね。それを私も撮りたいと思い、カラスが多い神社のそばで撮ってみました。結構撮るのが難しかったです。
+                      ピントも画角も合わせるのが難しかったです。この写真が難易度が高かったです。コツとしては何十枚も写真を撮ることです。撮れば撮るほどその中の一枚が綺麗な写真になってると思います。私も何枚か撮って
+                      上の写真が撮れました。綺麗ですよね。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="animal-card group"
+              onclick="toggleDetail('detail-5', this)"
+            >
+              <div class="img-container aspect-square bg-gray-100 rounded-2xl">
+                <img
+                  alt="Tropical bird close-up"
+                  class="w-full h-full object-cover"
+                  src="./img/animals-7.jpeg"
+                />
+                <span
+                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                  style="
+                    text-shadow:
+                      -1px -1px 0 #000,
+                      1px -1px 0 #000,
+                      -1px 1px 0 #000,
+                      1px 1px 0 #000;
+                  "
+                >
+                  NEW
+                </span>
+                <button
+                  onclick="
+                    event.stopPropagation();
+                    openModal('./img/animals-7.jpeg');
+                  "
+                  class="absolute bottom-2 right-12 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 text-xs rounded-full flex items-center gap-1"
+                >
+                  <span>拡大</span>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
+                    />
+                  </svg>
+                </button>
+
+                <a
+                  href="./img/animals-7.jpeg"
+                  download
+                  onclick="
+                    downloadWithWatermark(event, this.href);
+                    event.stopPropagation();
+                  "
+                  class="absolute bottom-2 right-1 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 rounded-full flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
+                    />
+                  </svg>
+                </a>
+                <div class="absolute bottom-3 left-2">
+                  <span
+                    class="bg-white/60 hover:bg-white/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
+                    >詳しく見る</span
+                  >
+                </div>
+              </div>
+              <h3 class="font-semibold mt-3">
+                <span class="text-2xl">猫</span>
+              </h3>
+              <div class="detail-panel" id="detail-5">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
+                >
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      場所
+                    </h3>
+                    <p class="text-lg font-medium">私の家</p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      使用カメラ＆設定
+                    </h3>
+                    <p class="text-lg font-medium">
+                      iPhone 16 pro max<br />f/1.78,1/37,ISO 500
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      ストーリー
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                      1枚目に紹介した私が飼っている猫です。何枚か写真を撮っていたら耳をかいている瞬間が撮れました。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="animal-card group md:col-span-2"
+              onclick="toggleDetail('detail-6', this)"
+            >
+              <div class="img-container aspect-[21/9] bg-gray-100 rounded-2xl">
+                <img
+                  alt="Elephant herd crossing"
+                  class="w-full h-full object-cover"
+                  src="./img/animals-6.jpeg"
+                />
+                <span
+                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                  style="
+                    text-shadow:
+                      -1px -1px 0 #000,
+                      1px -1px 0 #000,
+                      -1px 1px 0 #000,
+                      1px 1px 0 #000;
+                  "
+                >
+                  NEW
+                </span>
+                <button
+                  onclick="
+                    event.stopPropagation();
+                    openModal('./img/animals-6.jpeg');
+                  "
+                  class="absolute bottom-2 right-12 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 text-xs rounded-full flex items-center gap-1"
+                >
+                  <span>拡大</span>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
+                    />
+                  </svg>
+                </button>
+
+                <a
+                  href="./img/animals-6.jpeg"
+                  download
+                  onclick="
+                    downloadWithWatermark(event, this.href);
+                    event.stopPropagation();
+                  "
+                  class="absolute bottom-2 right-1 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 rounded-full flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
+                    />
+                  </svg>
+                </a>
+                <div class="absolute bottom-3 left-2">
+                  <span
+                    class="bg-white/60 hover:bg-white/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
+                    >詳しく見る</span
+                  >
+                </div>
+              </div>
+              <h3 class="font-semibold mt-3">
+                <span class="text-2xl">カラス</span>
+              </h3>
+              <div class="detail-panel" id="detail-6">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
+                >
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      場所
+                    </h3>
+                    <p class="text-lg font-medium">ある建物の屋根</p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      使用カメラ＆設定
+                    </h3>
+                    <p class="text-lg font-medium">
+                      iPhone 16 pro max<br />f/2.8,1/1650,ISO 50
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      ストーリー
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                      4枚目紹介したカラスは飛んでいる時でしたが、今回は屋根の上に静止しているカラスを撮りました。最大ズームで撮ったので画質は悪いですがまあまあ綺麗に撮れました。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="animal-card group"
+              onclick="toggleDetail('detail-7', this)"
+            >
+              <div class="img-container aspect-square bg-gray-100 rounded-2xl">
+                <img
+                  alt="Tropical bird close-up"
+                  class="w-full h-full object-cover"
+                  src="./img/animals-8.jpeg"
+                />
+                <span
+                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                  style="
+                    text-shadow:
+                      -1px -1px 0 #000,
+                      1px -1px 0 #000,
+                      -1px 1px 0 #000,
+                      1px 1px 0 #000;
+                  "
+                >
+                  NEW
+                </span>
+                <button
+                  onclick="
+                    event.stopPropagation();
+                    openModal('./img/animals-8.jpeg');
+                  "
+                  class="absolute bottom-2 right-12 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 text-xs rounded-full flex items-center gap-1"
+                >
+                  <span>拡大</span>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
+                    />
+                  </svg>
+                </button>
+
+                <a
+                  href="./img/animals-8.jpeg"
+                  download
+                  onclick="
+                    downloadWithWatermark(event, this.href);
+                    event.stopPropagation();
+                  "
+                  class="absolute bottom-2 right-1 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 rounded-full flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
+                    />
+                  </svg>
+                </a>
+                <div class="absolute bottom-3 left-2">
+                  <span
+                    class="bg-white/60 hover:bg-white/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
+                    >詳しく見る</span
+                  >
+                </div>
+              </div>
+              <h3 class="font-semibold mt-3">
+                <span class="text-2xl">うさぎ</span>
+              </h3>
+              <div class="detail-panel" id="detail-7">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
+                >
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      場所
+                    </h3>
+                    <p class="text-lg font-medium">動物園</p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      使用カメラ＆設定
+                    </h3>
+                    <p class="text-lg font-medium">
+                      iPhone 12<br />f/1.6,1/121,ISO 40
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      ストーリー
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                      こちらはうさぎの写真です。水を飲んでいる姿が可愛くて一枚の写真として撮影しました。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="animal-card group"
+              onclick="toggleDetail('detail-8', this)"
+            >
+              <div class="img-container aspect-square bg-gray-100 rounded-2xl">
+                <img
+                  alt="Tropical bird close-up"
+                  class="w-full h-full object-cover"
+                  src="./img/animals-9.jpeg"
+                />
+                <span
+                  class="absolute top-3 right-3 text-red-500 font-bold text-sm"
+                  style="
+                    text-shadow:
+                      -1px -1px 0 #000,
+                      1px -1px 0 #000,
+                      -1px 1px 0 #000,
+                      1px 1px 0 #000;
+                  "
+                >
+                  NEW
+                </span>
+                <button
+                  onclick="
+                    event.stopPropagation();
+                    openModal('./img/animals-9.jpeg');
+                  "
+                  class="absolute bottom-2 right-12 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 text-xs rounded-full flex items-center gap-1"
+                >
+                  <span>拡大</span>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 15l6 6m-6-6A7 7 0 1 0 5 5a7 7 0 0 0 10 10z"
+                    />
+                  </svg>
+                </button>
+
+                <a
+                  href="./img/animals-9.jpeg"
+                  download
+                  onclick="
+                    downloadWithWatermark(event, this.href);
+                    event.stopPropagation();
+                  "
+                  class="absolute bottom-2 right-1 bg-white/60 hover:bg-white/80 backdrop-blur text-black px-3 py-2 rounded-full flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 3v12m0 0l4-4m-4 4l-4-4M5 21h14"
+                    />
+                  </svg>
+                </a>
+                <div class="absolute bottom-3 left-2">
+                  <span
+                    class="bg-white/60 hover:bg-white/80 backdrop-blur px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full"
+                    >詳しく見る</span
+                  >
+                </div>
+              </div>
+              <h3 class="font-semibold mt-3">
+                <span class="text-2xl">リス</span>
+              </h3>
+              <div class="detail-panel" id="detail-8">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-black/10"
+                >
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      場所
+                    </h3>
+                    <p class="text-lg font-medium">動物園</p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      使用カメラ＆設定
+                    </h3>
+                    <p class="text-lg font-medium">
+                      iPhone 12<br />f/1.6,1/121,ISO 64
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4"
+                    >
+                      ストーリー
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                      こちらの写真はリスです。一生懸命に柵を登っていたので写真を撮りました。
                     </p>
                   </div>
                 </div>
@@ -1305,7 +1314,7 @@
         </nav>
       </div>
     </main>
-    <footer class="bg-black py-24 border-t border-white/5">
+    <footer class="bg-white py-24 border-t border-black/5">
       <div class="max-w-[1440px] mx-auto px-6 md:px-12">
         <div
           class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12"
@@ -1435,6 +1444,45 @@
         }
       }
 
+      //   const button = document.getElementById("mobileMenuButton");
+      //   const menu = document.getElementById("mobileMenu");
+      //   const otherToggle = document.getElementById("otherToggle");
+      //   const otherMenu = document.getElementById("otherMenu");
+
+      //   const otherToggleMobile = document.getElementById("otherToggleMobile");
+      //   const otherMenuMobile = document.getElementById("otherMenuMobile");
+
+      //   const form = document.getElementById("form");
+
+      //   button.addEventListener("click", () => {
+      //     menu.classList.toggle("hidden");
+      //   });
+
+      //   mobileButton.addEventListener("click", () => {
+      //     mobileMenu.classList.toggle("hidden");
+      //   });
+
+      //   // 言語切り替え
+      //   if (form) {
+      //     form.elements.select.onchange = function () {
+      //       location.href = this.value;
+      //     };
+      //   }
+
+      //   // PC「その他」
+      //   if (otherToggle && otherMenu) {
+      //     otherToggle.addEventListener("click", () => {
+      //       otherMenu.classList.toggle("hidden");
+      //     });
+      //   }
+
+      //   // モバイル「その他」
+      //   if (otherToggleMobile && otherMenuMobile) {
+      //     otherToggleMobile.addEventListener("click", () => {
+      //       otherMenuMobile.classList.toggle("hidden");
+      //     });
+      // }
+
       const mobileButton = document.getElementById("mobileMenuButton");
       const mobileMenu = document.getElementById("mobileMenu");
 
@@ -1446,7 +1494,6 @@
 
       const form = document.getElementById("form");
       const mobileMenuLinks = mobileMenu.querySelectorAll("a");
-
       function showPage(page) {
         const pages = document.querySelectorAll(".gallery-page");
         const links = document.querySelectorAll(".page-link");
@@ -1471,7 +1518,6 @@
 
         window.scrollTo(0, 0);
       }
-
       // モバイルメニュー
       mobileButton.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Landscapes Category Gallery View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d121b] dark:text-white transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-[#e7ebf3] dark:border-[#2d3748] bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:px-10 py-4">
+<div class="max-w-[1200px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2 group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<span class="text-sm font-medium">Back to Collections</span>
+</a>
+</div>
+<div class="flex items-center gap-4">
+<h2 class="text-lg font-bold tracking-tight">Photography Portfolio</h2>
+</div>
+<div class="flex gap-4 items-center">
+<button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-[1200px] mx-auto py-12 px-4 md:px-10">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 mb-6 text-sm">
+<a class="text-primary hover:underline" href="#">Portfolio</a>
+<span class="text-gray-400">/</span>
+<span class="text-gray-500 dark:text-gray-400">Collections</span>
+<span class="text-gray-400">/</span>
+<span class="font-semibold text-[#0d121b] dark:text-white">Landscapes</span>
+</nav>
+<!-- Page Heading -->
+<div class="mb-12">
+<h1 class="text-5xl md:text-6xl font-black tracking-tighter mb-4 text-[#0d121b] dark:text-white">Landscapes</h1>
+<p class="max-w-2xl text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
+                    A curated selection of high-resolution nature and wilderness photography, capturing the raw beauty of earth's most remote environments.
+                </p>
+</div>
+<!-- Image Gallery Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Gallery Item 1 -->
+<div class="group relative flex flex-col gap-4">
+<div class="overflow-hidden rounded-xl bg-gray-200 dark:bg-gray-800 aspect-[4/3] cursor-pointer ring-1 ring-black/5">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Majestic snowy mountain peak at sunrise" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA42Ygf7j2GFfIoiwoSoRuyVt8x3PG0_3wu4e9lCDU9KjCMteeJIgs2NuRpRaOG22FBMvJ7W3vFXR_pDPFkCDUPoRlgXNZOBkXZp-Yq_8d7BzazEbtdW4CK5PvBfo-Tip3ua1vOUGXwPIjabPlszg7ci6ZOnMTh1wF2mMnldDTJDh7_XW_J9c10iEk3SZ7xJrypIEXxj5NHxewZ9BFTE6kshFxwlXg8Av1J7CJYXvR-T4YhQA_2qo8n_vSuULkb1SbTuIw5f7OOum_9");'>
+</div>
+</div>
+<details class="group/detail border-b border-[#e7ebf3] dark:border-[#2d3748] pb-4">
+<summary class="flex list-none cursor-pointer items-center justify-between">
+<h3 class="font-semibold text-base">Alpenglow Heights</h3>
+<span class="material-symbols-outlined text-primary group-open/detail:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm animate-in fade-in duration-300">
+<div class="space-y-2">
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Location</span>
+<span class="font-medium">Swiss Alps</span>
+</div>
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Settings</span>
+<span class="font-medium">f/11, 1/125, ISO 100</span>
+</div>
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Camera</span>
+<span class="font-medium">Sony A7R IV</span>
+</div>
+</div>
+<div class="text-gray-500 dark:text-gray-400 leading-normal">
+<p class="font-medium text-[#0d121b] dark:text-white mb-1">The Story</p>
+                                Reached the summit just before dawn. The moment the first light touched the peaks, everything turned a brilliant rose gold. A silence that felt physical.
+                            </div>
+</div>
+</details>
+</div>
+<!-- Gallery Item 2 -->
+<div class="group relative flex flex-col gap-4">
+<div class="overflow-hidden rounded-xl bg-gray-200 dark:bg-gray-800 aspect-[4/3] cursor-pointer ring-1 ring-black/5">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Misty pine forest in early morning light" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuClxACqd6nqAq_QFfJRfLkuqn-8cqRPvf_gi-_C-oPgavTPfljOrLMPjf97IDGXG2-6BesilXA2_no3r4JbpsldZuTtNPD2qQfYH2ZFcdT2svQfWUfPwqHCqtZgOLsO5rTjq05v053WnCDwJFCHqJip3jAAYj86nmJjG92mFuorTKcLqftCe-eHGIPwO8kq_uQY185C-ODIyxUmA3EoByQvhdKsKzq5_bVUiUm8DxBY-DdU38QSNit8a6a0bgOWZofLJoOJalxn-guu");'>
+</div>
+</div>
+<details class="group/detail border-b border-[#e7ebf3] dark:border-[#2d3748] pb-4">
+<summary class="flex list-none cursor-pointer items-center justify-between">
+<h3 class="font-semibold text-base">Silent Woods</h3>
+<span class="material-symbols-outlined text-primary group-open/detail:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+<div class="space-y-2">
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Location</span>
+<span class="font-medium">Oregon, USA</span>
+</div>
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Settings</span>
+<span class="font-medium">f/4, 1/60, ISO 400</span>
+</div>
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Camera</span>
+<span class="font-medium">Canon EOS R5</span>
+</div>
+</div>
+<div class="text-gray-500 dark:text-gray-400 leading-normal">
+<p class="font-medium text-[#0d121b] dark:text-white mb-1">The Story</p>
+                                Woke up to a heavy fog rolling through the valley. The way the light filters through the ancient Douglas firs creates a cathedral-like atmosphere.
+                            </div>
+</div>
+</details>
+</div>
+<!-- Gallery Item 3 -->
+<div class="group relative flex flex-col gap-4">
+<div class="overflow-hidden rounded-xl bg-gray-200 dark:bg-gray-800 aspect-[4/3] cursor-pointer ring-1 ring-black/5">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Crashing ocean waves on rocky shore" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC6dsTIUZ6aCS4FQ1MWe5zRoMq24k4-j3cTS3HLna1ySIzicO42iugD5uWonhgdtHUXg_q5LRZ-6N7tMaGoHEFHeS14-jKgDxLuDz5YYRLQidUFf9mo1s1kEkkMM4VoxR8CL4Iu5hmbGB9y3Ean1HZr4-_HwWDSPqm4h_iQlx0AFTGVqayr-lYcucSFOR9YMNCws5AVSUSSMNsEbRX6WHTux5qJaEsXd3NSol_59RVFKb3XHYZLbKSnHjhs5JfHPNqR5LcJJyJ1PfXu");'>
+</div>
+</div>
+<details class="group/detail border-b border-[#e7ebf3] dark:border-[#2d3748] pb-4">
+<summary class="flex list-none cursor-pointer items-center justify-between">
+<h3 class="font-semibold text-base">Basalt Pulse</h3>
+<span class="material-symbols-outlined text-primary group-open/detail:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+<div class="space-y-2">
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Location</span>
+<span class="font-medium">Vík, Iceland</span>
+</div>
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Settings</span>
+<span class="font-medium">f/16, 1.5s, ISO 100</span>
+</div>
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Camera</span>
+<span class="font-medium">Nikon Z7 II</span>
+</div>
+</div>
+<div class="text-gray-500 dark:text-gray-400 leading-normal">
+<p class="font-medium text-[#0d121b] dark:text-white mb-1">The Story</p>
+                                Long exposure shot capturing the retreat of the North Atlantic waves over the iconic black sand. The basalt columns provided the perfect anchor for this composition.
+                            </div>
+</div>
+</details>
+</div>
+<!-- Gallery Item 4 -->
+<div class="group relative flex flex-col gap-4">
+<div class="overflow-hidden rounded-xl bg-gray-200 dark:bg-gray-800 aspect-[4/3] cursor-pointer ring-1 ring-black/5">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Arid desert dunes under clear blue sky" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHnr-KT8nQTSvPd750SDwmR1MNlyyIBLIIjEXQspiHp2MVJgtQj3x1toR4vm7oLTNotKLY0Dv-Z-WaD7IzliNBPxx-6j0zN3gf2Q-vQyZXogyyNochBPjq2fkqFflQNteWAMSnEl-b8DxNzsKTFPqYz6eYlXCS5TIuQ7C5d0HMJpTBHBsBuag-JDYUy7ldVATaPiPgfZUEqZrzl22g67TsvEEzPb4frNY1rayaAoptWs-ipaUHzJJPwOGIthwPubX55FGfSUMB-A-N");'>
+</div>
+</div>
+<details class="group/detail border-b border-[#e7ebf3] dark:border-[#2d3748] pb-4">
+<summary class="flex list-none cursor-pointer items-center justify-between">
+<h3 class="font-semibold text-base">Gilded Sands</h3>
+<span class="material-symbols-outlined text-primary group-open/detail:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+<div class="space-y-2">
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Location</span>
+<span class="font-medium">Namibia</span>
+</div>
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Settings</span>
+<span class="font-medium">f/8, 1/500, ISO 200</span>
+</div>
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Camera</span>
+<span class="font-medium">Fuji GFX 100S</span>
+</div>
+</div>
+<div class="text-gray-500 dark:text-gray-400 leading-normal">
+<p class="font-medium text-[#0d121b] dark:text-white mb-1">The Story</p>
+                                The shadows at 4 PM in the Namib desert create abstract shapes that look almost alien. This shot captures the intersection of two massive dunes.
+                            </div>
+</div>
+</details>
+</div>
+<!-- Gallery Item 5 -->
+<div class="group relative flex flex-col gap-4">
+<div class="overflow-hidden rounded-xl bg-gray-200 dark:bg-gray-800 aspect-[4/3] cursor-pointer ring-1 ring-black/5">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Calm lake reflecting autumn trees" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_JdmkgIjLKqaY7pM-gpCQ6i9yr2G76ZD9p2W1zjnXW2fa_8ZogapIUbiKfE8zFKn-LD8zMboB9XVPwMzayJ-cWuusAXuLWxM1xfZPWmoRa2-ZJLrOGg-geAWGe1-_CRXabM8wZmQm_H9x0FnjLNfOvtcH1KKYUTYbnzqEkGJWfh98GpHljJ2epQWopuw0Gm6uQFBKlEwhpMunIFl1lZrN2nGTPYKW_bJgoZ46-Sfc64UAVKn2qu2VuJxG6lyPc_1OOB-Mei-_Ngir");'>
+</div>
+</div>
+<details class="group/detail border-b border-[#e7ebf3] dark:border-[#2d3748] pb-4">
+<summary class="flex list-none cursor-pointer items-center justify-between">
+<h3 class="font-semibold text-base">Mirror of Autumn</h3>
+<span class="material-symbols-outlined text-primary group-open/detail:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+<div class="space-y-2">
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Location</span>
+<span class="font-medium">Lake District, UK</span>
+</div>
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Settings</span>
+<span class="font-medium">f/9, 1/30, ISO 100</span>
+</div>
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Camera</span>
+<span class="font-medium">Sony A7R IV</span>
+</div>
+</div>
+<div class="text-gray-500 dark:text-gray-400 leading-normal">
+<p class="font-medium text-[#0d121b] dark:text-white mb-1">The Story</p>
+                                A perfectly still morning allowed for a near-perfect reflection. The vibrant oranges and reds of the falling leaves provided a stark contrast to the deep blue water.
+                            </div>
+</div>
+</details>
+</div>
+<!-- Gallery Item 6 -->
+<div class="group relative flex flex-col gap-4">
+<div class="overflow-hidden rounded-xl bg-gray-200 dark:bg-gray-800 aspect-[4/3] cursor-pointer ring-1 ring-black/5">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-105" data-alt="Vibrant aurora borealis over snowy landscape" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8cCn_yxQ8AMTaxhDKrS3lcEFYwhGoAMpUrz2gs5rfVRiedsynPu5q7tDBH_Iu7uzHdXm5-nX5k1Wfeb6qWCGYuKcA_e97C9INKIiOrKcoa9HXcs0M5wPOJQhGvzQSR4Sk1v7KPYcjk4X4HIrYHCXk6HS1hTQhtIv4Aw0XB9gZ4QoVmOV6SJ5LvOiQw4qW5zj4-zKD53uQVEpmVq_kQHV1v5gRIPpQmy8_XvqDEH2_4sVFGUIRt0NhTqm95EmXVtA056e43gkceY-C");'>
+</div>
+</div>
+<details class="group/detail border-b border-[#e7ebf3] dark:border-[#2d3748] pb-4">
+<summary class="flex list-none cursor-pointer items-center justify-between">
+<h3 class="font-semibold text-base">Celestial Dance</h3>
+<span class="material-symbols-outlined text-primary group-open/detail:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+<div class="space-y-2">
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Location</span>
+<span class="font-medium">Lofoten, Norway</span>
+</div>
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Settings</span>
+<span class="font-medium">f/2.8, 8s, ISO 3200</span>
+</div>
+<div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+<span class="text-gray-500">Camera</span>
+<span class="font-medium">Sony A1</span>
+</div>
+</div>
+<div class="text-gray-500 dark:text-gray-400 leading-normal">
+<p class="font-medium text-[#0d121b] dark:text-white mb-1">The Story</p>
+                                After three nights of waiting in sub-zero temperatures, the sky finally erupted. This frame captures the peak intensity of a KP5 solar event.
+                            </div>
+</div>
+</details>
+</div>
+</div>
+<!-- Load More Section -->
+<div class="mt-20 flex justify-center">
+<button class="px-8 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full font-semibold text-sm hover:border-primary hover:text-primary transition-all duration-300">
+                    Load More Landscapes
+                </button>
+</div>
+</main>
+<!-- Minimal Footer -->
+<footer class="w-full border-t border-[#e7ebf3] dark:border-[#2d3748] py-12 px-4 md:px-10 mt-12 bg-white dark:bg-background-dark">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">camera</span>
+<span class="font-bold text-sm tracking-widest uppercase">Perspective Studio</span>
+</div>
+<div class="flex gap-8 text-xs font-medium text-gray-400 uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="hover:text-primary transition-colors" href="#">Behance</a>
+<a class="hover:text-primary transition-colors" href="#">Twitter</a>
+<a class="hover:text-primary transition-colors" href="#">Email</a>
+</div>
+<div class="text-xs text-gray-400">
+                    © 2024 Perspective Studio. All rights reserved.
+                </div>
+</div>
+</footer>
+</div>
+</body></html>

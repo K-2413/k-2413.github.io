@@ -1,0 +1,321 @@
+html {
+    font-size: 100%;
+
+}
+
+body {
+    color: #24292e;
+    font-family: "Sawarabi Gothic";
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 0 auto 130px auto;
+    font-size: 0.9rem;
+    padding: 0 4%;
+}
+
+.site-title {
+    line-height: 1px;
+    font-weight: 600;
+    font-size: 2.4rem;
+}
+
+.site-title a {
+    color: #24292e;
+}
+
+.sec-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+/*header*/
+#header {
+    max-width: 960px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 4%;
+    height: 170px;
+}
+
+#header ul {
+    display: flex;
+    padding: 10px 0;
+    align-items: center;
+}
+
+#header ul li {
+    font-size: 0.6rem;
+    margin-left: 20px;
+}
+
+#header ul li a {
+    color: #24292e;
+    white-space: nowrap;
+    transition: all 0.3s;
+    font-size: 0.6rem;
+}
+
+#header ul li a:hover {
+   opacity: 0.5;
+}
+
+#main {
+    margin-bottom: 80px;
+}
+
+/* Main */
+#main img {
+    width: 100%;
+    max-width: 1920px;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* about */
+
+
+/* picture */
+#picture ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 23px;
+
+    grid-template-areas:
+        ". one ."
+        "two three four"
+        "five six seven";
+    
+    margin-bottom: 50px;
+}
+
+#picture ul li {
+    width: 100%;
+    position: relative;
+}
+
+
+#picture ul li:nth-child(1) { grid-area: one; }
+#picture ul li:nth-child(2) { grid-area: two; }
+#picture ul li:nth-child(3) { grid-area: three; }
+#picture ul li:nth-child(4) { grid-area: four; }
+#picture ul li:nth-child(5) { grid-area: five; }
+#picture ul li:nth-child(6) { grid-area: six; }
+#picture ul li:nth-child(7) { grid-area: seven; }
+
+#picture ul li img {
+    width: 100%;
+    border-radius: 15px;
+    display: block;
+    filter: brightness(0.65) saturate(0.8) contrast(1.1);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#picture ul li img:hover {
+    transform: scale(1.2, 1.2);
+    opacity: 0.7;
+}
+
+.photo-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+
+    padding: 0.4em 0.5em;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+
+    border-radius: 8px;
+
+    pointer-events: none;
+    text-shadow: none;
+    -webkit-text-stroke: 0.5px #000;
+
+}
+
+/* news */
+#news dl {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #c8c8c8;
+    margin-bottom: 20px;
+}
+
+#news dt {
+    width: 20%;
+    border-bottom: 1px solid #c8c8c8;
+    padding: 15px;
+}
+
+#news dd {
+    width: 80%;
+    border-bottom: 1px solid #c8c8c8;
+    padding: 15px;
+}
+
+/* sns */
+.sns-buttons {
+  display: flex;               /* 横並び */
+  gap: 50px;                   /* アイコン間の間隔 */
+  justify-content: center;     /* 横中央 */
+  margin-top: 10px;
+  flex-wrap: nowrap;
+}
+
+/* SNSアイコン＋名前を縦に */
+.sns-item {
+  position: relative;
+  width: 60px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 丸ボタン */
+.sns {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.sns img {
+    width: 35px;
+    display: block;
+}
+
+/* SNS名 */
+.sns-name {
+  margin-top: 40px;
+  font-size: 15px;
+  color: #000;
+  display: block;
+  line-height: 1;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.sns-name-ti {
+  display: inline-block;   /* 背景を文字サイズに合わせる */
+  background-color: #000;  /* 黒背景 */
+  color: #fff;             /* 白文字 */
+  padding: 8px 16px;       /* 余白 */
+  text-align: center;      /* 文字を中央 */
+  font-weight: bold;
+}
+
+/* SNSごとの色 */
+.sns.instagram { background-color: #ffffff; }
+.sns.tiktok { background-color: #ffffff; }
+.sns.twitter { background-color: #ffffff; }
+
+/* profile */
+#profile img {
+    width: 40%;
+    border-radius: 50%;
+}
+
+/*sp*/
+@media screen and (max-width: 700px) {
+    .site-title {
+        margin-top: 20px;
+    }
+    /*header*/
+    #header {
+        flex-direction: column;
+        height: auto;
+        line-height: 40px;
+        margin-top: 20px;
+    }
+
+    #header li {
+        font-size: 0.1rem;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+
+    /* picture */
+    #picture ul {
+        display: block;   /* ← gridを解除 */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #picture ul li {
+        margin-bottom: 23px;
+        flex: none;
+    }
+
+    #header ul li a {
+        font-size: 0.5rem;
+    }
+
+    .photo-text {
+        font-size: 1.5rem;
+        text-shadow: none;
+    -webkit-text-stroke: 0.2px #000;
+    }
+
+    /* news */
+    #news dl {
+        flex-direction: column;
+    }
+
+    #news dt {
+        width: 100%;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    #news dd {
+        width: 100%;
+        padding-top: 0;
+    }
+
+    
+}

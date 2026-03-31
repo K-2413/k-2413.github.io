@@ -1,0 +1,228 @@
+/* 共通 */
+body {
+  background: #000;
+  color: #fff;
+  margin: 0;
+  padding: 40px;
+  font-family: sans-serif;
+}
+
+.item {
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+
+/* 写真エリア */
+.photo-area {
+  float: left;
+  width: 40%;
+  max-width: 400px;
+  margin-right: 40px;
+}
+
+.photo-area h1 {
+    font-size: 30px;
+}
+
+.photo-area img {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+}
+
+.photo-title {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* テキスト */
+.text-area h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 12px;
+  color: #ffffff;/*文字色*/
+  padding: 0.5em 0;/*上下の余白*/
+}
+
+.text-area h2 span {
+  display: inline-block;
+  padding: 0.5em 0;
+  border-top: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
+}
+
+/*.text-area h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;   /* ← 文字の長さ＝線の長さ 
+  height: 2px;
+  background: #fff;
+} */
+
+.text-area p {
+  line-height: 1.8;
+}
+
+/* 4.抵抗器の役割の見出しを写真の下・左端に出す */
+.text-area h2:nth-of-type(4) {
+  clear: both;
+  display: block;
+}
+
+.box-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .box-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0;
+  }
+}
+
+.role-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* 写真エリア */
+
+.role-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.image-box {
+  position: relative; /* ← absoluteの基準 */
+}
+
+.image-box img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+.image-box .zoom-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.image-box .zoom-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+.role-images img {
+  width: 100%;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.zoom-icon {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 5;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.zoom-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+
+.box29 {
+    margin: 1em 0;
+    background: #454545;
+}
+.box29 .box-title {
+    font-size: 1.2em;
+    background: #222323;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.box29 p {
+    padding: 15px 20px;
+    margin: 0;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+
+.modal .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* スマホ版 */
+@media (max-width: 768px) {
+  .photo-area {
+    float: none;
+    width: 100%;
+    margin: 0 0 20px;
+  }
+
+  .text-area {
+    width: 100%;
+  }
+
+  .role-layout {
+    grid-template-columns: 1fr;
+  }
+  
+
+  .role-images {
+    grid-template-columns: 1fr;
+  }
+
+  .image-box .zoom-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+}

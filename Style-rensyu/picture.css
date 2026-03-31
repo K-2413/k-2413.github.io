@@ -1,0 +1,401 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Scroll snap */
+html {
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  font-family: "ABeeZee", sans-serif;
+  overflow-x: hidden
+}
+
+/* ===== 1画面 ===== */
+.screen {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* 横中央 */
+  justify-content: flex-start; /* 上寄せ */
+  padding-top: 120px;      /* 上の余白 */
+}
+
+/* 配色 */
+.screen-white {
+  background: #fff;
+  color: #000;
+}
+.screen-black {
+  background: #000;
+  color: #fff;
+}
+.screen-black a { color: #fff; }
+.screen-white a { color: #000; }
+
+/* ===== HEADER（PCが基本） ===== */
+.header-layout {
+  width: 100%;
+  padding: 0 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;   /* ← 重要 */
+  min-height: calc(100vh - 120px); /* ← screenのpadding分を引く */
+}
+
+/* 左（タイトル＋ナビ） */
+.header-left {
+  width: 40%;
+  align-self: flex-start;
+}
+
+.site-title {
+  margin-top: 150px;  
+  font-size: 50px;
+  font-family: "Bakbak One", sans-serif;
+  text-align: center;
+}
+
+.nav {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center; /* ← タイトル中央 */
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.nav-sp {
+  display: none; /* スマホ用は隠す */
+}
+
+/* 右（写真） */
+/* .header-right {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;     
+} */
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-img {
+  width: 500px;
+  max-width: 90%;
+}
+
+.section-title {
+  font-size: 48px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* PCではスライドを消す */
+.gallery-sp {
+  display: none;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 40px 30px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 上段：3枚（12 ÷ 3 = 4） */
+.gallery figure:nth-child(1),
+.gallery figure:nth-child(2),
+.gallery figure:nth-child(3) {
+  grid-column: span 4;
+}
+
+/* 下段：4枚（12 ÷ 4 = 3） */
+.gallery figure:nth-child(n+4) {
+  grid-column: span 3;
+}
+
+.gallery figure {
+  text-align: center;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.gallery figcaption {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.sns-buttons {
+  display: flex;
+  justify-content: center;   /* 横方向の中央 */
+  align-items: center;       /* 縦方向の中央（アイコン高さが違う時） */
+  gap: 50px;
+  margin: 10px auto;         /* コンテナ自体も中央 */
+  width: fit-content;        /* 中身の幅に合わせる */
+}
+
+/* SNSアイコン＋名前を縦に */
+.sns-item {
+  position: relative;
+  width: 60px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 丸ボタン */
+.sns {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.sns img {
+    width: 35px;
+    display: block;
+}
+
+/* SNS名 */
+.sns-name {
+  margin-top: 40px;
+  font-size: 15px;
+  color: #000;
+  display: block;
+  line-height: 1;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.sns-name-ti {
+  display: inline-block;   /* 背景を文字サイズに合わせる */
+  background-color: #000;  /* 黒背景 */
+  color: #fff;             /* 白文字 */
+  padding: 8px 16px;       /* 余白 */
+  text-align: center;      /* 文字を中央 */
+  font-weight: bold;
+}
+
+/* SNSごとの色 */
+.sns.instagram { background-color: #ffffff; }
+.sns.tiktok { background-color: #ffffff; }
+.sns.twitter { background-color: #ffffff; }
+
+@media (min-width: 769px) {
+  .header-right {
+  position: relative;
+}
+
+.header-img {
+  position: absolute;
+  right: 100px;
+  top: -800px;
+  transform: scale(0.8);
+}
+}
+
+
+/* ===== 📱 スマホ用 ===== */
+@media (max-width: 768px) {
+
+  .header-layout {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%;
+    text-align: center;
+  }
+  
+
+  .site-title {
+    font-size: 64px;
+    margin-top: 0;
+  }
+
+  /* 出し分け */
+  .nav-pc {
+    display: none;
+  }
+
+  .nav-sp {
+    display: flex;
+    margin-top: 30px; /* 写真の下 */
+  }
+
+  .header-img {
+  max-width: 100%;
+  margin-top: 30px;
+}
+
+  .nav-pc {
+  display: none; /* スマホ用は隠す */
+}
+
+body {
+    overflow-x: hidden;
+  }
+
+  .gallery-pc {
+    display: none;
+  }
+
+  .gallery-sp {
+    display: block;
+    width: 100%;
+  }
+
+  .gallery-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* radioは隠す */
+  .gallery-slider input {
+    display: none;
+  }
+
+  /* スライド本体 */
+  .slides {
+    display: flex;
+    width: 700%;
+    transition: transform 0.5s ease;
+  }
+
+  .slides figure {
+    width: calc(100% / 7);
+    flex-shrink: 0;
+    text-align: center;
+  }
+
+  .slides img {
+  width: 80%;          /* ← ここを小さく */
+  margin: 0 auto;      /* 中央寄せ */
+  display: block;
+}
+
+  /* 写真の上の名前 */
+  .title {
+    margin-bottom: 12px;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+  }
+
+  /* スライド位置制御 */
+  #s1:checked ~ .slides { transform: translateX(0%); }
+  #s2:checked ~ .slides { transform: translateX(-14.285%); }
+  #s3:checked ~ .slides { transform: translateX(-28.57%); }
+  #s4:checked ~ .slides { transform: translateX(-42.855%); }
+  #s5:checked ~ .slides { transform: translateX(-57.14%); }
+  #s6:checked ~ .slides { transform: translateX(-71.425%); }
+  #s7:checked ~ .slides { transform: translateX(-85.71%); }
+
+  /* 矢印 */
+  .arrows {
+    position: absolute;
+    top: 50%;
+    inset-inline: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    transform: translateY(-50%);
+    pointer-events: auto;
+  }
+
+  
+
+  .arrows label {
+    pointer-events: auto;
+    width: 30px;
+    height: 30px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    cursor: pointer;
+  }
+
+  .prev {
+    transform: rotate(-135deg);
+  }
+
+  .next {
+    transform: rotate(45deg);
+  }
+
+  /* ドット */
+  .dots {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .dots label {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #aaa;
+    cursor: pointer;
+  }
+
+  #s1:checked ~ .dots label:nth-child(1),
+  #s2:checked ~ .dots label:nth-child(2),
+  #s3:checked ~ .dots label:nth-child(3),
+  #s4:checked ~ .dots label:nth-child(4),
+  #s5:checked ~ .dots label:nth-child(5),
+  #s6:checked ~ .dots label:nth-child(6),
+  #s7:checked ~ .dots label:nth-child(7) {
+    background: #000;
+  }
+
+  .arrows button {
+  background: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+
+#prev {
+  transform: rotate(-135deg);
+}
+
+#next {
+  transform: rotate(45deg);
+}
+
+}

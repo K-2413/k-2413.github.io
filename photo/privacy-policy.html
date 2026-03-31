@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aperture | Photography Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000000",
+                        "accent": "#0066cc",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                @apply bg-white text-black antialiased overflow-x-hidden;
+            }
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-section {
+            height: 90vh;
+            min-height: 600px;
+        }
+        .img-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .img-container img {
+            transition: transform 1.2s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+        .img-container:hover img {
+            transform: scale(1.05);
+        }
+        .category-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 50%);
+        }
+    </style>
+</head>
+<body>
+<nav class="sticky-nav">
+      <div
+        class="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between"
+      >
+        <a
+          class="text-xl font-bold tracking-tighter uppercase"
+          href="index.html"
+          >My portfolio</a
+        >
+        <div class="hidden md:flex items-center gap-10">
+          <a
+            class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="animals."
+            >動物</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="plants.html"
+            >植物</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="landscape.html"
+            >風景</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="food.html"
+            >食べ物</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="building.html"
+            >建物</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="night-views.html"
+            >夜景</a
+          >
+          <section>
+            <div
+              class="relative inline-block text-xs font-bold uppercase tracking-widest"
+            >
+              <!-- ラベル -->
+              <button
+                id="otherToggle"
+                class="text-black hover:opacity-70 transition whitespace-nowrap"
+              >
+                その他 ▼
+              </button>
+
+              <ul
+                id="otherMenu"
+                class="absolute left-0 mt-2 hidden bg-white border text-black shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl"
+              >
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-tl-2xl rounded-tr-2xl"
+                >
+                  <a href="profile.html">プロフィール</a>
+                </li>
+                <li
+                  class="px-4 py-2 bg-black text-white cursor-pointer"
+                >
+                  <a href="#privacy-policy">プライバシーポリシー</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-bl-2xl rounded-br-2xl"
+                >
+                  <a href="#SNS">SNS</a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+        <div>
+          <form id="form" class="relative">
+            <span
+              class="absolute -top-3 left-0 text-[10px] font-bold uppercase tracking-[0.3em] text-black/50"
+            >
+              Language
+            </span>
+
+            <select
+              name="select"
+              class="border-none bg-transparent text-xs font-bold tracking-widest hover:opacity-50 transition-opacity focus:outline-none"
+            >
+              <option value="privacy-policy.html" selected>日本語</option>
+              <option value="privacy-policy-en.html">English</option>
+            </select>
+          </form>
+        </div>
+        <button
+          id="mobileMenuButton"
+          class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 md:hidden"
+        >
+          メニュー
+        </button>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobileMenu"
+          class="md:hidden absolute top-16 left-0 w-full bg-white border-t border-black/10 hidden flex flex-col items-center gap-6 px-6 py-8"
+        >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="animals.html"
+            >動物</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="plants.html"
+            >植物</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="landscape.html"
+            >風景</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="food.html"
+            >食べ物</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="building.html"
+            >建物</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="night-views.html"
+            >夜景</a
+          >
+          <section>
+            <div
+              class="relative inline-block text-xs font-bold uppercase tracking-widest"
+            >
+              <!-- ラベル -->
+              <button
+                id="otherToggleMobile"
+                class="text-black hover:opacity-70 transition whitespace-nowrap"
+              >
+                その他 ▼
+              </button>
+
+              <ul
+                id="otherMenuMobile"
+                class="mt-2 hidden bg-white border text-black shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl"
+              >
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-tl-2xl rounded-tr-2xl"
+                >
+                  <a href="profile.html">プロフィール</a>
+                </li>
+                <li
+                  class="px-4 py-2 bg-black text-white cursor-pointer"
+                >
+                  <a href="#privacy-policy">プライバシーポリシー</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-bl-2xl rounded-br-2xl"
+                >
+                  <a href="#SNS">SNS</a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </nav>
+
+<header class="pt-24 pb-16 bg-white">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <nav class="flex mb-8">
+          <a
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors"
+            href="index.html"
+            >ポートフォリオ</a
+          >
+          <span
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 mx-3"
+            >/</span
+          >
+          <span
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-black"
+            >プライバシーポリシー</span
+          >
+        </nav>
+        <h1 class="text-5xl md:text-8xl font-bold tracking-tighter mb-8">
+          プライバシーポリシー
+        </h1>
+      </div>
+    </header>
+
+  <section class="max-w-3xl mx-auto px-6 md:px-0 py-16 text-black">
+
+  <div class="space-y-12">
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4 border-b border-black/20 pb-2">
+        個人情報の利用目的
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-700">
+        当サイトでは、お問い合わせの際に、名前やメールアドレス等の個人情報を入力いただく場合があります。
+        取得した個人情報は、お問い合わせへの対応のみに利用し、それ以外の目的では利用いたしません。
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4 border-b border-black/20 pb-2">
+        広告について
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-700 mb-2">
+        当サイトでは、第三者配信の広告サービス「Google AdSense」を利用する予定です。
+        Googleなどの広告配信事業者は、ユーザーの興味に応じた広告を表示するためにCookieを使用することがあります。
+      </p>
+      <p class="text-sm leading-relaxed text-gray-700">
+        Cookieを無効にする設定およびGoogle AdSenseに関する詳細は、
+        「広告 – ポリシーと規約」をご確認ください。
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4 border-b border-black/20 pb-2">
+        アクセス解析ツールについて
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-700">
+        当サイトでは、サイトの分析と改善のためにアクセス解析ツールを使用する場合があります。
+        これらのツールはトラフィックデータの収集のためにCookieを使用することがありますが、
+        個人を特定するものではありません。
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4 border-b border-black/20 pb-2">
+        免責事項
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-700">
+        当サイトに掲載する情報は、可能な限り正確な情報を掲載するよう努めていますが、
+        内容の正確性や安全性を保証するものではありません。
+        当サイトの情報によって生じた損害等の責任は負いかねますのでご了承ください。
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4 border-b border-black/20 pb-2">
+        著作権について
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-700">
+        当サイトに掲載している写真・文章の著作権は、運営者に帰属します。
+        無断転載・使用を禁止します。
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4 border-b border-black/20 pb-2">
+        お問い合わせ
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-700">
+        当サイトへのお問い合わせは、
+        <a href="mailto:okeisuke2004@gmail.com?subject=お問い合わせ&body=ホームページを見て連絡しました。以下に内容をお書き下さい."
+          class="text-blue-600 underline hover:opacity-70">
+          こちら
+        </a>
+        からお願いいたします。
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="bg-white py-24 border-t border-black/5">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12"
+        >
+          <div>
+            <h3 class="text-3xl font-black tracking-tighter uppercase mb-6">
+              私のポートフォリオ
+            </h3>
+            <p class="text-gray-500 text-base max-w-xs font-light">
+              編集用および個人コレクション用のハイエンドなプロフェッショナル写真。
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24">
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+              >
+                <section id="SNS">SNS</section>
+              </span>
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="https://x.com/ko2413_ja?s=21"
+                >X(旧Twitter)</a
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="https://www.tiktok.com/@kei1620041003?_r=1&_t=ZS-94nH3ROm7bY"
+                >TikTok</a
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="https://www.instagram.com/keisuke041003?igsh=MXhvaXJiMndpZWlscg%3D%3D&utm_source=qr"
+                >Instagram</a
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+                >お問い合わせ</span
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="mailto:keiweb.contact04@gmail.com?subject=お問い合わせ&body=ホームページを見て連絡しました。以下に内容をお書き下さい."
+                >メール</a
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+                >プロフィール</span
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="profile.html"
+                >私について</a
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+                >法律</span
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="privacy-policy.html"
+                >Privacy</a
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-24 pt-8 border-t border-black/5 flex flex-col items-center gap-4"
+        >
+          <img
+            src="./img/Kei.jpg"
+            alt="プロフィール写真"
+            class="w-20 h-20 rounded-xs object-cover"
+          />
+
+          <p class="text-xs text-gray-400 uppercase tracking-widest">
+            © 2026 私のポートフォリオ
+          </p>
+        </div>
+      </div>
+    </footer>
+
+<script>
+  const mobileButton = document.getElementById("mobileMenuButton");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  const otherToggle = document.getElementById("otherToggle");
+  const otherMenu = document.getElementById("otherMenu");
+
+  const otherToggleMobile = document.getElementById("otherToggleMobile");
+  const otherMenuMobile = document.getElementById("otherMenuMobile");
+
+  const form = document.getElementById("form");
+
+  // モバイルメニュー
+  mobileButton.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  // 言語切り替え
+  if (form) {
+    form.elements.select.onchange = function () {
+      location.href = this.value;
+    };
+  }
+
+  // PC「その他」
+  if (otherToggle && otherMenu) {
+    otherToggle.addEventListener("click", () => {
+      otherMenu.classList.toggle("hidden");
+    });
+  }
+
+  // モバイル「その他」
+  if (otherToggleMobile && otherMenuMobile) {
+    otherToggleMobile.addEventListener("click", () => {
+      otherMenuMobile.classList.toggle("hidden");
+    });
+  }
+</script>
+</body></html>

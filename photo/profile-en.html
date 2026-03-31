@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>私のポートフォリオ</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#000000",
+              accent: "#0066cc",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        html {
+          scroll-behavior: smooth;
+        }
+        body {
+          @apply bg-white text-black antialiased overflow-x-hidden;
+        }
+      }
+      .sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        background-color: rgba(255, 255, 255, 0.85);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .hero-section {
+        height: 90vh;
+        min-height: 600px;
+      }
+      .img-container {
+        overflow: hidden;
+        position: relative;
+      }
+      .img-container img {
+        transition: transform 1.2s cubic-bezier(0.2, 0, 0.2, 1);
+      }
+      .img-container:hover img {
+        transform: scale(1.05);
+      }
+      .category-overlay {
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.4) 0%,
+          rgba(0, 0, 0, 0) 50%
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="sticky-nav">
+      <div
+        class="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between"
+      >
+        <a
+          class="text-xl font-bold tracking-tighter uppercase"
+          href="index-en.html"
+          >My portfolio</a
+        >
+        <div class="hidden md:flex items-center gap-10">
+          <a
+            class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="animals-en.html"
+            >ANIMALS</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="plants-en.html"
+            >PLANTS</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="landscape-en.html"
+            >LANDSCAPE</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="food-en.html"
+            >FOOD</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="building-en.html"
+            >BUILDING</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="night-views-en.html"
+            >NIGHT VIEWS</a
+          >
+          <section>
+            <div
+              class="relative inline-block text-xs font-bold uppercase tracking-widest"
+            >
+              <!-- ラベル -->
+              <button
+                id="otherToggle"
+                class="text-black hover:opacity-70 transition whitespace-nowrap"
+              >
+                OTHERS ▼
+              </button>
+
+              <ul
+                id="otherMenu"
+                class="absolute left-0 mt-2 hidden bg-white border text-black shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl"
+              >
+                <li
+                  class="px-4 py-2 bg-black text-white cursor-pointer rounded-tl-2xl rounded-tr-2xl"
+                >
+                  <a href="profile-en.html">PROFILE</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer"
+                >
+                  <a href="privacy-policy-en.html">PRIVACY POLICY</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-bl-2xl rounded-br-2xl"
+                >
+                  <a href="#SNS">SNS</a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+        <section>
+          <form id="form" class="relative">
+            <span
+              class="absolute -top-3 left-0 text-[10px] font-bold uppercase tracking-[0.3em] text-black/50"
+            >
+              Language
+            </span>
+            <select
+              name="select"
+              class="border-none bg-transparent text-xs font-bold tracking-widest hover:opacity-50 transition-opacity focus:outline-none"
+            >
+              <option value="profile-en.html" selected>English</option>
+              <option value="profile.html">日本語</option>
+            </select>
+          </form>
+        </section>
+        <button
+          id="mobileMenuButton"
+          class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 md:hidden"
+        >
+          MENU
+        </button>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobileMenu"
+          class="md:hidden absolute top-16 left-0 w-full bg-white border-t border-black/10 hidden flex flex-col items-center gap-6 px-6 py-8"
+        >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="animals-en.html"
+            >ANIMALS</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="plants-en.html"
+            >PLANTS</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="landscape-en.html"
+            >LANDSCAPE</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="food-en.html"
+            >FOOD</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="building-en.html"
+            >BUILDING</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="night-views-en.html"
+            >NIGHT VIEWS</a
+          >
+          <section>
+            <div
+              class="relative inline-block text-xs font-bold uppercase tracking-widest"
+            >
+              <!-- ラベル -->
+              <button
+                id="otherToggleMobile"
+                class="text-black hover:opacity-70 transition whitespace-nowrap"
+              >
+                OTHERS ▼
+              </button>
+
+              <ul
+                id="otherMenuMobile"
+                class="mt-2 hidden bg-white border text-black shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl"
+              >
+                <li
+                  class="px-4 py-2 bg-black text-white cursor-pointer rounded-tl-2xl rounded-tr-2xl"
+                >
+                  <a href="profile-en.html">PROFILE</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer"
+                >
+                  <a href="privacy-policy-en.html">PRIVACY POLICY</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-bl-2xl rounded-br-2xl"
+                >
+                  <a href="#SNS">SNS</a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </nav>
+    <header class="pt-24 pb-16 bg-white">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <nav class="flex mb-8">
+          <a
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors"
+            href="index-en.html"
+            >PORTFOLIO</a
+          >
+          <span
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 mx-3"
+            >/</span
+          >
+          <span
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-black"
+            >PROFILE</span
+          >
+        </nav>
+        <h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-8">
+          PROFILE
+        </h1>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="pt-1 pb-4 max-w-[1200px] mx-auto px-6">
+      <!-- Profile Header Section / Split Hero -->
+      <section
+        class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start mb-32"
+      >
+        <!-- Left Side: Large Portrait -->
+        <div class="lg:col-span-5">
+          <div class="relative group">
+            <div
+              class="aspect-[4/5] bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.01]"
+            >
+              <img
+                alt="Portrait of Elara Vance"
+                class="w-full h-full object-cover"
+                data-alt="Modern professional portrait of a female photographer"
+                src="./img/profile-picture.jpeg"
+              />
+            </div>
+            <div class="absolute -bottom-6 -right-6 hidden lg:block">
+              <div class="bg-primary text-white p-6 rounded-xl shadow-lg">
+                <span class="material-symbols-outlined text-4xl"
+                  >photo_camera</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right Side: Bio & Identity -->
+        <div class="lg:col-span-7 pt-4">
+          <div class="space-y-8">
+            <div>
+              <!-- <span class="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-4 block">Editorial &amp; Fine Art Photographer</span> -->
+              <h2
+                class="text-4xl lg:text-4xl font-bold tracking-tighter mb-6 leading-[1.1]"
+              >
+                NAME：Kei
+              </h2>
+              <p
+                class="text-xl text-gray-500 dark:text-gray-400 font-light leading-relaxed max-w-xl"
+              >
+                Wow, I created and launched my first website, and it was really
+                hard work! However, it was fun, and I think I've created a good
+                website that reflects my personality. Originally, I was in the
+                Electronic and Mechanical Engineering department at a technical
+                high school. The Electronic and Mechanical Engineering
+                department is a department where you can learn about
+                "mechanics," "electricity," and "information" in a broad but
+                shallow way. I was particularly good at electricity. Electricity
+                has two aspects: "high-voltage electricity" from power plants to
+                household outlets, and "low-voltage electricity" from outlets to
+                electronic devices (smartphones, computers, etc.). Of these, I
+                liked "semiconductors," which are low-voltage electricity. But
+                what inspired me to create this website, or rather, to pursue
+                information technology, was Apple's official website. Its
+                simplicity and ease of use really impressed me. Since then, I've
+                been slowly learning HTML and CSS. My ultimate goal is to create
+                "the best website in the world."
+              </p>
+
+              <h2
+                class="text-4xl lg:text-4xl font-bold tracking-tighter mb-6 leading-[1.1] mt-5"
+              >
+                Hobby
+              </h2>
+              <p
+                class="text-xl text-gray-500 dark:text-gray-400 font-light leading-relaxed max-w-xl"
+              >
+                Website creation, photography and videography, editing.
+              </p>
+
+              <h2
+                class="text-4xl lg:text-4xl font-bold tracking-tighter mb-6 leading-[1.1] mt-5"
+              >
+                Purpose of publishing this website
+              </h2>
+              <p
+                class="text-xl text-gray-500 dark:text-gray-400 font-light leading-relaxed max-w-xl"
+              >
+                I enjoy taking photos, and I wanted to share and show them to
+                everyone, so I've made them public. I'm confident in my photos,
+                so please take a look!
+              </p>
+            </div>
+            <!-- <div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-white px-8 py-4 rounded-lg font-bold text-sm tracking-wide shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-transform">
+                            Book a Session
+                        </button>
+<button class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-8 py-4 rounded-lg font-bold text-sm tracking-wide hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                            Download Portfolio
+                        </button>
+</div> -->
+            <!-- <div class="pt-12 grid grid-cols-2 gap-8 border-t border-gray-100 dark:border-gray-800">
+<div>
+<h4 class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Location</h4>
+<p class="text-sm font-medium">San Francisco, CA</p>
+</div>
+<div>
+<h4 class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Experience</h4>
+<p class="text-sm font-medium">12+ Years Professional</p>
+</div>
+</div> -->
+          </div>
+        </div>
+      </section>
+      <!-- Philosophy Section -->
+      <section class="max-w-4xl mx-auto mb-32 text-center">
+        <h3
+          class="text-2xl font-bold uppercase tracking-[0.3em] text-primary mb-8"
+        >
+          Philosophy
+        </h3>
+        <div class="relative inline-block">
+          <blockquote
+            class="text-3xl lg:text-4xl font-light italic leading-snug text-gray-800"
+          >
+            "Design isn't just about how it looks or feels. Design is about "how it functions.""
+          </blockquote>
+
+          <span class="absolute -bottom-6 right-0 text-sm text-gray-500">
+            by Steve Jobs
+          </span>
+        </div>
+        <div class="mt-8 flex justify-center gap-2">
+          <div class="h-1 w-12 bg-primary rounded-full"></div>
+        </div>
+      </section>
+      <!-- Equipment & Achievements Section -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <!-- Selected Kit -->
+        <div class="space-y-8">
+          <div class="flex items-center gap-4">
+            <h3 class="text-[22px] font-bold tracking-tight">
+              The camera you are using, your smartphone camera
+            </h3>
+            <div class="h-px flex-1 bg-gray-100 dark:bg-gray-800"></div>
+          </div>
+          <div class="space-y-6">
+            <div class="flex items-start gap-5">
+              <div
+                class="size-10 flex items-center justify-center rounded-lg bg-gray-50 dark:bg-gray-800/50 text-primary"
+              >
+                <span class="material-symbols-outlined">camera</span>
+              </div>
+              <div>
+                <h5 class="font-bold text-sm">Canon EOS Kiss X4</h5>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  I mainly use it when I want to take portraits.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-5">
+              <div
+                class="size-10 flex items-center justify-center rounded-lg bg-gray-50 dark:bg-gray-800/50 text-primary"
+              >
+                <span class="material-symbols-outlined">Smartphone</span>
+              </div>
+              <div>
+                <h5 class="font-bold text-sm">iPhone 16 pro max</h5>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  I mainly use it when I want to take overall photos or videos.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-5">
+              <div
+                class="size-10 flex items-center justify-center rounded-lg bg-gray-50 dark:bg-gray-800/50 text-primary"
+              >
+                <span class="material-symbols-outlined">Smartphone</span>
+              </div>
+              <div>
+                <h5 class="font-bold text-sm">iPhone 12</h5>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  I'm using it as a secondary device.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Achievements -->
+        <div class="space-y-8">
+          <div class="flex items-center gap-4">
+            <h3 class="text-[22px] font-bold tracking-tight">SNS</h3>
+            <div class="h-px flex-1 bg-gray-100 dark:bg-gray-800"></div>
+          </div>
+          <div class="grid grid-cols-1 gap-4">
+            <div
+              class="p-6 rounded-xl border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-colors group"
+            >
+              <div class="flex justify-between items-center">
+                <div>
+                  <h5 class="font-bold text-base">Instagram</h5>
+                  <p
+                    class="text-xs text-gray-400 uppercase tracking-widest mt-1"
+                  >
+                    username:keisuke041003
+                  </p>
+                </div>
+                <span
+                  class="material-symbols-outlined text-gray-300 group-hover:text-primary transition-colors"
+                >
+                  <img
+                    src="./img/Instagram_Glyph_Gradient.png"
+                    alt=""
+                    class="w-10 h-10 bg-black rounded-xl p-1"
+                  />
+                </span>
+              </div>
+            </div>
+            <div
+              class="p-6 rounded-xl border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-colors group"
+            >
+              <div class="flex justify-between items-center">
+                <div>
+                  <h5 class="font-bold text-base">X oldTwitter</h5>
+                  <p
+                    class="text-xs text-gray-400 uppercase tracking-widest mt-1"
+                  >
+                    username:ko2413_ja
+                  </p>
+                </div>
+                <span
+                  class="material-symbols-outlined text-gray-300 group-hover:text-primary transition-colors"
+                >
+                  <img
+                    src="./img/logo-white.png"
+                    alt=""
+                    class="w-10 h-10 bg-black rounded-xl p-1"
+                  />
+                </span>
+              </div>
+            </div>
+            <a
+              href="https://www.tiktok.com/@kei1620041003?_r=1&_t=ZS-94nH3ROm7bY"
+              ><div
+                class="p-6 rounded-xl border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-colors group"
+              >
+                <div class="flex justify-between items-center">
+                  <div>
+                    <h5 class="font-bold text-base">TikTok</h5>
+                    <p class="text-xs text-gray-400 tracking-widest mt-1">
+                      username:kei1620041003
+                    </p>
+                  </div>
+                  <p
+                    class="w-10 h-10 bg-black text-white rounded-xl flex items-center justify-center text-xs font-bold"
+                  >
+                    TikTok
+                  </p>
+                </div>
+              </div></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-white py-24 border-t border-black/5">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12"
+        >
+          <div>
+            <h3 class="text-3xl font-black tracking-tighter uppercase mb-6">
+              my portfolio
+            </h3>
+            <p class="text-gray-500 text-base max-w-xs font-light">
+              High-end professional photography for editorial and personal
+              collections.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24">
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+              >
+                <section id="SNS">SNS</section>
+              </span>
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="https://x.com/ko2413_ja?s=21"
+                >X(old Twitter)</a
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="https://www.tiktok.com/@kei1620041003?_r=1&_t=ZS-94nH3ROm7bY"
+                >TikTok</a
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="https://www.instagram.com/keisuke041003?igsh=MXhvaXJiMndpZWlscg%3D%3D&utm_source=qr"
+                >Instagram</a
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+                >contact</span
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="mailto:keiweb.contact04@gmail.com?subject=I contacted you after seeing your website. Please write your details below."
+                >mail</a
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+                >profile</span
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="profile-en.html"
+                >About me</a
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+                >Legal</span
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="privacy-policy-en.html"
+                >Privacy</a
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-24 pt-8 border-t border-black/5 flex flex-col items-center gap-4"
+        >
+          <img
+            src="./img/Kei.jpg"
+            alt="プロフィール写真"
+            class="w-20 h-20 rounded-xs object-cover"
+          />
+
+          <p class="text-xs text-gray-400 uppercase tracking-widest">
+            © 2026 my portfplio
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const mobileButton = document.getElementById("mobileMenuButton");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      const otherToggle = document.getElementById("otherToggle");
+      const otherMenu = document.getElementById("otherMenu");
+
+      const otherToggleMobile = document.getElementById("otherToggleMobile");
+      const otherMenuMobile = document.getElementById("otherMenuMobile");
+
+      const form = document.getElementById("form");
+      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+
+      // モバイルメニュー
+      mobileButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // 言語切り替え
+      if (form) {
+        form.elements.select.onchange = function () {
+          location.href = this.value;
+        };
+      }
+
+      // PC「その他」
+      if (otherToggle && otherMenu) {
+        otherToggle.addEventListener("click", () => {
+          otherMenu.classList.toggle("hidden");
+        });
+      }
+
+      // モバイル「その他」
+      if (otherToggleMobile && otherMenuMobile) {
+        otherToggleMobile.addEventListener("click", () => {
+          otherMenuMobile.classList.toggle("hidden");
+        });
+      }
+
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          // メインのモバイルメニューを閉じる
+          mobileMenu.classList.add("hidden");
+
+          // 「その他」メニューも閉じる（開いてた場合）
+          if (otherMenuMobile) {
+            otherMenuMobile.classList.add("hidden");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

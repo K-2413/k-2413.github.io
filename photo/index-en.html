@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>My portfolio</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#000000",
+            "accent": "#0066cc",
+          },
+          fontFamily: {
+            "sans": ["Inter", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                @apply bg-white text-black antialiased overflow-x-hidden;
+            }
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-section {
+            height: 90vh;
+            min-height: 600px;
+        }
+        .img-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .img-container img {
+            transition: transform 1.2s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+        .img-container:hover img {
+            transform: scale(1.05);
+        }
+        .category-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 50%);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE, Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+    </style>
+</head>
+
+<body>
+  <nav class="sticky-nav">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+      <a class="text-[1.3rem] font-black tracking-tighter uppercase" href="#">My portfolio</a>
+      <div class="hidden md:flex items-center gap-10">
+        <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+          href="#animals">animals</a>
+        <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+          href="#plants">plants</a>
+        <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+          href="#landscapes">landscape</a>
+        <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity" href="#food">food</a>
+        <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+          href="#buildings">building</a>
+        <a class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity" href="#night">night
+          views</a>
+        <section>
+            <div
+              class="relative inline-block text-xs font-bold uppercase tracking-widest"
+            >
+              <!-- ラベル -->
+              <button
+                id="otherToggle"
+                class="text-black hover:opacity-70 transition whitespace-nowrap"
+              >
+                OTHERS ▼
+              </button>
+
+              <ul
+                id="otherMenu"
+                class="absolute left-0 mt-2 hidden bg-white border text-black shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl"
+              >
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-tl-2xl rounded-tr-2xl"
+                >
+                  <a href="profile-en.html">PROFILE</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer"
+                >
+                  <a href="privacy-policy-en.html">PRIVACY POLICY</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-bl-2xl rounded-br-2xl"
+                >
+                  <a href="#SNS">SNS</a>
+                </li>
+              </ul>
+            </div>
+          </section>
+      </div>
+      <section>
+        <form id="form" class="relative">
+          <span class="absolute -top-3 left-0 text-[10px] font-bold uppercase tracking-[0.3em] text-black/50">
+            Language
+          </span>
+          <select name="select" class="border-none bg-transparent text-xs font-bold tracking-widest
+         hover:opacity-50 transition-opacity focus:outline-none">
+            <option value="index-en.html" selected>English</option>
+            <option value="index.html">日本語</option>
+          </select>
+        </form>
+      </section>
+
+      <div class="flex items-center gap-6">
+        <!-- <button class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1">Inquiry</button> -->
+        <button id="mobileMenuButton"
+          class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 md:hidden">
+          menu
+        </button>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden absolute top-16 left-0 w-full bg-white border-t border-black/10
+         hidden flex flex-col items-center gap-6 px-6 py-8">
+
+          <a class="text-xs font-bold uppercase tracking-widest" href="#animals">animals</a>
+          <a class="text-xs font-bold uppercase tracking-widest" href="#plants">plants</a>
+          <a class="text-xs font-bold uppercase tracking-widest" href="#landscapes">landscape</a>
+          <a class="text-xs font-bold uppercase tracking-widest" href="#food">food</a>
+          <a class="text-xs font-bold uppercase tracking-widest" href="#buildings">building</a>
+          <a class="text-xs font-bold uppercase tracking-widest" href="#night">night views</a>
+          <section>
+            <div
+              class="relative inline-block text-xs font-bold uppercase tracking-widest"
+            >
+              <!-- ラベル -->
+              <button
+                id="otherToggleMobile"
+                class="text-black hover:opacity-70 transition whitespace-nowrap"
+              >
+                OTHERS ▼
+              </button>
+
+              <ul
+                id="otherMenuMobile"
+                class="mt-2 hidden bg-white border text-black shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl"
+              >
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-tl-2xl rounded-tr-2xl"
+                >
+                  <a href="profile-en.html">PROFILE</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer"
+                >
+                  <a href="privacy-policy-en.html">PRIVACY POLICY</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-bl-2xl rounded-br-2xl"
+                >
+                  <a href="#SNS">SNS</a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section class="bg-black pt-6 pb-12">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="relative hero-section w-full bg-gray-100 rounded-3xl overflow-hidden img-container">
+        <img alt="Hero Image" class="absolute inset-0 w-full h-full object-cover" src="./img/My Photo-2.jpg" />
+        <div class="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center px-6">
+           <h1 class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[7rem]
+font-black tracking-tighter leading-tight mb-8 md:mb-16">
+  <span class="block mb-4">Let's keep it as a memory!</span>
+  <span class="block">Take a photo!</span>
+</h1>
+          
+          <p class="text-white/90 text-lg md:text-2xl font-light max-w-2xl mx-auto mb-12">
+            On this site I present the photos I have taken.<br>There are some beautiful photos so please take a look.
+          </p>
+          <a class="bg-white text-black w-16 h-16 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-xl"
+            href="#animals">
+            <span class="material-symbols-outlined text-3xl">expand_more</span>
+          </a>
+            <div class="w-full max-w-md text-left text-white">
+
+  <!-- タイトル（固定） -->
+  <h3 class="text-sm font-bold mb-2 border-b border-white/50 pb-1">
+    NEWS
+  </h3>
+
+  <!-- スクロール部分 -->
+  <div class="max-h-40 overflow-y-auto no-scrollbar">
+
+    <div class="flex items-center gap-2 py-2 border-b border-white/30 text-xs">
+  <span class="text-white">2026.03.31</span>
+  <span class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded">
+    NEW
+  </span>
+  <span>Homepage published</span>
+</div>
+<!-- <div class="flex items-center gap-2 py-2 border-b border-white/30 text-xs">
+  <span class="text-white">2026.03.18</span>
+  <span class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded">
+    NEW
+  </span>
+  <span>新しい写真を追加しました！</span>
+</div>
+<div class="flex items-center gap-2 py-2 border-b border-white/30 text-xs">
+  <span class="text-white">2026.03.18</span>
+  <span class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded">
+    NEW
+  </span>
+  <span>新しい写真を追加しました！</span>
+</div>
+<div class="flex items-center gap-2 py-2 border-b border-white/30 text-xs">
+  <span class="text-white">2026.03.18</span>
+  <span class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded">
+    NEW
+  </span>
+  <span>新しい写真を追加しました！</span>
+</div>
+<div class="flex items-center gap-2 py-2 border-b border-white/30 text-xs">
+  <span class="text-white">2026.03.18</span>
+  <span class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded">
+    NEW
+  </span>
+  <span>新しい写真を追加しました！</span>
+</div> -->
+
+  </div>
+
+  <div class="text-[10px] text-white/50 text-center mt-1">
+  ↓ スクロールできます
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-24 bg-white" id="animals">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="mb-12">
+        <span class="text-xs font-bold uppercase tracking-[0.4em] text-gray-400 mb-4 block">Series 01</span>
+        <h2 class="text-6xl md:text-8xl font-black tracking-tighter mb-8">ANIMALS</h2>
+      </div>
+      <a class="group block relative h-[80vh] w-full rounded-3xl overflow-hidden img-container bg-gray-100"
+        href="animals-en.html">
+        <img alt="Animals Hero" class="w-full h-full object-cover" src="./img/animals-1.jpeg" />
+        <div class="absolute inset-0 category-overlay opacity-60 group-hover:opacity-80 transition-opacity"></div>
+        <div class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <p class="text-white text-xl max-w-md font-light">We have captured the fleeting expressions and gestures of
+            living creatures. Feel the natural emotions and warmth that can only be conveyed because they have no words.
+          </p>
+          <div class="flex items-center gap-4 text-white">
+            <span class="text-sm font-bold uppercase tracking-widest">tap view</span>
+            <div
+              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+            
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+  <section class="py-24 bg-black text-white" id="plants">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="mb-12">
+        <span class="text-xs font-bold uppercase tracking-[0.4em] text-gray-500 mb-4 block">Series 02</span>
+        <h2 class="text-6xl md:text-8xl font-black tracking-tighter mb-8">PLANTS</h2>
+      </div>
+      <a class="group block relative h-[80vh] w-full rounded-3xl overflow-hidden img-container bg-neutral-900"
+        href="plants-en.html">
+        <img alt="Plants Hero" class="w-full h-full object-cover" src="./img/plants-1.jpeg" />
+        <div class="absolute inset-0 category-overlay opacity-40 group-hover:opacity-60 transition-opacity"></div>
+        <div class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <p class="text-white text-xl max-w-md font-light">I photograph plants as they change with the seasons. I hope
+            that you can feel the quiet strength of nature from the small buds and overlapping leaves.</p>
+          <div class="flex items-center gap-4">
+            <span class="text-sm font-bold uppercase tracking-widest">tap view</span>
+            <div
+              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+  <section class="py-24 bg-white" id="landscapes">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="mb-12">
+        <span class="text-xs font-bold uppercase tracking-[0.4em] text-gray-400 mb-4 block">Series 03</span>
+        <h2 class="text-6xl md:text-8xl font-black tracking-tighter mb-8">LANDSCAPES</h2>
+      </div>
+      <a class="group block relative h-[80vh] w-full rounded-3xl overflow-hidden img-container bg-gray-100"
+        href="landscape-en.html">
+        <img alt="Landscapes Hero" class="w-full h-full object-cover" src="./img/landscape-1.jpeg" />
+        <div class="absolute inset-0 category-overlay opacity-40 group-hover:opacity-60 transition-opacity"></div>
+        <div
+          class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6 text-white">
+          <p class="text-xl max-w-md font-light">I focused on capturing the light and atmosphere that can only be found
+            in that place. I hope that through the photographs, you can experience the feeling of being there.</p>
+          <div class="flex items-center gap-4">
+            <span class="text-sm font-bold uppercase tracking-widest">tap view</span>
+            <div
+              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+            
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+  <section class="py-24 bg-black text-white" id="food">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="mb-12">
+        <span class="text-xs font-bold uppercase tracking-[0.4em] text-gray-500 mb-4 block">Series 04</span>
+        <h2 class="text-6xl md:text-8xl font-black tracking-tighter mb-8">FOOD</h2>
+      </div>
+      <a class="group block relative h-[80vh] w-full rounded-3xl overflow-hidden img-container bg-neutral-900"
+        href="food-en.html">
+        <img alt="Food Hero" class="w-full h-full object-cover" src="./img/food-1.jpeg" />
+        <div class="absolute inset-0 category-overlay opacity-40 group-hover:opacity-60 transition-opacity"></div>
+        <div class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <p class="text-white text-xl max-w-md font-light">Tasting food with your eyes is an important part of cooking,
+            so we've captured a moment that conveys the color, texture, and even temperature of the food.</p>
+          <div class="flex items-center gap-4">
+            <span class="text-sm font-bold uppercase tracking-widest">tap view</span>
+            <div
+              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+            
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+  <section class="py-24 bg-white" id="buildings">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="mb-12">
+        <span class="text-xs font-bold uppercase tracking-[0.4em] text-gray-400 mb-4 block">Series 05</span>
+        <h2 class="text-6xl md:text-8xl font-black tracking-tighter mb-8">BUILDING</h2>
+      </div>
+      <a class="group block relative h-[80vh] w-full rounded-3xl overflow-hidden img-container bg-gray-100"
+        href="building-en.html">
+        <img alt="Architecture Hero" class="w-full h-full object-cover" src="./img/building-1.jpeg" />
+        <div class="absolute inset-0 category-overlay opacity-40 group-hover:opacity-60 transition-opacity"></div>
+        <div
+          class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6 text-white">
+          <p class="text-xl max-w-md font-light">The photographs capture the character of buildings that have been
+            created over time and by the hands of people. Feel the history and everyday life that can be found in their
+            shapes and textures.</p>
+          <div class="flex items-center gap-4">
+            <span class="text-sm font-bold uppercase tracking-widest">tap view</span>
+            <div
+              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+  <section class="py-24 bg-black text-white" id="night">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="mb-12">
+        <span class="text-xs font-bold uppercase tracking-[0.4em] text-gray-500 mb-4 block">Series 06</span>
+        <h2 class="text-6xl md:text-8xl font-black tracking-tighter mb-8">NIGHT VIEWS</h2>
+      </div>
+      <a class="group block relative h-[80vh] w-full rounded-3xl overflow-hidden img-container bg-neutral-900"
+        href="night-views-en.html">
+        <img alt="Night Hero" class="w-full h-full object-cover" src="./img/night-views-1.jpeg" />
+        <div class="absolute inset-0 category-overlay opacity-50 group-hover:opacity-70 transition-opacity"></div>
+        <div class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <p class="text-white text-xl max-w-md font-light">The city at night is another world created by light and
+            shadow. Every time you take a picture, that moment remains in your memory.</p>
+          <div class="flex items-center gap-4">
+            <span class="text-sm font-bold uppercase tracking-widest">tap view</span>
+            <div
+              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+  <footer class="bg-white py-24 border-t border-black/5">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+        <div>
+          <h3 class="text-3xl font-black tracking-tighter uppercase mb-6">my portfolio</h3>
+          <p class="text-gray-500 text-base max-w-xs font-light">High-end professional photography for editorial and
+            personal collections.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24">
+          <div class="flex flex-col gap-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-gray-400">
+              <section id="SNS">SNS</section>
+            </span>
+            <a class="text-sm font-semibold hover:opacity-50 transition-opacity"
+              href="https://x.com/ko2413_ja?s=21">X(old Twitter)</a>
+            <a class="text-sm font-semibold hover:opacity-50 transition-opacity"
+              href="https://www.tiktok.com/@kei1620041003?_r=1&_t=ZS-94nH3ROm7bY">TikTok</a>
+            <a class="text-sm font-semibold hover:opacity-50 transition-opacity"
+              href="https://www.instagram.com/keisuke041003?igsh=MXhvaXJiMndpZWlscg%3D%3D&utm_source=qr">Instagram</a>
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-gray-400">contact</span>
+            <a class="text-sm font-semibold hover:opacity-50 transition-opacity"
+              href="mailto:keiweb.contact04@gmail.com?subject=お問い合わせ&body=I contacted you after seeing your website. Please write your details below.">mail</a>
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-gray-400">profile</span>
+            <a class="text-sm font-semibold hover:opacity-50 transition-opacity" href="profile-en.html">About me</a>
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Legal</span>
+            <a class="text-sm font-semibold hover:opacity-50 transition-opacity" href="privacy-policy-en.html">Privacy</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-24 pt-8 border-t border-black/5 flex flex-col items-center gap-4">
+        <img src="./img/Kei.jpg" alt="プロフィール写真" class="w-20 h-20 rounded-xs object-cover" />
+
+        <p class="text-xs text-gray-400 uppercase tracking-widest">
+          © 2026 my portfplio
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileButton = document.getElementById("mobileMenuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    const otherToggle = document.getElementById("otherToggle");
+    const otherMenu = document.getElementById("otherMenu");
+
+    const otherToggleMobile = document.getElementById("otherToggleMobile");
+    const otherMenuMobile = document.getElementById("otherMenuMobile");
+
+    const form = document.getElementById("form");
+
+    // モバイルメニュー
+    mobileButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // 言語切り替え
+    if (form) {
+      form.elements.select.onchange = function () {
+        location.href = this.value;
+      };
+    }
+
+    // PC「その他」
+    if (otherToggle && otherMenu) {
+      otherToggle.addEventListener("click", () => {
+        otherMenu.classList.toggle("hidden");
+      });
+    }
+
+    // モバイル「その他」
+    if (otherToggleMobile && otherMenuMobile) {
+      otherToggleMobile.addEventListener("click", () => {
+        otherMenuMobile.classList.toggle("hidden");
+      });
+    }
+  </script>
+</body>
+
+</html>

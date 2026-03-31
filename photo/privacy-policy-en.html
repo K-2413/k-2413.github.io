@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aperture | Photography Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000000",
+                        "accent": "#0066cc",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                @apply bg-white text-black antialiased overflow-x-hidden;
+            }
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-section {
+            height: 90vh;
+            min-height: 600px;
+        }
+        .img-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .img-container img {
+            transition: transform 1.2s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+        .img-container:hover img {
+            transform: scale(1.05);
+        }
+        .category-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 50%);
+        }
+    </style>
+</head>
+<body>
+<nav class="sticky-nav">
+      <div
+        class="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between"
+      >
+        <a
+          class="text-xl font-bold tracking-tighter uppercase"
+          href="index.html"
+          >My portfolio</a
+        >
+        <div class="hidden md:flex items-center gap-10">
+          <a
+            class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="animals."
+            >ANIMALS</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="plants.html"
+            >PLANTS</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="landscape.html"
+            >LANDSCAPE</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="food.html"
+            >FOOD</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="building.html"
+            >BUILDING</a
+          >
+          <a
+            class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
+            href="night-views.html"
+            >NIGHT VIEWS</a
+          >
+          <section>
+            <div
+              class="relative inline-block text-xs font-bold uppercase tracking-widest"
+            >
+              <!-- ラベル -->
+              <button
+                id="otherToggle"
+                class="text-black hover:opacity-70 transition whitespace-nowrap"
+              >
+                OTHERS ▼
+              </button>
+
+              <ul
+                id="otherMenu"
+                class="absolute left-0 mt-2 hidden bg-white border text-black shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl"
+              >
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-tl-2xl rounded-tr-2xl"
+                >
+                  <a href="profile.html">profile</a>
+                </li>
+                <li
+                  class="px-4 py-2 bg-black text-white cursor-pointer"
+                >
+                  <a href="#privacy-policy">privacy policy</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-bl-2xl rounded-br-2xl"
+                >
+                  <a href="#SNS">SNS</a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+        <div>
+          <form id="form" class="relative">
+            <span
+              class="absolute -top-3 left-0 text-[10px] font-bold uppercase tracking-[0.3em] text-black/50"
+            >
+              Language
+            </span>
+
+            <select
+              name="select"
+              class="border-none bg-transparent text-xs font-bold tracking-widest hover:opacity-50 transition-opacity focus:outline-none"
+            >
+            <option value="privacy-policy-en.html" selected>English</option>
+              <option value="privacy-policy.html">日本語</option>
+            </select>
+          </form>
+        </div>
+        <button
+          id="mobileMenuButton"
+          class="text-xs font-bold uppercase tracking-widest border-b-2 border-black pb-1 md:hidden"
+        >
+          menu
+        </button>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobileMenu"
+          class="md:hidden absolute top-16 left-0 w-full bg-white border-t border-black/10 hidden flex flex-col items-center gap-6 px-6 py-8"
+        >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="animals.html"
+            >ANIMALS</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="plants.html"
+            >PLANTS</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="landscape.html"
+            >LANDSCAPE</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="food.html"
+            >FOOD</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="building.html"
+            >BUILDING</a
+          >
+          <a
+            class="text-xs font-bold uppercase tracking-widest"
+            href="night-views.html"
+            >NIGHT VIEWS</a
+          >
+          <section>
+            <div
+              class="relative inline-block text-xs font-bold uppercase tracking-widest"
+            >
+              <!-- ラベル -->
+              <button
+                id="otherToggleMobile"
+                class="text-black hover:opacity-70 transition whitespace-nowrap"
+              >
+                OTHERS ▼
+              </button>
+
+              <ul
+                id="otherMenuMobile"
+                class="mt-2 hidden bg-white border text-black shadow text-xs flex flex-col min-w-[180px] whitespace-nowrap rounded-2xl"
+              >
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-tl-2xl rounded-tr-2xl"
+                >
+                  <a href="profile.html">profile</a>
+                </li>
+                <li
+                  class="px-4 py-2 bg-black text-white cursor-pointer"
+                >
+                  <a href="#privacy-policy">privacy policy</a>
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-black hover:text-white cursor-pointer rounded-bl-2xl rounded-br-2xl"
+                >
+                  <a href="#SNS">SNS</a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </nav>
+
+<header class="pt-24 pb-16 bg-white">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <nav class="flex mb-8">
+          <a
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors"
+            href="index.html"
+            >portfolio</a
+          >
+          <span
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 mx-3"
+            >/</span
+          >
+          <span
+            class="text-[10px] font-bold uppercase tracking-[0.2em] text-black"
+            >privacy policy</span
+          >
+        </nav>
+        <h1 class="text-5xl md:text-8xl font-bold tracking-tighter mb-8">
+          privacy policy
+        </h1>
+      </div>
+    </header>
+
+ <section class="max-w-3xl mx-auto px-6 md:px-0 py-16 text-black">
+
+  <div class="space-y-12">
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4 border-b border-black/20 pb-2">
+        Purpose of Use of Personal Information
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-700">
+        On this website, we may ask you to provide personal information such as your name and email address when you contact us.
+        The collected personal information will be used only to respond to your inquiries and will not be used for any other purposes.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4 border-b border-black/20 pb-2">
+        About Advertising
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-700 mb-2">
+        This website plans to use third-party advertising services such as Google AdSense.
+        Advertising providers like Google may use cookies to display ads based on users' interests.
+      </p>
+      <p class="text-sm leading-relaxed text-gray-700">
+        For information on how to disable cookies and details about Google AdSense,
+        please refer to the "Advertising – Policies and Terms".
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4 border-b border-black/20 pb-2">
+        About Analytics Tools
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-700">
+        This website may use analytics tools to analyze and improve the site.
+        These tools may use cookies to collect traffic data, but they do not identify individuals.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4 border-b border-black/20 pb-2">
+        Disclaimer
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-700">
+        We strive to provide accurate information on this website; however, we do not guarantee the accuracy or safety of the content.
+        We are not responsible for any damages caused by the information provided on this site.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4 border-b border-black/20 pb-2">
+        Copyright
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-700">
+        All photos and text on this website are the property of the site owner.
+        Unauthorized reproduction or use is prohibited.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4 border-b border-black/20 pb-2">
+        Contact
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-700">
+        For inquiries, please contact us
+        <a href="mailto:okeisuke2004@gmail.com?subject=Inquiry&body=I visited your website and would like to contact you. Please write your message below."
+          class="text-blue-600 underline hover:opacity-70">
+          here
+        </a>.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+ <footer class="bg-white py-24 border-t border-black/5">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12"
+        >
+          <div>
+            <h3 class="text-3xl font-black tracking-tighter uppercase mb-6">
+              my portfolio
+            </h3>
+            <p class="text-gray-500 text-base max-w-xs font-light">
+              High-end professional photography for editorial and personal
+              collections.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24">
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+              >
+                <section id="SNS">SNS</section>
+              </span>
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="https://x.com/ko2413_ja?s=21"
+                >X(old Twitter)</a
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="https://www.tiktok.com/@kei1620041003?_r=1&_t=ZS-94nH3ROm7bY"
+                >TikTok</a
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="https://www.instagram.com/keisuke041003?igsh=MXhvaXJiMndpZWlscg%3D%3D&utm_source=qr"
+                >Instagram</a
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+                >contact</span
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="mailto:keiweb.contact04@gmail.com?subject=I contacted you after seeing your website. Please write your details below."
+                >mail</a
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+                >profile</span
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="profile-en.html"
+                >About me</a
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-gray-400"
+                >Legal</span
+              >
+              <a
+                class="text-sm font-semibold hover:opacity-50 transition-opacity"
+                href="privacy-policy-en.html"
+                >Privacy</a
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-24 pt-8 border-t border-black/5 flex flex-col items-center gap-4"
+        >
+          <img
+            src="./img/Kei.jpg"
+            alt="プロフィール写真"
+            class="w-20 h-20 rounded-xs object-cover"
+          />
+
+          <p class="text-xs text-gray-400 uppercase tracking-widest">
+            © 2026 my portfplio
+          </p>
+        </div>
+      </div>
+    </footer>
+
+<script>
+  const mobileButton = document.getElementById("mobileMenuButton");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  const otherToggle = document.getElementById("otherToggle");
+  const otherMenu = document.getElementById("otherMenu");
+
+  const otherToggleMobile = document.getElementById("otherToggleMobile");
+  const otherMenuMobile = document.getElementById("otherMenuMobile");
+
+  const form = document.getElementById("form");
+
+  // モバイルメニュー
+  mobileButton.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  // 言語切り替え
+  if (form) {
+    form.elements.select.onchange = function () {
+      location.href = this.value;
+    };
+  }
+
+  // PC「その他」
+  if (otherToggle && otherMenu) {
+    otherToggle.addEventListener("click", () => {
+      otherMenu.classList.toggle("hidden");
+    });
+  }
+
+  // モバイル「その他」
+  if (otherToggleMobile && otherMenuMobile) {
+    otherToggleMobile.addEventListener("click", () => {
+      otherMenuMobile.classList.toggle("hidden");
+    });
+  }
+</script>
+</body></html>

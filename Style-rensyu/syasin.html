@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Snap Page</title>
+  <link rel="stylesheet" href="syasin.css">
+</head>
+<body>
+
+  <section class="screen white top">
+    <div class="top-container">
+
+      <!-- 左側（タイトル＋メニュー） -->
+      <div class="top-left">
+        <h1>My Portfolio</h1>
+        <nav class="menu">
+          <a href="#about">About</a>
+          <a href="#photo">写真</a>
+          <a href="#news">News</a>
+          <a href="#sns">SNS</a>
+          <a href="#profile">プロフィール</a>
+          <a href="#contact">お問い合わせ</a>
+        </nav>
+      </div>
+
+      <!-- 右側（画像） -->
+      <div class="top-right">
+  <div class="top-image-wrap">
+    <img src="./img/TOP.png" alt="">
+  </div>
+</div>
+
+    </div>
+  </section>
+  <section class="screen black about" id="about">
+  <div class="about-inner">
+    <h2>About</h2>
+    <p>
+      このポートフォリオサイトでは、私の制作した作品や活動内容を紹介しています。
+      Webデザインやフロントエンド制作を中心に、学習の過程やチャレンジしてきたことをまとめました。<br><br>
+      シンプルで見やすいデザインを意識し、閲覧する方にとって
+      分かりやすく伝わるサイトを目指しています。
+    </p>
+  </div>
+</section>
+  <section class="screen white photo" id="photo">
+  <h2>写真</h2>
+
+  <!-- PC用 グリッド -->
+  <div class="photo-grid pc-only">
+
+    <!-- 上段：3枚 -->
+    <div class="photo-row row-3">
+      <figure><figcaption>動物</figcaption><img src="./img/style5.jpeg"><a href="#" class="pc-picture-text">見る</a></figure>
+      <figure><figcaption>植物</figcaption><img src="./img/style2.jpeg"><a href="#" class="pc-picture-text">見る</a></figure>
+      <figure><figcaption>風景</figcaption><img src="./img/style7.jpeg"><a href="#" class="pc-picture-text">見る</a></figure>
+    </div>
+
+    <!-- 下段：4枚 -->
+    <div class="photo-row row-4">
+      <figure><figcaption>風景</figcaption><img src="./img/style8.jpeg"><a href="#" class="pc-picture-text">見る</a></figure>
+      <figure><figcaption>建物</figcaption><img src="./img/style6.jpeg"><a href="#" class="pc-picture-text">見る</a></figure>
+      <figure><figcaption>アート</figcaption><img src="./img/style3.jpeg"><a href="#" class="pc-picture-text">見る</a></figure>
+      <figure><figcaption>夜景</figcaption><img src="./img/style4.jpeg"><a href="#" class="pc-picture-text">見る</a></figure>
+    </div>
+
+  </div>
+
+  <!-- スマホ用 スライド -->
+  <div class="photo-slider sp-only">
+    <div class="slides">
+      <div class="slide">
+        <span>動物</span>
+        <img src="./img/style5.jpeg">
+        <p class="picture-text">こちらの写真では動物の写真を紹介しています。</p>
+    </div>
+      <div class="slide">
+        <span>植物</span>
+        <img src="./img/style2.jpeg">
+        <p class="picture-text">こちらの写真では動物の写真を紹介しています。</p>
+    </div>
+      <div class="slide"><span>風景</span><img src="./img/style7.jpeg"></div>
+      <div class="slide"><span>食べ物</span><img src="./img/style8.jpeg"></div>
+      <div class="slide"><span>建物</span><img src="./img/style6.jpeg"></div>
+      <div class="slide"><span>アート</span><img src="./img/style3.jpeg"></div>
+      <div class="slide"><span>夜景</span><img src="./img/style4.jpeg"></div>
+    </div>
+
+    <!-- ドット -->
+    <div class="dots">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</section>
+  <section class="screen black">黒</section>
+  <section class="screen white">白</section>
+  <section class="screen black">黒</section>
+  <section class="screen white">白</section>
+
+</body>
+</html>
