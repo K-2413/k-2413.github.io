@@ -205,11 +205,21 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
           <p class="text-white/90 text-lg md:text-2xl font-light max-w-2xl mx-auto mb-12">
             On this site I present the photos I have taken.<br>There are some beautiful photos so please take a look.
           </p>
-          <a class="bg-white text-black w-16 h-16 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-xl"
+          <a class="w-16 h-16 rounded-full flex items-center justify-center
+         bg-white/20 backdrop-blur-md
+         border border-white/30
+         hover:scale-110 transition-transform shadow-xl
+         text-white hover:bg-white/30 hover:shadow-2xl"
             href="#animals">
             <span class="material-symbols-outlined text-3xl">expand_more</span>
           </a>
-            <div class="w-full max-w-md text-left text-white">
+            <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
 
   <!-- タイトル（固定） -->
   <h3 class="text-sm font-bold mb-2 border-b border-white/50 pb-1">
@@ -219,11 +229,32 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
   <!-- スクロール部分 -->
   <div class="max-h-40 overflow-y-auto no-scrollbar">
 
+    <div
+                  class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
+                >
+                  <span class="text-white">2026.04.28</span>
+                  <span
+                    class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
+                  >
+                    NEW
+                  </span>
+                  <span>I made part of the first page look like glass.</span>
+                </div>
+
+                <div
+                  class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
+                >
+                  <span class="text-white">2026.04.28</span>
+                  <span
+                    class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
+                  >
+                    NEW
+                  </span>
+                  <span>Added font options and a loading screen for the text on the first page of the Japanese text.</span>
+                </div>
+
     <div class="flex items-center gap-2 py-2 border-b border-white/30 text-xs">
   <span class="text-white">2026.03.31</span>
-  <span class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded">
-    NEW
-  </span>
   <span>Homepage published</span>
 </div>
 <!-- <div class="flex items-center gap-2 py-2 border-b border-white/30 text-xs">
@@ -275,13 +306,27 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
         <img alt="Animals Hero" class="w-full h-full object-cover" src="./img/animals-1.jpeg" />
         <div class="absolute inset-0 category-overlay opacity-60 group-hover:opacity-80 transition-opacity"></div>
         <div class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <p class="text-white text-xl max-w-md font-light">We have captured the fleeting expressions and gestures of
+          <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
+          <p class="text-black text-xl max-w-md font-light">We have captured the fleeting expressions and gestures of
             living creatures. Feel the natural emotions and warmth that can only be conveyed because they have no words.
           </p>
+          </div>
           <div class="flex items-center gap-4 text-white">
             <span class="text-sm font-bold uppercase tracking-widest">tap view</span>
             <div
-              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              class="text-black w-12 h-12 rounded-full
+           bg-white/10 backdrop-blur-md
+           border border-white/30
+           flex items-center justify-center
+           group-hover:bg-white
+           group-hover:text-black
+           transition-all duration-300">
               <span class="material-symbols-outlined">arrow_forward</span>
             </div>
             
@@ -301,12 +346,26 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
         <img alt="Plants Hero" class="w-full h-full object-cover" src="./img/plants-1.jpeg" />
         <div class="absolute inset-0 category-overlay opacity-40 group-hover:opacity-60 transition-opacity"></div>
         <div class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
           <p class="text-white text-xl max-w-md font-light">I photograph plants as they change with the seasons. I hope
             that you can feel the quiet strength of nature from the small buds and overlapping leaves.</p>
+          </div>
           <div class="flex items-center gap-4">
             <span class="text-sm font-bold uppercase tracking-widest">tap view</span>
             <div
-              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              class="w-12 h-12 rounded-full
+           bg-white/10 backdrop-blur-md
+           border border-white/30
+           flex items-center justify-center
+           group-hover:bg-white
+           group-hover:text-black
+           transition-all duration-300">
               <span class="material-symbols-outlined">arrow_forward</span>
             </div>
           </div>
@@ -326,12 +385,26 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
         <div class="absolute inset-0 category-overlay opacity-40 group-hover:opacity-60 transition-opacity"></div>
         <div
           class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6 text-white">
-          <p class="text-xl max-w-md font-light">I focused on capturing the light and atmosphere that can only be found
+          <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
+          <p class="text-black text-xl max-w-md font-light">I focused on capturing the light and atmosphere that can only be found
             in that place. I hope that through the photographs, you can experience the feeling of being there.</p>
+          </div>
           <div class="flex items-center gap-4">
             <span class="text-sm font-bold uppercase tracking-widest">tap view</span>
             <div
-              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              class="text-black w-12 h-12 rounded-full
+           bg-white/10 backdrop-blur-md
+           border border-white/30
+           flex items-center justify-center
+           group-hover:bg-white
+           group-hover:text-black
+           transition-all duration-300">
               <span class="material-symbols-outlined">arrow_forward</span>
             </div>
             
@@ -351,12 +424,26 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
         <img alt="Food Hero" class="w-full h-full object-cover" src="./img/food-1.jpeg" />
         <div class="absolute inset-0 category-overlay opacity-40 group-hover:opacity-60 transition-opacity"></div>
         <div class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
           <p class="text-white text-xl max-w-md font-light">Tasting food with your eyes is an important part of cooking,
             so we've captured a moment that conveys the color, texture, and even temperature of the food.</p>
+          </div>
           <div class="flex items-center gap-4">
             <span class="text-sm font-bold uppercase tracking-widest">tap view</span>
             <div
-              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              class="w-12 h-12 rounded-full
+           bg-white/10 backdrop-blur-md
+           border border-white/30
+           flex items-center justify-center
+           group-hover:bg-white
+           group-hover:text-black
+           transition-all duration-300">
               <span class="material-symbols-outlined">arrow_forward</span>
             </div>
             
@@ -377,13 +464,27 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
         <div class="absolute inset-0 category-overlay opacity-40 group-hover:opacity-60 transition-opacity"></div>
         <div
           class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6 text-white">
+          <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
           <p class="text-xl max-w-md font-light">The photographs capture the character of buildings that have been
             created over time and by the hands of people. Feel the history and everyday life that can be found in their
             shapes and textures.</p>
+          </div>
           <div class="flex items-center gap-4">
             <span class="text-sm font-bold uppercase tracking-widest">tap view</span>
             <div
-              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              class="w-12 h-12 rounded-full
+           bg-white/10 backdrop-blur-md
+           border border-white/30
+           flex items-center justify-center
+           group-hover:bg-white
+           group-hover:text-black
+           transition-all duration-300">
               <span class="material-symbols-outlined">arrow_forward</span>
             </div>
           </div>
@@ -402,12 +503,26 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
         <img alt="Night Hero" class="w-full h-full object-cover" src="./img/night-views-1.jpeg" />
         <div class="absolute inset-0 category-overlay opacity-50 group-hover:opacity-70 transition-opacity"></div>
         <div class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
           <p class="text-white text-xl max-w-md font-light">The city at night is another world created by light and
             shadow. Every time you take a picture, that moment remains in your memory.</p>
+          </div>
           <div class="flex items-center gap-4">
             <span class="text-sm font-bold uppercase tracking-widest">tap view</span>
             <div
-              class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+              class="w-12 h-12 rounded-full
+           bg-white/10 backdrop-blur-md
+           border border-white/30
+           flex items-center justify-center
+           group-hover:bg-white
+           group-hover:text-black
+           transition-all duration-300">
               <span class="material-symbols-outlined">arrow_forward</span>
             </div>
           </div>

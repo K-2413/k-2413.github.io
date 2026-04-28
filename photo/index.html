@@ -42,6 +42,8 @@
           @apply bg-white text-black antialiased overflow-x-hidden font-hiragino;
         }
       }
+
+      
       .sticky-nav {
         position: sticky;
         top: 0;
@@ -418,8 +420,15 @@ body {
             >
               こちらのサイトでは私が撮った写真を紹介しています。<br />美しい写真を載せてありますのでぜひご覧ください。
             </p>
+
+            
+
             <a
-              class="bg-white text-black w-16 h-16 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-xl"
+              class="w-16 h-16 rounded-full flex items-center justify-center
+         bg-white/20 backdrop-blur-md
+         border border-white/30
+         hover:scale-110 transition-transform shadow-xl
+         text-white hover:bg-white/30 hover:shadow-2xl"
               href="#animals"
             >
               <span class="material-symbols-outlined text-3xl"
@@ -427,7 +436,13 @@ body {
               >
             </a>
 
-            <div class="w-full max-w-md text-left text-white">
+            <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
               <!-- タイトル（固定） -->
               <h3 class="text-sm font-bold mb-2 border-b border-white/50 pb-1">
                 ニュース
@@ -435,29 +450,37 @@ body {
 
               <!-- スクロール部分 -->
              <div class="max-h-40 overflow-y-auto no-scrollbar">
+              <div
+                  class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
+                >
+                  <span class="text-white">2026.04.28</span>
+                  <span
+                    class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
+                  >
+                    NEW
+                  </span>
+                  <span>最初のページの一部をガラス風にしました。</span>
+                </div>
+
+                <div
+                  class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
+                >
+                  <span class="text-white">2026.04.28</span>
+                  <span
+                    class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
+                  >
+                    NEW
+                  </span>
+                  <span>日本語の最初のページの文字文字のフォントやロード画面を追加しました。</span>
+                </div>
+
                 <div
                   class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
                 >
                   <span class="text-white">2026.03.31</span>
-                  <span
-                    class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
-                  >
-                    NEW
-                  </span>
                   <span>ホームページ公開</span>
                 </div>
-                 <!--<div
-                  class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
-                >
-                  <span class="text-white">2026.03.18</span>
-                  <span
-                    class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
-                  >
-                    NEW
-                  </span>
-                  <span>新しい写真を追加しました！</span>
-                </div>
-                <div
+                <!--<div
                   class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
                 >
                   <span class="text-white">2026.03.18</span>
@@ -525,15 +548,29 @@ body {
           <div
             class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6"
           >
-            <p class="text-white text-xl max-w-md font-light">
+          <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
+            <p class="text-black text-xl max-w-md font-light">
               生き物たちの一瞬の表情やしぐさを切り取りました。言葉を持たないからこそ伝わってくる、自然な感情やぬくもりを感じてください。
             </p>
+          </div>
             <div class="flex items-center gap-4 text-white">
-              <span class="text-sm font-bold uppercase tracking-widest"
+              <span class=" text-black text-sm font-bold uppercase tracking-widest"
                 >見る</span
               >
               <div
-                class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all"
+                class="text-black w-12 h-12 rounded-full
+           bg-white/10 backdrop-blur-md
+           border border-white/30
+           flex items-center justify-center
+           group-hover:bg-white
+           group-hover:text-black
+           transition-all duration-300"
               >
                 <span class="material-symbols-outlined">arrow_forward</span>
               </div>
@@ -568,15 +605,31 @@ body {
           <div
             class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6"
           >
-            <p class="text-white text-xl max-w-md font-light">
-              季節ごとに変化する植物の姿を写しています。小さな芽や葉の重なりから、自然の静かな力強さを感じてもらえたら嬉しいです。
-            </p>
+            <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
+
+  <p class="text-xl font-light">
+    季節ごとに変化する植物の姿を写しています。小さな芽や葉の重なりから、自然の静かな力強さを感じてもらえたら嬉しいです。
+  </p>
+
+</div>
             <div class="flex items-center gap-4">
-              <span class="text-sm font-bold uppercase tracking-widest"
+              <span class="text-sm font-bold uppercase tracking-widest text-white/80"
                 >見る</span
               >
               <div
-                class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all"
+                class="w-12 h-12 rounded-full
+           bg-white/10 backdrop-blur-md
+           border border-white/30
+           flex items-center justify-center
+           group-hover:bg-white
+           group-hover:text-black
+           transition-all duration-300"
               >
                 <span class="material-symbols-outlined">arrow_forward</span>
               </div>
@@ -611,15 +664,29 @@ body {
           <div
             class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6 text-white"
           >
-            <p class="text-xl max-w-md font-light">
+          <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
+            <p class="text-black text-xl max-w-md font-light">
               その場所でしか出会えない光や空気感を大切にしました。写真を通して、そこに立っているような感覚を味わってもらえたらと思います。
             </p>
+          </div>
             <div class="flex items-center gap-4">
-              <span class="text-sm font-bold uppercase tracking-widest"
+              <span class="text-black text-sm font-bold uppercase tracking-widest"
                 >見る</span
               >
               <div
-                class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all"
+                class="text-black w-12 h-12 rounded-full
+           bg-white/10 backdrop-blur-md
+           border border-white/30
+           flex items-center justify-center
+           group-hover:bg-white
+           group-hover:text-black
+           transition-all duration-300"
               >
                 <span class="material-symbols-outlined">arrow_forward</span>
               </div>
@@ -654,15 +721,29 @@ body {
           <div
             class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6"
           >
+          <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
             <p class="text-white text-xl max-w-md font-light">
               目で味わうことも、料理の大切な一部。色や質感、温度まで伝わるような一瞬を切り取りました。
             </p>
+          </div>
             <div class="flex items-center gap-4">
               <span class="text-sm font-bold uppercase tracking-widest"
                 >見る</span
               >
               <div
-                class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all"
+                class="w-12 h-12 rounded-full
+           bg-white/10 backdrop-blur-md
+           border border-white/30
+           flex items-center justify-center
+           group-hover:bg-white
+           group-hover:text-black
+           transition-all duration-300"
               >
                 <span class="material-symbols-outlined">arrow_forward</span>
               </div>
@@ -697,15 +778,29 @@ body {
           <div
             class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6 text-white"
           >
-            <p class="text-xl max-w-md font-light">
+          <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
+            <p class="text-black text-xl max-w-md font-light">
               時間と人の手が積み重なってできた建物の表情を写しています。形や質感の中にある、歴史や日常の気配を感じてください。
             </p>
+          </div>
             <div class="flex items-center gap-4">
               <span class="text-sm font-bold uppercase tracking-widest"
                 >見る</span
               >
               <div
-                class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all"
+                class="w-12 h-12 rounded-full
+           bg-white/10 backdrop-blur-md
+           border border-white/30
+           flex items-center justify-center
+           group-hover:bg-white
+           group-hover:text-black
+           transition-all duration-300"
               >
                 <span class="material-symbols-outlined">arrow_forward</span>
               </div>
@@ -740,15 +835,29 @@ body {
           <div
             class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row md:items-end justify-between gap-6"
           >
+          <div class="mt-6 relative w-full max-w-md text-left text-white 
+            bg-white/10 backdrop-blur-md 
+            border border-white/20 
+            rounded-xl shadow-lg p-4 overflow-hidden
+            before:content-[''] before:absolute before:inset-0
+            before:bg-gradient-to-b before:from-white/20 before:to-transparent
+            before:rounded-xl before:pointer-events-none">
             <p class="text-white text-xl max-w-md font-light">
               夜の街は、光と影がつくるもう一つの世界。シャッターを切るたびに、その一瞬が記憶として残ります。
             </p>
+          </div>
             <div class="flex items-center gap-4">
               <span class="text-sm font-bold uppercase tracking-widest"
                 >見る</span
               >
               <div
-                class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all"
+                class="w-12 h-12 rounded-full
+           bg-white/10 backdrop-blur-md
+           border border-white/30
+           flex items-center justify-center
+           group-hover:bg-white
+           group-hover:text-black
+           transition-all duration-300"
               >
                 <span class="material-symbols-outlined">arrow_forward</span>
               </div>
