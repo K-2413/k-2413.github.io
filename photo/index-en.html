@@ -70,10 +70,146 @@
     -ms-overflow-style: none;  /* IE, Edge */
     scrollbar-width: none;     /* Firefox */
   }
+
+  .loader-container {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.photo-item {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 1;
+
+  transform: translate(var(--startX), var(--startY)) rotate(var(--startRotate)) scale(0.5);
+  transform-style: preserve-3d;
+}
+
+/* 集まる */
+@keyframes convergeToGrid {
+  0% {
+    opacity: 0;
+    transform: translate(var(--startX), var(--startY)) rotate(var(--startRotate)) scale(0.5);
+    filter: blur(10px);
+  }
+  20% { opacity: 1; }
+  100% {
+    transform: translate(var(--targetX), var(--targetY)) rotate(0deg) scale(1);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+
+/* 微妙な回転補正（ヌルさUP） */
+@keyframes rotateFix {
+  0% { rotate: var(--startRotate); }
+  100% { rotate: 0deg; }
+}
+
+/* テキスト */
+.loading-overlay {
+  position: absolute;
+  bottom: -60px;
+  width: 200%;
+  text-align: center;
+  color: white;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  opacity: 0.7;
+}
+
+/* ===== Appleっぽい吸収 ===== */
+@keyframes mergeToCenter {
+  0% {
+    transform: translate(var(--targetX), var(--targetY)) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0,0) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* 最後の1枚 */
+@keyframes finalReveal {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* 中央の画像 */
+.final-image {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 16px;
+  opacity: 0;
+  z-index: 50;
+
+  animation: finalReveal 1.2s cubic-bezier(0.22,1,0.36,1) 6.3s forwards;
+}
+
+.photo-item {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 0;
+
+  transform: translate(var(--startX), var(--startY)) rotate(var(--startRotate)) scale(0.5);
+
+  animation: convergeToGrid 2.2s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+/* 最後の写真 → 拡大しながら消える */
+@keyframes zoomFadeOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    transform: scale(6); /* ← ドカッと拡大が気持ちいい */
+    opacity: 0;
+    filter: blur(20px);
+  }
+}
+
+/* 本来のページを最初透明に */
+body {
+  opacity: 1;
+  transition: opacity 1.2s ease;
+}
     </style>
 </head>
 
 <body>
+  <div id="loadingScreen" class="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
+
+  <div class="loader-container" id="loader">
+    <div class="loading-overlay"></div>
+    <img src="./img/My Photo-2.jpg" class="final-image">
+  </div>
+
+</div>
   <nav class="sticky-nav">
     <div class="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
       <a class="text-[1.3rem] font-black tracking-tighter uppercase" href="#">My portfolio</a>
@@ -232,12 +368,43 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
     <div
                   class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
                 >
-                  <span class="text-white">2026.04.28</span>
+                  <span class="text-white">2026.04.29</span>
                   <span
                     class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
                   >
                     NEW
                   </span>
+                  <span>I changed the logo at the bottom of the page.</span>
+                </div>
+
+              <div
+                  class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
+                >
+                  <span class="text-white">2026.04.29</span>
+                  <span
+                    class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
+                  >
+                    NEW
+                  </span>
+                  <span>Loading has been added to the English version.</span>
+                </div>
+
+                <div
+                  class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
+                >
+                  <span class="text-white">2026.04.29</span>
+                  <span
+                    class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
+                  >
+                    NEW
+                  </span>
+                  <span>You can now select your language before the initial loading screen.</span>
+                </div>
+
+    <div
+                  class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
+                >
+                  <span class="text-white">2026.04.28</span>
                   <span>I made part of the first page look like glass.</span>
                 </div>
 
@@ -245,11 +412,6 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
                   class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
                 >
                   <span class="text-white">2026.04.28</span>
-                  <span
-                    class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
-                  >
-                    NEW
-                  </span>
                   <span>Added font options and a loading screen for the text on the first page of the Japanese text.</span>
                 </div>
 
@@ -289,7 +451,7 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
   </div>
 
   <div class="text-[10px] text-white/50 text-center mt-1">
-  ↓ スクロールできます
+  ↓ You can scroll
 </div>
         </div>
         <a
@@ -579,7 +741,7 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
         </div>
       </div>
       <div class="mt-24 pt-8 border-t border-black/5 flex flex-col items-center gap-4">
-        <img src="./img/Kei.jpg" alt="プロフィール写真" class="w-20 h-20 rounded-xs object-cover" />
+        <img src="./img/KEI PHOTO.png" alt="プロフィール写真" class="w-20 h-20 rounded-md object-cover" />
 
         <p class="text-xs text-gray-400 uppercase tracking-widest">
           © 2026 my portfplio
@@ -625,6 +787,154 @@ font-black tracking-tighter leading-tight mb-8 md:mb-16">
         otherMenuMobile.classList.toggle("hidden");
       });
     }
+
+    const loadingText = document.querySelector(".loading-overlay");
+
+const texts = [
+  "System Loading",
+  "システム読み込み中"
+];
+
+let i = 0;
+
+setInterval(() => {
+  if (!loadingText) return;
+
+  loadingText.textContent = texts[i];
+  i = (i + 1) % texts.length;
+}, 1200);
+const loader = document.getElementById('loader');
+const loadingScreen = document.getElementById('loadingScreen');
+
+const wait = (ms) => new Promise(r => setTimeout(r, ms));
+const hasLoaded = sessionStorage.getItem("loaded");
+
+function createGridPhotos() {
+  const gridCount = 3;
+  const totalPhotos = gridCount * gridCount;
+
+  const imageUrls = [
+  './img/animals-1.jpeg',
+  './img/plants-1.jpeg',
+  './img/landscape-1.jpeg',
+  './img/food-1.jpeg',
+  './img/building-1.jpeg',
+  './img/night-views-1.jpeg',
+  './img/landscape-2.jpeg',
+'./img/building-2.jpeg',
+'./img/food-2.jpeg',
+];
+
+  for (let i = 0; i < totalPhotos; i++) {
+    const img = document.createElement('img');
+    img.className = 'photo-item';
+    img.src = imageUrls[i % imageUrls.length];
+
+    const row = Math.floor(i / 3);
+    const col = i % 3;
+
+    img.style.setProperty('--targetX', (col - 1) * 110 + 'px');
+    img.style.setProperty('--targetY', (row - 1) * 110 + 'px');
+
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 600 + Math.random() * 200;
+
+    img.style.setProperty('--startX', Math.cos(angle) * distance + 'px');
+    img.style.setProperty('--startY', Math.sin(angle) * distance + 'px');
+    img.style.setProperty('--startRotate', (Math.random() * 120 - 60) + 'deg');
+    img.style.transform = `
+  translate(var(--startX), var(--startY))
+  rotateY(${Math.random() * 40 - 20}deg)
+  rotateX(${Math.random() * 40 - 20}deg)
+  scale(0.5)
+`;
+
+    loader.appendChild(img);
+  }
+}
+
+window.addEventListener("load", async () => {
+
+  // =========================
+  // ⛔ 2回目以降スキップ
+  // =========================
+  if (hasLoaded) {
+    loadingScreen.style.display = "none";
+    document.body.style.opacity = "1";
+    return;
+  }
+
+  sessionStorage.setItem("loaded", "true");
+
+  // =========================
+  // 🎬 INIT
+  // =========================
+  createGridPhotos();
+
+  const items = document.querySelectorAll(".photo-item");
+
+  // =========================
+  // 🎬 ACT 1: 集まる
+  // =========================
+  items.forEach((el, i) => {
+    el.style.animation =
+      `convergeToGrid 2.2s cubic-bezier(0.22,1,0.36,1) forwards`;
+    el.style.animationDelay = (i * 0.08) + "s";
+  });
+
+  const total = 2200 + (items.length * 80);
+  await wait(total);
+
+  // =========================
+  // 🎬 ACT 2: 余韻
+  // =========================
+  await wait(2000);
+
+  // =========================
+  // 🎬 ACT 3: 吸収
+  // =========================
+  items.forEach(el => {
+    el.style.animation =
+      "mergeToCenter 1.5s cubic-bezier(0.22,1,0.36,1) forwards";
+  });
+
+  await wait(1500);
+
+  // =========================
+  // 🎬 ACT 4: 静止
+  // =========================
+  await wait(2000);
+
+  // =========================
+  // 🎬 ACT 5: ズーム（ここがメイン）
+  // =========================
+  const finalImage = document.querySelector(".final-image");
+
+  if (finalImage) {
+    finalImage.style.animation =
+      "zoomFadeOut 1.6s cubic-bezier(0.22,1,0.36,1) forwards";
+  }
+
+  document.body.style.opacity = "1";
+
+  await wait(2000); // ←ここ重要（ズーム余韻）
+
+  // =========================
+  // 🎬 ACT 6: フェードアウト
+  // =========================
+  loadingScreen.style.transition = "opacity 0.8s ease";
+  loadingScreen.style.opacity = "0";
+
+  await wait(800);
+
+  loadingScreen.style.display = "none";
+});
+
+const lang = sessionStorage.getItem("lang");
+
+if (lang) {
+  document.getElementById("languageScreen").style.display = "none";
+}
   </script>
 </body>
 

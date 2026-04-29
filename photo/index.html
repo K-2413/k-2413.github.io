@@ -216,6 +216,24 @@ body {
   </head>
 
   <body>
+
+    <div id="languageScreen" class="fixed inset-0 z-[10000] bg-black flex flex-col items-center justify-center gap-6 text-white">
+
+  <h2 class="text-xl font-bold tracking-widest">LANGUAGE</h2>
+
+  <div class="flex gap-4">
+    <a href="index.html"
+      class="px-6 py-3 rounded-full bg-white/10 backdrop-blur border border-white/30 hover:bg-white hover:text-black transition">
+      日本語
+    </a>
+
+    <a href="index-en.html"
+      class="px-6 py-3 rounded-full bg-white/10 backdrop-blur border border-white/30 hover:bg-white hover:text-black transition">
+      English
+    </a>
+  </div>
+
+</div>
     <!-- 🔥 ローディング画面 -->
 <div id="loadingScreen" class="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
 
@@ -231,7 +249,7 @@ body {
       >
         <a class="text-[1.3rem] font-black tracking-tighter uppercase" href="#"
           >私のポートフォリオ</a
-        >
+        > 
         <div class="hidden md:flex items-center gap-10">
           <a
             class="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
@@ -453,12 +471,43 @@ body {
               <div
                   class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
                 >
-                  <span class="text-white">2026.04.28</span>
+                  <span class="text-white">2026.04.29</span>
                   <span
                     class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
                   >
                     NEW
                   </span>
+                  <span>ページの下のロゴを変えました。</span>
+                </div>
+
+              <div
+                  class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
+                >
+                  <span class="text-white">2026.04.29</span>
+                  <span
+                    class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
+                  >
+                    NEW
+                  </span>
+                  <span>英語版にロードを追加しました。</span>
+                </div>
+
+                <div
+                  class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
+                >
+                  <span class="text-white">2026.04.29</span>
+                  <span
+                    class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
+                  >
+                    NEW
+                  </span>
+                  <span>最初ロード前に言語選択できるようになりました。</span>
+                </div>
+
+              <div
+                  class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
+                >
+                  <span class="text-white">2026.04.28</span>
                   <span>最初のページの一部をガラス風にしました。</span>
                 </div>
 
@@ -466,11 +515,6 @@ body {
                   class="flex items-center gap-2 py-2 border-b border-white/30 text-xs"
                 >
                   <span class="text-white">2026.04.28</span>
-                  <span
-                    class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded"
-                  >
-                    NEW
-                  </span>
                   <span>日本語の最初のページの文字文字のフォントやロード画面を追加しました。</span>
                 </div>
 
@@ -515,10 +559,11 @@ body {
                 </div>
               </div>
             </div> -->
-            <div class="text-[10px] text-white/50 text-center mt-1">
+            
+          </div>
+          <div class="text-[10px] text-white/50 text-center mt-1">
               ↓ スクロールできます
             </div>
-          </div>
         </div>
         <a
               class=" mt-5 w-16 h-16 rounded-full flex items-center justify-center
@@ -953,9 +998,9 @@ body {
           class="mt-24 pt-8 border-t border-black/5 flex flex-col items-center gap-4"
         >
           <img
-            src="./img/Kei.jpg"
+            src="./img/KEI PHOTO.png"
             alt="プロフィール写真"
-            class="w-20 h-20 rounded-xs object-cover"
+            class="w-20 h-20 rounded-md object-cover"
           />
 
           <p class="text-xs text-gray-400 uppercase tracking-widest">
@@ -1160,6 +1205,20 @@ window.addEventListener("load", async () => {
   loadingScreen.style.display = "none";
 });
 
+const lang = sessionStorage.getItem("lang");
+
+if (lang) {
+  document.getElementById("languageScreen").style.display = "none";
+}
+
+// 言語クリック時に保存
+document.querySelectorAll("#languageScreen a").forEach(link => {
+  link.addEventListener("click", () => {
+    sessionStorage.setItem("lang", "selected");
+
+    sessionStorage.removeItem("loaded");
+  });
+});
 
     </script>
   </body>
