@@ -135,11 +135,18 @@
       <div
         class="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between"
       >
-        <a
-          class="text-xl font-bold tracking-tighter uppercase text-white"
-          href="index.html"
-          >My portfolio</a
-        >
+        <a href="index.html" class="flex items-center gap-3">
+  <img
+    src="./img/O - 2.png"
+    alt="Portfolio Logo"
+    class="h-12 w-12 rounded-full object-cover"
+  />
+
+  <!-- 画面が大きい時だけ表示 -->
+  <span class="hidden min-[950px]:inline text-black text-lg font-semibold">
+  私のポートフォリオ
+</span>
+</a>
         <div class="hidden md:flex items-center gap-10 text-white">
           <a
             class="text-xs font-semibold uppercase tracking-widest hover:opacity-50 transition-opacity"
